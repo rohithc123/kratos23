@@ -1,9 +1,21 @@
-.drawer-hidden {
-    right: -80%;
-    transition: right 250ms ease;
+#drawer.inactive {
+    transform: translateX(100%);
+    transition: all 300ms ease-in;
 }
 
-.drawer-show {
-    right: 0;
-    transition: right 250ms ease;
+#drawer.active {
+    transform: translateX(0);
+    transition: all 300ms ease-out;
+}
+
+#overlay {
+    transition: all 300ms ease-out;
+}
+
+#overlay.inactive {
+    opacity: 0%;
+}
+
+#overlay.active {
+    opacity: 75%;
 }

@@ -1,80 +1,143 @@
-'use client'
+'use client';
 
-import Link from 'next/link';
+import { Allerta_Stencil, Inter, Poly } from 'next/font/google';
 import Image from 'next/image';
-import { Inter, Poly } from "next/font/google";
-import './navbar.css';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button from './button';
+import './navbar.css';
 
 const poly = Poly({
-    weight: '400',
-    subsets: ['latin'],
+  weight: '400',
+  subsets: ['latin'],
 });
 
 const inter = Inter({
-    subsets: ['latin']
+  subsets: ['latin'],
 });
 
+// TODO make the navbar slidein when scrolling down from top of homepage (hidden on initial load)
 export default function Navbar() {
-    const [isActive, setIsActive] = useState(false)
-    const [drawerHeight, setDrawerHeight] = useState(window.innerHeight)
+  const [isActive, setIsActive] = useState(false);
+  const [drawerHeight, setDrawerHeight] = useState(window.innerHeight);
 
-    useEffect(() => {
-        const updateNavHeight = () => {
-            const newNavHeight = window.innerHeight;
-            setDrawerHeight(newNavHeight);
-        };
+  useEffect(() => {
+    const updateNavHeight = () => {
+      const newNavHeight = window.innerHeight;
+      setDrawerHeight(newNavHeight);
+    };
 
-        window.addEventListener('resize', updateNavHeight);
-        updateNavHeight(); // Initial calculation
+    window.addEventListener('resize', updateNavHeight);
+    updateNavHeight(); // Initial calculation
 
-        return () => {
-            // Clean up the event listener when the component unmounts
-            window.removeEventListener('resize', updateNavHeight);
-        };
-    }, []);
+    return () => {
+      // Clean up the event listener when the component unmounts
+      window.removeEventListener('resize', updateNavHeight);
+    };
+  }, []);
 
+  // opens and closes the nav drawer and overlay
+  function navToggleHandler() {
+    if (!isActive) {
+      // Disable scrolling
+      const scrollPosition = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPosition}px`;
+      document.body.style.overflow = 'hidden'
 
-    return (
-        <div style={inter.style} className='z-12 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm fixed top-0 bg-void-950/25'>
+      // remove the overrided display, before transition starts from state update
+      document.getElementById('drawer')!.style.display = '';
+      document.getElementById('overlay')!.style.display = '';
+    } else {
+      // Re-enable scrolling
+      const topValue = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      window.scrollTo(0, parseInt(topValue || '0', 10) * -1);
+      document.body.style.overflow = '';
+    }
 
-            {/* Navbar */}
-            <Link style={poly.style} href='/'>KRATOS</Link>
-            <div className='w-8 h-8 absolute top-6 right-6 cursor-pointer' onClick={() => { setIsActive(true) }}>
-                <Image src='/nav-btn.svg' alt="" width={32} height={32} />
-            </div>
+    // this ensures the display style gets updated before the transition starts
+    // avoids browser specific issues related to same-tick updates.
+    setTimeout(() => {
+      setIsActive((isActive) => !isActive);
+    }, 0);
+  }
 
-            {/* Overlay */}
-            <div onClick={() => { setIsActive(false) }} className={`z-13 transition w-screen h-screen absolute inset-0 bg-void-950/50 ${isActive ? 'backdrop-blur-sm' : 'backdrop-blur-none hidden'}`}>
-            </div>
-            16
-            {/* Drawer */}
-            <nav style={{ height: drawerHeight }} className={`z-14 text-white text-xl h-screen bg-black border-l-[1px] border-void-500 absolute w-[80%] top-0 ${isActive ? 'drawer-show' : 'drawer-hidden'}`}>
-                <div className='w-full h-full flex flex-col'>
-                    <div className='w-full p-8 pb-12 flex place-content-between items-center'>
-                        <div>Home</div>
-                        <Button text='Sign Up' active={true} onClick={() => { alert('clicked') }} />
-                    </div>
+  function transitionEndHandler(e: HTMLElement) {
+    // Note: display needs to be set before transition starts for opening
+    //
 
-                    <div className='px-8 pb-4'>Technical</div>
-                    <div className='px-8 pb-4'>Non-Technical</div>
-                    <div className='px-8 pb-4'>&apos;22 Gallery</div>
+    // remove from layout when close transition is done.
+    if (!isActive) {
+      e.style.display = 'none';
+    }
+  }
 
+  return (
+    <div
+      style={inter.style}
+      className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50"
+    >
+      {/* Navbar */}
+      <Link style={poly.style} href="/">
+        KRATOS
+      </Link>
+      <div
+        onClick={navToggleHandler}
+        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none"
+      >
+        <Image src="/nav-btn.svg" alt="" width={32} height={32} />
+      </div>
 
-                    <div className='absolute bottom-0 w-full mb-12' >
-                        <div className='px-8 pb-4'>Contact</div>
-                        <div className='px-8 pb-4'>Contributors</div>
-                        <div className='mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer' />
+      {/* Overlay */}
+      <div
+        id="overlay"
+        style={{ display: 'none' }}
+        onTransitionEnd={(e) => {
+          transitionEndHandler(e.currentTarget);
+        }}
+        onClick={navToggleHandler}
+        className={`w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
+          isActive ? 'active' : 'inactive'
+        }`}
+      ></div>
 
-                    </div>
+      {/* Drawer */}
+      <nav
+        onTransitionEnd={(e) => {
+          transitionEndHandler(e.currentTarget);
+        }}
+        id="drawer"
+        style={{ height: drawerHeight, display: 'none' }}
+        className={`text-white flex flex-col text-xl h-screen bg-black border-l-[1px] border-void-500 w-[80%] fixed top-0 right-0 ${
+          isActive ? 'active' : 'inactive'
+        }`}
+      >
+        {/* Home and singup button */}
+        <div className="w-full p-8 pb-12 flex place-content-between items-center">
+          <div>Home</div>
+          <Button
+            text="Sign Up"
+            active={true}
+            onClick={() => {
+              alert('clicked');
+            }}
+          />
+        </div>
 
-                </div>
-            </nav>
-        </div >
-    )
-}
+        {/* Top Three options */}
+        <div className="px-8 pb-4">Technical</div>
+        <div className="px-8 pb-4">Non-Technical</div>
+        <div className="px-8 pb-4">&apos;22 Gallery</div>
 
-const style = {
-
+        {/* Bottom two options */}
+        <div className="absolute bottom-0 w-full mb-12">
+          <div className="px-8 pb-4">Contact</div>
+          <div className="px-8 pb-4">Contributors</div>
+          <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
+        </div>
+      </nav>
+    </div>
+  );
 }
