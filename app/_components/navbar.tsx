@@ -21,16 +21,19 @@ export default function Navbar() {
 
     return (
         <div style={inter.style} className='z-12 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm fixed top-0 bg-void-950/25'>
+            
+            {/* Navbar */}
             <Link style={poly.style} href='/'>KRATOS</Link>
             <div className='w-8 h-8 absolute top-6 right-6 cursor-pointer' onClick={() => { setIsActive(true) }}>
                 <Image src='/nav-btn.svg' alt="" width={32} height={32} />
             </div>
 
+            {/* Overlay */}
             <div onClick={() => { setIsActive(false) }} className={`z-13 transition w-screen h-screen absolute inset-0 bg-void-950/50 ${isActive ? 'backdrop-blur-sm' : 'backdrop-blur-none hidden'}`}>
             </div>
 
-            <div className={`z-14 text-white h-screen bg-black absolute w-[80%] top-0 ${isActive ? 'drawer-show' : 'drawer-hidden'}`}>
-                {/* TODO remove debug background */}
+            {/* Drawer */}
+            <div className={`z-14 text-white text-xl h-screen bg-black border-l-[1px] border-void-500 absolute w-[80%] top-0 ${isActive ? 'drawer-show' : 'drawer-hidden'}`}>
                 <div className='w-full h-full flex flex-col'>
                     <div className='w-full p-8 pb-12 flex place-content-between items-center'>
                         <div>Home</div>

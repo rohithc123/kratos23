@@ -1,35 +1,5 @@
-/* @keyframes slidein {
-    from {
-        right: -100%;
-    }
-    to {
-        right: 0;
-    }
-} */
-
-/* @keyframes slideout {
-    from {
-        right: 0;
-    }
-    to {
-        right: -100%;
-    }
-} */
-
-/* .drawer-open {
-    animation-duration: 1s;
-    animation-name: slidein;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-}
-
-.drawer-close {
-    animation: 1s ease-in 0s 1 forwards forwards running slideout;
-
-} */
-
 .drawer-hidden {
-    right: -100%;
+    right: -80%;
     transition: right 250ms ease;
 }
 
