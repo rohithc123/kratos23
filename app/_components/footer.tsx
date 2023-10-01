@@ -8,13 +8,13 @@ export default function Footer() {
   return (
     <footer className="flex flex-col items-center w-screen relative p-6 pt-12 gap-6">
       {/* bg */}
-      <Image src={dots} alt="" className="position absolute inset-0 z-[-1]" />
+      <Image src={dots} alt="" className="position absolute inset-0 z-[-1] w-full" />
 
       {/* Logo */}
       <Image src={logo} alt="Kratos 23 logo" width={64} height={64} />
 
       {/* Instagram link */}
-      <Link href='https://www.instacolorgram.com/_kratos23/' className="flex">
+      <Link href='https://www.instagram.com/_kratos23/' className="flex">
         <Image src={instagram} alt="Instagram logo" width={24} height={24} />
         &ensp;_kratos23
       </Link>
