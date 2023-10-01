@@ -1,13 +1,11 @@
-import { Inter, Josefin_Sans, Libre_Baskerville } from 'next/font/google';
-import Image from 'next/image';
+import expand_more from '@/public/expand_more.svg';
 import logo_bw from '@/public/logo-bw.png';
 import logo from '@/public/logo.png';
-import expand_more from '@/public/expand_more.svg';
+import { Josefin_Sans, Libre_Baskerville } from 'next/font/google';
+import Image from 'next/image';
 
 const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] });
 const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] });
-const inter_bold = Inter({ weight: '800', subsets: ['latin'] });
-const inter_reg = Inter({ weight: '400', subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -41,8 +39,7 @@ export default function Home() {
 
       {/* Hero Text */}
       <div
-        style={inter_bold.style}
-        className="text-5xl px-4 tracking-tighter text-center text-transparent"
+        className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent"
       >
         <span className="bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
           Code.&thinsp;
@@ -56,10 +53,10 @@ export default function Home() {
       </div>
 
       <div className="text-2xl text-center mt-8">
-        <div style={inter_reg.style} className="">
+        <div className="">
           November 9
         </div>
-        <div style={inter_reg.style} className="text-void-300">
+        <div className="text-void-300">
           @ Easwari Engineering College
         </div>
       </div>

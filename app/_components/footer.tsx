@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import dots from '@/public/dotted-pattern.png';
-import logo from '@/public/logo.png';
 import instagram from '@/public/instagram.png';
+import logo from '@/public/logo.png';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {

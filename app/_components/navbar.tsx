@@ -1,6 +1,6 @@
 'use client';
 
-import { Inter, Poly } from 'next/font/google';
+import { Poly } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -9,10 +9,6 @@ import './navbar.css';
 
 const poly = Poly({
   weight: '400',
-  subsets: ['latin'],
-});
-
-const inter = Inter({
   subsets: ['latin'],
 });
 
@@ -82,7 +78,6 @@ export default function Navbar() {
 
   return (
     <div
-      style={inter.style}
       className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50"
     >
       {/* Navbar */}

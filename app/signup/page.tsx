@@ -6,13 +6,13 @@
   client component doesn't make sense (the page doesn't have much else).
 */
 
-import { Poly } from 'next/font/google';
-import Link from 'next/link';
-import TextInput from '../_components/textinput';
 import pfp from '@/public/pfp.png';
+import { Poly } from 'next/font/google';
 import Image from 'next/image';
-import Button from '../_components/button';
+import Link from 'next/link';
 import { Suspense, useRef } from 'react';
+import Button from '@/app/_components/button';
+import TextInput from '@/app/_components/textinput';
 const poly_reg = Poly({ weight: '400', subsets: ['latin'] });
 
 export default function Signup() {

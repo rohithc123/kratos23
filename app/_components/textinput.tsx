@@ -1,7 +1,3 @@
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ weight: ['300', '400', '500'], subsets: ['latin'] });
-
 export default function TextInput({
   label,
   disabled = false,

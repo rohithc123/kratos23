@@ -1,12 +1,6 @@
 'use client';
 
-import { Inter } from 'next/font/google';
 import { MouseEventHandler } from 'react';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: '600',
-});
 
 export default function Button({
   text,
@@ -22,8 +16,7 @@ export default function Button({
   return (
     <div
       onClick={onClick}
-      style={inter.style}
-      className={`min-w-[10ch] p-[1px] w-fit text-base  rounded-full  bg-gradient-to-br from-cherry to-vinyl cursor-pointer ${
+      className={`min-w-[10ch] p-[1px] w-fit text-base  rounded-full font-semibold bg-gradient-to-br from-cherry to-vinyl cursor-pointer ${
         fullWidth ? 'w-full' : ''
       }`}
     >
