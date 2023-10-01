@@ -1,6 +1,6 @@
 'use client';
 
-import { Allerta_Stencil, Inter, Poly } from 'next/font/google';
+import { Inter, Poly } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -17,11 +17,17 @@ const inter = Inter({
 });
 
 // TODO make the navbar slidein when scrolling down from top of homepage (hidden on initial load)
+// TODO look into the overlay blurring if needed
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false);
-  const [drawerHeight, setDrawerHeight] = useState(window.innerHeight);
+  const [drawerHeight, setDrawerHeight] = useState(0);
 
   useEffect(() => {
+    // ensure this code is running on client, since window is not defined at SSR
+    if (typeof window == undefined) {
+      return;
+    }
+
     const updateNavHeight = () => {
       const newNavHeight = window.innerHeight;
       setDrawerHeight(newNavHeight);
@@ -43,7 +49,7 @@ export default function Navbar() {
       const scrollPosition = window.scrollY;
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollPosition}px`;
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
 
       // remove the overrided display, before transition starts from state update
       document.getElementById('drawer')!.style.display = '';
@@ -119,7 +125,7 @@ export default function Navbar() {
           <div>Home</div>
           <Button
             text="Sign Up"
-            active={true}
+            inverted={false}
             onClick={() => {
               alert('clicked');
             }}

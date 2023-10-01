@@ -12,7 +12,8 @@ const inter_reg = Inter({ weight: '400', subsets: ['latin'] });
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
-      <div className="p-9"></div>
+      {/* Spacer */}
+      <div className="p-10" />
 
       {/* Hero Image */}
       <div
@@ -64,12 +65,6 @@ export default function Home() {
       </div>
 
       <Image src={expand_more} alt="" width={58} height={58} className="m-8" />
-
-      <div className="p-9"></div>
-      <div className="p-9"></div>
-      <div className="p-9"></div>
-      <div className="p-9"></div>
-
     </main>
   );
 }
