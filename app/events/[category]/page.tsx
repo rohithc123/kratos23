@@ -8,19 +8,29 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import clear_all from '@/public/clear_all.svg'
 import groups from '@/public/groups.svg'
 import man from '@/public/man.svg'
+import Error from 'next/error'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
-export default function Events({ children }: { children: React.ReactNode }) {
-  const searchParams = useSearchParams()
-  const pathname = usePathname()
+export async function generateStatisParams() {
+  return [{ category: 'technical' }, { category: 'nontechnical' }]
+}
 
-  var category = pathname.toLowerCase().split('/').pop()
+export default function Events({
+  params,
+}: {
+  params: { category: string }
+}) {
+  const searchParams = useSearchParams()
+  let category: string = params.category
+
   if (category == 'technical') {
     // category = category!.charAt(0).toUpperCase() + category!.slice(1)
     category = 'Technical'
-  } else {
+  } else if (category == 'nontechnical') {
     category = 'Non-Technical'
+  } else {
+    return <Error statusCode={404} />
   }
 
   const type = searchParams.get('type') || 'all'
@@ -71,13 +81,11 @@ export default function Events({ children }: { children: React.ReactNode }) {
               type === 'team' ? 'bg-void-700' : 'bg-void-950'
             }`}
           >
-            <Image src={groups} alt="" className='mr-1'/>
+            <Image src={groups} alt="" className="mr-1" />
             Team
           </Link>
         </div>
       </div>
-
-      {children}
     </main>
   )
 }
