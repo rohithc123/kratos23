@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Button from './button';
-import './navbar.css';
 
 const poly = Poly({
   weight: '400',
@@ -99,8 +98,8 @@ export default function Navbar() {
           transitionEndHandler(e.currentTarget);
         }}
         onClick={navToggleHandler}
-        className={`w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
-          isActive ? 'active' : 'inactive'
+        className={`transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
+          isActive ? 'opacity-75' : 'opacity-0'
         }`}
       ></div>
 
@@ -111,8 +110,8 @@ export default function Navbar() {
         }}
         id="drawer"
         style={{ height: drawerHeight, display: 'none' }}
-        className={`text-white flex flex-col text-xl h-screen bg-black border-l-[1px] border-void-500 w-[80%] fixed top-0 right-0 ${
-          isActive ? 'active' : 'inactive'
+        className={`transition duration-300 text-white flex flex-col text-xl h-screen bg-black border-l-[1px] border-void-500 w-[80%] fixed top-0 right-0 ${
+          isActive ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Home and singup button */}
