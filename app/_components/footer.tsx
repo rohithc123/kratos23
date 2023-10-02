@@ -31,7 +31,6 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-
       <p className='text-void-500'>© 2023 Kratos</p>
     </footer>
   );

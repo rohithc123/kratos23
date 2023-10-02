@@ -136,13 +136,13 @@ export default function Navbar() {
 
         {/* Top Three options */}
         <Link href='/events/technical' className="mx-8 mb-4">Technical</Link>
-        <Link href='/events/nontechnical' className="px-8 pb-4">Non-Technical</Link>
-        <Link href='/gallery' className="px-8 pb-4">&apos;22 Gallery</Link>
+        <Link href='/events/nontechnical' className="mx-8 mb-4">Non-Technical</Link>
+        <Link href='/gallery' className="mx-8 mb-4">&apos;22 Gallery</Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
-          <div className="px-8 pb-4">Contact</div>
-          <div className="px-8 pb-4">Contributors</div>
+          <div className="mx-8 mb-4">Contact</div>
+          <div className="mx-8 mb-4">Contributors</div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
