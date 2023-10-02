@@ -1,68 +1,76 @@
-'use client';
+'use client'
 
-import { Poly } from 'next/font/google';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import Button from './button';
+import { Poly } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import Button from './button'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 const poly = Poly({
   weight: '400',
   subsets: ['latin'],
-});
+})
 
 // TODO make the navbar slidein when scrolling down from top of homepage (hidden on initial load)
 // TODO look into the overlay blurring if needed
 export default function Navbar() {
-  const [isActive, setIsActive] = useState(false);
-  const [drawerHeight, setDrawerHeight] = useState(0);
+  const [isActive, setIsActive] = useState(false)
+  const [drawerHeight, setDrawerHeight] = useState(0)
+
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   useEffect(() => {
-    // ensure this code is running on client, since window is not defined at SSR
+    setIsActive(false)
+  }, [pathname, searchParams])
+
+  useEffect(() => {
+    // Client side code
     if (typeof window == undefined) {
-      return;
+      return
     }
 
     const updateNavHeight = () => {
-      const newNavHeight = window.innerHeight;
-      setDrawerHeight(newNavHeight);
-    };
+      const newNavHeight = window.innerHeight
+      setDrawerHeight(newNavHeight)
+    }
 
-    window.addEventListener('resize', updateNavHeight);
-    updateNavHeight(); // Initial calculation
+    window.addEventListener('resize', updateNavHeight)
+    updateNavHeight() // Initial calculation
 
     return () => {
       // Clean up the event listener when the component unmounts
-      window.removeEventListener('resize', updateNavHeight);
-    };
-  }, []);
+      window.removeEventListener('resize', updateNavHeight)
+    }
+  }, [])
 
   // opens and closes the nav drawer and overlay
   function navToggleHandler() {
     if (!isActive) {
       // Disable scrolling
-      const scrollPosition = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollPosition}px`;
-      document.body.style.overflow = 'hidden';
+      const scrollPosition = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollPosition}px`
+      document.body.style.overflow = 'hidden'
 
       // remove the overrided display, before transition starts from state update
-      document.getElementById('drawer')!.style.display = '';
-      document.getElementById('overlay')!.style.display = '';
+      document.getElementById('drawer')!.style.display = ''
+      document.getElementById('overlay')!.style.display = ''
     } else {
       // Re-enable scrolling
-      const topValue = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      window.scrollTo(0, parseInt(topValue || '0', 10) * -1);
-      document.body.style.overflow = '';
+      const topValue = document.body.style.top
+      document.body.style.position = ''
+      document.body.style.top = ''
+      window.scrollTo(0, parseInt(topValue || '0', 10) * -1)
+      document.body.style.overflow = ''
     }
 
     // this ensures the display style gets updated before the transition starts
     // avoids browser specific issues related to same-tick updates.
     setTimeout(() => {
-      setIsActive((isActive) => !isActive);
-    }, 0);
+      setIsActive((isActive) => !isActive)
+    }, 0)
   }
 
   function transitionEndHandler(e: HTMLElement) {
@@ -71,14 +79,12 @@ export default function Navbar() {
 
     // remove from layout when close transition is done.
     if (!isActive) {
-      e.style.display = 'none';
+      e.style.display = 'none'
     }
   }
 
   return (
-    <div
-      className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50"
-    >
+    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50">
       {/* Navbar */}
       <Link style={poly.style} href="/">
         KRATOS
@@ -95,7 +101,7 @@ export default function Navbar() {
         id="overlay"
         style={{ display: 'none' }}
         onTransitionEnd={(e) => {
-          transitionEndHandler(e.currentTarget);
+          transitionEndHandler(e.currentTarget)
         }}
         onClick={navToggleHandler}
         className={`transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
@@ -106,7 +112,7 @@ export default function Navbar() {
       {/* Drawer */}
       <nav
         onTransitionEnd={(e) => {
-          transitionEndHandler(e.currentTarget);
+          transitionEndHandler(e.currentTarget)
         }}
         id="drawer"
         style={{ height: drawerHeight, display: 'none' }}
@@ -116,20 +122,22 @@ export default function Navbar() {
       >
         {/* Home and singup button */}
         <div className="w-full p-8 pb-12 flex place-content-between items-center">
-          <div>Home</div>
+          <Link href="/" onClick={navToggleHandler}>
+            Home
+          </Link>
           <Button
             text="Sign Up"
             inverted={false}
             onClick={() => {
-              alert('clicked');
+              alert('clicked')
             }}
           />
         </div>
 
         {/* Top Three options */}
-        <div className="px-8 pb-4">Technical</div>
-        <div className="px-8 pb-4">Non-Technical</div>
-        <div className="px-8 pb-4">&apos;22 Gallery</div>
+        <Link href='/events/technical' className="mx-8 mb-4">Technical</Link>
+        <Link href='/events/nontechnical' className="px-8 pb-4">Non-Technical</Link>
+        <Link href='/gallery' className="px-8 pb-4">&apos;22 Gallery</Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
@@ -139,5 +147,5 @@ export default function Navbar() {
         </div>
       </nav>
     </div>
-  );
+  )
 }
