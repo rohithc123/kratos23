@@ -8,13 +8,13 @@ export interface EventInfo {
     rules: string[];
     prizes: string[];
     organizers: string[],
-    teamSize?: number;
+    teamSize: number;
     maxTeams: number | 'unlimited';
     time?: string;
     venue?: string;
 }
 
-export const events: { [key: string]: EventInfo } = {
+const eventsLiteral: { [key: string]: EventInfo } = {
     'futsal': {
         name: 'Futsal',
         category: 'nontechnical',
@@ -39,6 +39,7 @@ export const events: { [key: string]: EventInfo } = {
             'Some other thing',
             'Some other other thing'
         ],
+        teamSize: 4,
         maxTeams: 8,
         organizers: [
             'Thohith Hewin - 9591234159'
@@ -46,3 +47,7 @@ export const events: { [key: string]: EventInfo } = {
 
     }
 }
+
+export const events: Map<string, EventInfo> = new Map(Object.entries(eventsLiteral));
+
+

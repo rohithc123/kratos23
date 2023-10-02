@@ -1,14 +1,15 @@
 'use client'
 
-import { Poly } from 'next/font/google'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
-
+import arrow_right from '@/public/arrow_right.svg'
 import clear_all from '@/public/clear_all.svg'
 import groups from '@/public/groups.svg'
 import man from '@/public/man.svg'
 import Error from 'next/error'
+import { Poly } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import { events } from '../eventInfo'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
@@ -16,28 +17,72 @@ export async function generateStatisParams() {
   return [{ category: 'technical' }, { category: 'nontechnical' }]
 }
 
-export default function Events({
-  params,
-}: {
-  params: { category: string }
-}) {
+export default function Events({ params }: { params: { category: string } }) {
+  // Get the path details
   const searchParams = useSearchParams()
-  let category: string = params.category
+  const type = searchParams.get('type') || 'all'
 
-  if (category == 'technical') {
-    // category = category!.charAt(0).toUpperCase() + category!.slice(1)
-    category = 'Technical'
-  } else if (category == 'nontechnical') {
-    category = 'Non-Technical'
+  // Make the header
+  let categoryTitle: string = params.category
+  if (categoryTitle == 'technical') {
+    categoryTitle = 'Technical'
+  } else if (categoryTitle == 'nontechnical') {
+    categoryTitle = 'Non-Technical'
   } else {
     return <Error statusCode={404} />
   }
-
-  const type = searchParams.get('type') || 'all'
   const quote =
-    category === 'Technical'
+    categoryTitle === 'Technical'
       ? "“Thinking doesn't guarantee that we won't make mistakes. But not thinking guarantees that we will.” — Leslie Lamport"
       : '“Creativity is intelligence having fun.” — Albert Einstein'
+
+  // Filter events to selected event type
+  let filteredEvents = Array.from(events)
+  if (type !== 'all') {
+    filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
+  }
+
+  // Generate the cards
+  let cards = filteredEvents.map(([key, ev]) => {
+    const vs =
+      ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
+    const subtitle = `${
+      ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
+    } · ${vs} · ₹${ev.fee}`
+
+    return (
+      <Link
+        href={`/events/${params.category}/${key}`}
+        key={key}
+        className="w-full text-left rounded-lg border-[1px] border-void-500 bg-void-950/75 py-6 px-4 relative overflow-hidden"
+      >
+        {/* Top Row */}
+        <div className="flex w-full justify-between">
+          <div className="flex items-center gap-6">
+            <Image src={`/${key}.png`} height={64} width={64} alt="" />
+            <div>
+              <h4 className="text-3xl">{ev.name}</h4>
+              <div>{subtitle}</div>
+            </div>
+          </div>
+
+          <Image src={arrow_right} width={32} height={32} alt="" />
+        </div>
+
+        {/* Bottom Row */}
+        <p className="mt-5 font-light line-clamp-3">{ev.description}</p>
+
+        {/* BG Poster */}
+        <Image
+          src={`/posters/${key}.png`}
+          width={350}
+          height={200}
+          className="w-full absolute inset-0 -z-10"
+          alt=""
+        />
+      </Link>
+    )
+  })
 
   return (
     <main className="min-h-screen w-screen flex flex-col items-center">
@@ -47,7 +92,7 @@ export default function Events({
       {/* Header */}
       <header className="w-full mt-12 px-2 text-center">
         <h1 style={poly.style} className="text-5xl mb-2">
-          {category} Events
+          {categoryTitle} Events
         </h1>
         <p className="text-base text-void-300 leading-5 px-2 italic mb-6">
           {quote}
@@ -85,6 +130,11 @@ export default function Events({
             Team
           </Link>
         </div>
+      </div>
+
+      {/* cards */}
+      <div className="w-full py-6 px-4 flex flex-col items-center text-center">
+        {cards.length !== 0 ? cards : `No events found`}
       </div>
     </main>
   )
