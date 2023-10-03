@@ -22,15 +22,13 @@ export default function Events({ params }: { params: { category: string } }) {
   const searchParams = useSearchParams()
   const type = searchParams.get('type') || 'all'
 
-  // Make the header
-  let categoryTitle: string = params.category
-  if (categoryTitle == 'technical') {
-    categoryTitle = 'Technical'
-  } else if (categoryTitle == 'nontechnical') {
-    categoryTitle = 'Non-Technical'
-  } else {
+  // restrict to these param values
+  if (!(params.category in ['techincal', 'nontechnical'])) {
     return <Error statusCode={404} />
   }
+
+  const categoryTitle =
+    params.category === 'technical' ? 'Technical' : 'Non-Technical'
   const quote =
     categoryTitle === 'Technical'
       ? "“Thinking doesn't guarantee that we won't make mistakes. But not thinking guarantees that we will.” — Leslie Lamport"
@@ -38,7 +36,7 @@ export default function Events({ params }: { params: { category: string } }) {
 
   // Filter events to selected event type
   let filteredEvents = Array.from(events)
-  if (type !== 'all') {
+  if (type in ['solo', 'team']) {
     filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
   }
 
