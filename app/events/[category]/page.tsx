@@ -33,7 +33,10 @@ export default function Events({ params }: { params: { category: string } }) {
 
   // Filter events to selected event type
   let filteredEvents = Array.from(events)
+  // Filter for event category
+  filteredEvents = filteredEvents.filter(([key, ev]) => ev.category === params.category)
   if (['solo', 'team'].includes(type)) {
+    // filter for event type
     filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
   }
 
