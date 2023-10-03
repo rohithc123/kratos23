@@ -13,17 +13,13 @@ import { events } from '../eventInfo'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
-export async function generateStatisParams() {
-  return [{ category: 'technical' }, { category: 'nontechnical' }]
-}
-
 export default function Events({ params }: { params: { category: string } }) {
   // Get the path details
   const searchParams = useSearchParams()
   const type = searchParams.get('type') || 'all'
 
   // restrict to these param values
-  if (!(params.category in ['techincal', 'nontechnical'])) {
+  if (!['technical', 'nontechnical'].includes(params.category)) {
     return <Error statusCode={404} />
   }
 
@@ -36,7 +32,7 @@ export default function Events({ params }: { params: { category: string } }) {
 
   // Filter events to selected event type
   let filteredEvents = Array.from(events)
-  if (type in ['solo', 'team']) {
+  if (['solo', 'team'].includes(type)) {
     filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
   }
 
