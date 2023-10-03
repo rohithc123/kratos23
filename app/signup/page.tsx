@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 /*
   We need to extract the input data at some level through refs or other means. 
@@ -6,18 +6,14 @@
   client component doesn't make sense (the page doesn't have much else).
 */
 
-import pfp from '@/public/pfp.png';
-import { Poly } from 'next/font/google';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Suspense, useRef } from 'react';
-import Button from '@/app/_components/button';
-import TextInput from '@/app/_components/textinput';
-const poly_reg = Poly({ weight: '400', subsets: ['latin'] });
+import TextInput from '@/app/_components/textinput'
+import pfp from '@/public/pfp.png'
+import { Poly } from 'next/font/google'
+import Image from 'next/image'
+import Link from 'next/link'
+const poly_reg = Poly({ weight: '400', subsets: ['latin'] })
 
 export default function Signup() {
-  const data = useRef();
-
   return (
     <main className="min-h-screen w-screen flex flex-col items-center">
       {/* Spacer */}
@@ -59,14 +55,12 @@ export default function Signup() {
 
         {/* Final Button */}
         {/* TODO plug the submission button */}
-        <div className="py-4">
-          <Button
-            text="Create Account"
-            onClick={() => {
-              alert('TODO');
-            }}
-            fullWidth={true}
-          />
+
+        <div
+          className={`p-3 flex text-center rounded-full select-none gap-1 bg-transparent text-void-950`}
+          onClick={(e) => {alert('TODO')}}
+        >
+          Sign Up
         </div>
 
         {/* Notices */}
@@ -89,5 +83,5 @@ export default function Signup() {
         </div>
       </div>
     </main>
-  );
+  )
 }
