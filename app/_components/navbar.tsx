@@ -4,7 +4,7 @@ import { Poly } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Button from './button'
+
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 const poly = Poly({
@@ -125,19 +125,33 @@ export default function Navbar() {
           <Link href="/" onClick={navToggleHandler}>
             Home
           </Link>
-          <Button
-            text="Sign Up"
-            inverted={false}
+
+          {/* Signup button */}
+          <div
             onClick={() => {
               alert('clicked')
             }}
-          />
+            className={`min-w-[10ch] p-[1px] w-fit text-base  rounded-full font-semibold bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
+          >
+            <div
+              // TODO plug the inversion
+              className={`p-3 text-center rounded-full select-none 'bg-transparent text-void-950`}
+            >
+              Sign Up
+            </div>
+          </div>
         </div>
 
         {/* Top Three options */}
-        <Link href='/events/technical' className="mx-8 mb-4">Technical</Link>
-        <Link href='/events/nontechnical' className="mx-8 mb-4">Non-Technical</Link>
-        <Link href='/gallery' className="mx-8 mb-4">&apos;22 Gallery</Link>
+        <Link href="/events/technical" className="mx-8 mb-4">
+          Technical
+        </Link>
+        <Link href="/events/nontechnical" className="mx-8 mb-4">
+          Non-Technical
+        </Link>
+        <Link href="/gallery" className="mx-8 mb-4">
+          &apos;22 Gallery
+        </Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
