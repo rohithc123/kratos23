@@ -10,7 +10,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { events } from '../eventInfo'
-import { makeSubtitle } from './[event]/page'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
@@ -34,7 +33,9 @@ export default function Events({ params }: { params: { category: string } }) {
   // Filter events to selected event type
   let filteredEvents = Array.from(events)
   // Filter for event category
-  filteredEvents = filteredEvents.filter(([key, ev]) => ev.category === params.category)
+  filteredEvents = filteredEvents.filter(
+    ([key, ev]) => ev.category === params.category
+  )
   if (['solo', 'team'].includes(type)) {
     // filter for event type
     filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
@@ -42,7 +43,11 @@ export default function Events({ params }: { params: { category: string } }) {
 
   // Generate the cards
   let cards = filteredEvents.map(([key, ev]) => {
-    const subtitle = makeSubtitle(ev)
+    const vs =
+      ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
+    const subtitle = `${
+      ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
+    } · ${vs} · ₹${ev.fee}`
 
     return (
       <Link

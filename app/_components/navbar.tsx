@@ -3,7 +3,7 @@
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 const poly = Poly({
@@ -18,7 +18,6 @@ export default function Navbar() {
   const [drawerHeight, setDrawerHeight] = useState(0)
 
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
 
@@ -45,7 +44,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsActive(false)
-  }, [pathname, searchParams])
+  }, [pathname])
 
   // opens and closes the nav drawer and overlay
   useEffect(() => {

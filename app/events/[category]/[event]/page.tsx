@@ -8,12 +8,32 @@ import AddToBagButton from './addButton'
 const poly = Poly({ subsets: ['latin'], weight: '400' })
 const rubik = Rubik({ subsets: ['latin'] })
 
+export async function generateStaticParams() {
+  var result = []
+  for (var c of ['technical', 'nontechnical']) {
+    const filteredEvents = Array.from(events)
+      .filter(([k, v]) => v.category === c)
+      .map(([k, v]) => k)
+    for (var e of filteredEvents) {
+      result.push({ category: c, event: e })
+    }
+  }
+  return result
+}
+
 export default function EventDetailsPage({
   params,
 }: {
   params: { event: string }
 }) {
   const ev = events.get(params.event)!
+
+  const vs =
+    ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
+  const subtitle = `${
+    ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
+  } · ${vs} · ₹${ev.fee}`
+
   return (
     <main className="min-h-screen w-screen flex flex-col">
       {/* Spacer */}
@@ -44,7 +64,7 @@ export default function EventDetailsPage({
             Futsal
           </h1>
           {/* TODO plug the slot info */}
-          <div className="mt-1">{makeSubtitle(ev)}</div>
+          <div className="mt-1">{subtitle}</div>
           <div>{ev.maxTeams} slots available</div>
         </div>
 
@@ -74,9 +94,7 @@ export default function EventDetailsPage({
         </h2>
         <ol className="list-decimal list-outside p-3 pl-8 bg-void-700 mt-4 rounded-lg border-[1px] border-void-500 font-light">
           {ev.rules.map((v, i) => (
-            <li key={i}>
-              {v}
-            </li>
+            <li key={i}>{v}</li>
           ))}
         </ol>
 
@@ -86,7 +104,7 @@ export default function EventDetailsPage({
         >
           Organizers
         </h2>
-        <ul className='mt-4'>
+        <ul className="mt-4">
           {/* TODO Click to copy */}
           {ev.organizers.map((v, i) => (
             <li key={i}>{v}</li>
@@ -95,13 +113,4 @@ export default function EventDetailsPage({
       </div>
     </main>
   )
-}
-
-export function makeSubtitle(ev: EventInfo) {
-  const vs =
-    ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
-  const subtitle = `${
-    ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
-  } · ${vs} · ₹${ev.fee}`
-  return subtitle
 }
