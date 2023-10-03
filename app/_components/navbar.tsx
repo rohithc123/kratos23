@@ -3,9 +3,8 @@
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 const poly = Poly({
   weight: '400',
@@ -22,11 +21,7 @@ export default function Navbar() {
   const searchParams = useSearchParams()
 
   useEffect(() => {
-    setIsActive(false)
-  }, [pathname, searchParams])
 
-  useEffect(() => {
-    // Client side code
     if (typeof window == undefined) {
       return
     }
@@ -35,6 +30,9 @@ export default function Navbar() {
       const newNavHeight = window.innerHeight
       setDrawerHeight(newNavHeight)
     }
+
+    document.getElementById('overlay')!.classList.add('hidden')
+    document.getElementById('drawer')!.classList.add('hidden')
 
     window.addEventListener('resize', updateNavHeight)
     updateNavHeight() // Initial calculation
@@ -45,18 +43,22 @@ export default function Navbar() {
     }
   }, [])
 
+  useEffect(() => {
+    setIsActive(false)
+  }, [pathname, searchParams])
+
   // opens and closes the nav drawer and overlay
-  function navToggleHandler() {
-    if (!isActive) {
+  useEffect(() => {
+    if (typeof window == undefined) {
+      return
+    }
+    
+    if (isActive) {
       // Disable scrolling
       const scrollPosition = window.scrollY
       document.body.style.position = 'fixed'
       document.body.style.top = `-${scrollPosition}px`
       document.body.style.overflow = 'hidden'
-
-      // remove the overrided display, before transition starts from state update
-      document.getElementById('drawer')!.style.display = ''
-      document.getElementById('overlay')!.style.display = ''
     } else {
       // Re-enable scrolling
       const topValue = document.body.style.top
@@ -65,13 +67,7 @@ export default function Navbar() {
       window.scrollTo(0, parseInt(topValue || '0', 10) * -1)
       document.body.style.overflow = ''
     }
-
-    // this ensures the display style gets updated before the transition starts
-    // avoids browser specific issues related to same-tick updates.
-    setTimeout(() => {
-      setIsActive((isActive) => !isActive)
-    }, 0)
-  }
+  }, [isActive])
 
   function transitionEndHandler(e: HTMLElement) {
     // Note: display needs to be set before transition starts for opening
@@ -79,7 +75,7 @@ export default function Navbar() {
 
     // remove from layout when close transition is done.
     if (!isActive) {
-      e.style.display = 'none'
+      e.classList.add('hidden')
     }
   }
 
@@ -89,21 +85,33 @@ export default function Navbar() {
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
-      <div
-        onClick={navToggleHandler}
+
+      <Image
+        onClick={() => {
+          // remove the overrided display, before transition starts from state update
+          document.getElementById('overlay')!.classList.remove('hidden')
+          document.getElementById('drawer')!.classList.remove('hidden')
+
+          setTimeout(() => {
+            setIsActive(true)
+          }, 0)
+        }}
         className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none"
-      >
-        <Image src="/nav-btn.svg" alt="" width={32} height={32} />
-      </div>
+        src="/nav-btn.svg"
+        alt=""
+        width={32}
+        height={32}
+      />
 
       {/* Overlay */}
       <div
         id="overlay"
-        style={{ display: 'none' }}
         onTransitionEnd={(e) => {
           transitionEndHandler(e.currentTarget)
         }}
-        onClick={navToggleHandler}
+        onClick={() => {
+          setIsActive(false)
+        }}
         className={`transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
           isActive ? 'opacity-75' : 'opacity-0'
         }`}
@@ -115,14 +123,14 @@ export default function Navbar() {
           transitionEndHandler(e.currentTarget)
         }}
         id="drawer"
-        style={{ height: drawerHeight, display: 'none' }}
+        style={{ height: drawerHeight }}
         className={`transition duration-300 text-white flex flex-col text-xl h-screen bg-black border-l-[1px] border-void-500 w-[80%] fixed top-0 right-0 ${
           isActive ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Home and singup button */}
         <div className="w-full p-8 pb-12 flex place-content-between items-center">
-          <Link href="/" onClick={navToggleHandler}>
+          <Link href="/" onClick={() => setIsActive(false)}>
             Home
           </Link>
 
@@ -143,13 +151,31 @@ export default function Navbar() {
         </div>
 
         {/* Top Three options */}
-        <Link href="/events/technical" className="mx-8 mb-4">
+        <Link
+          href="/events/technical"
+          onClick={() => {
+            setIsActive(false)
+          }}
+          className="mx-8 mb-4"
+        >
           Technical
         </Link>
-        <Link href="/events/nontechnical" className="mx-8 mb-4">
+        <Link
+          href="/events/nontechnical"
+          onClick={() => {
+            setIsActive(false)
+          }}
+          className="mx-8 mb-4"
+        >
           Non-Technical
         </Link>
-        <Link href="/gallery" className="mx-8 mb-4">
+        <Link
+          href="/gallery"
+          onClick={() => {
+            setIsActive(false)
+          }}
+          className="mx-8 mb-4"
+        >
           &apos;22 Gallery
         </Link>
 
