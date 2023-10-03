@@ -10,6 +10,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { events } from '../eventInfo'
+import { makeSubtitle } from './[event]/page'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
@@ -38,11 +39,7 @@ export default function Events({ params }: { params: { category: string } }) {
 
   // Generate the cards
   let cards = filteredEvents.map(([key, ev]) => {
-    const vs =
-      ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
-    const subtitle = `${
-      ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
-    } · ${vs} · ₹${ev.fee}`
+    const subtitle = makeSubtitle(ev)
 
     return (
       <Link
@@ -94,7 +91,7 @@ export default function Events({ params }: { params: { category: string } }) {
       </header>
 
       {/* Filter */}
-      <div className="px-4 pb-4 border-b-[1px] border-void-500  w-full">
+      <search className="px-4 pb-4 border-b-[1px] border-void-500  w-full">
         <div className="w-full grid border-[1px] border-inherit grid-cols-3 divide-x h-12 divide-void-500 rounded-full overflow-hidden font-medium">
           <Link
             href="?"
@@ -124,7 +121,7 @@ export default function Events({ params }: { params: { category: string } }) {
             Team
           </Link>
         </div>
-      </div>
+      </search>
 
       {/* cards */}
       <div className="w-full py-6 px-4 flex flex-col items-center text-center">
