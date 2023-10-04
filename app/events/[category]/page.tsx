@@ -53,7 +53,7 @@ export default function Events({ params }: { params: { category: string } }) {
       <Link
         href={`/events/${params.category}/${key}`}
         key={key}
-        className="w-full text-left rounded-lg border-[1px] border-void-500 bg-void-950/75 py-6 px-4 relative overflow-hidden"
+        className="w-full max-w-sm transition hover:scale-105 text-left rounded-lg border-[1px] border-void-500 py-6 px-4 relative overflow-hidden"
       >
         {/* Top Row */}
         <div className="flex w-full justify-between">
@@ -74,11 +74,12 @@ export default function Events({ params }: { params: { category: string } }) {
         {/* BG Poster */}
         <Image
           src={`/posters/${key}.png`}
-          width={350}
-          height={200}
-          className="w-full absolute inset-0 -z-10"
+          className="w-full absolute inset-0 -z-[2]"
+          fill={true}
           alt=""
         />
+
+        <div className='bg-void-950/75 w-full h-full absolute inset-0 -z-[1]'> </div>
       </Link>
     )
   })
@@ -99,6 +100,7 @@ export default function Events({ params }: { params: { category: string } }) {
       </header>
 
       {/* Filter */}
+      {/* TODO consider using button elements instead */}
       <search className="px-4 pb-4 border-b-[1px] border-void-500  w-full">
         <div className="w-full grid border-[1px] border-inherit grid-cols-3 divide-x h-12 divide-void-500 rounded-full overflow-hidden font-medium">
           <Link
