@@ -1,6 +1,5 @@
 'use client'
 
-import arrow_right from '@/public/arrow_right.svg'
 import clear_all from '@/public/clear_all.svg'
 import groups from '@/public/groups.svg'
 import man from '@/public/man.svg'
@@ -10,6 +9,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { events } from '../eventInfo'
+import EventCard from './EventCard'
 
 const poly = Poly({ weight: '400', subsets: ['latin'] })
 
@@ -42,46 +42,8 @@ export default function Events({ params }: { params: { category: string } }) {
   }
 
   // Generate the cards
-  let cards = filteredEvents.map(([key, ev]) => {
-    const vs =
-      ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
-    const subtitle = `${
-      ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
-    } · ${vs} · ₹${ev.fee}`
-
-    return (
-      <Link
-        href={`/events/${params.category}/${key}`}
-        key={key}
-        className="w-full max-w-sm transition hover:scale-105 text-left rounded-lg border-[1px] border-void-500 py-6 px-4 relative overflow-hidden"
-      >
-        {/* Top Row */}
-        <div className="flex w-full justify-between">
-          <div className="flex items-center gap-6">
-            <Image src={`/${key}.png`} height={64} width={64} alt="" />
-            <div>
-              <h4 className="text-3xl">{ev.name}</h4>
-              <div>{subtitle}</div>
-            </div>
-          </div>
-
-          <Image src={arrow_right} width={32} height={32} alt="" />
-        </div>
-
-        {/* Bottom Row */}
-        <p className="mt-5 font-light line-clamp-3">{ev.description}</p>
-
-        {/* BG Poster */}
-        <Image
-          src={`/posters/${key}.png`}
-          className="w-full absolute inset-0 -z-[2]"
-          fill={true}
-          alt=""
-        />
-
-        <div className='bg-void-950/75 w-full h-full absolute inset-0 -z-[1]'> </div>
-      </Link>
-    )
+  let cards = filteredEvents.map(([code, ev], idx) => {
+    return <EventCard key={idx} code={code} ev={ev} />
   })
 
   return (
