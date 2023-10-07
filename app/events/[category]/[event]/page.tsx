@@ -68,7 +68,7 @@ export default function EventDetailsPage({
           <div>{ev.maxTeams} slots available</div>
         </div>
 
-        <AddToBagButton />
+        <AddToBagButton eventCode={params.event} />
       </header>
 
       <div className="px-4">

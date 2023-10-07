@@ -1,12 +1,10 @@
-'use client'
-
 /*
   We need to extract the input data at some level through refs or other means. 
   The form section is most of this page, and extracting that out to a wrapped 
   client component doesn't make sense (the page doesn't have much else).
 */
 
-import TextInput from '@/app/_components/textinput'
+import TextInput from '@/app/TextInput'
 import pfp from '@/public/pfp.png'
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
@@ -29,7 +27,8 @@ export default function Signup() {
       </header>
 
       {/* Form */}
-      <div className="w-full p-6 flex flex-col gap-4">
+      {/* TODO lift up / flatten these fields */}
+      <form className="w-full p-6 flex flex-col gap-4">
         <div className="flex gap-4 items-center">
           {/* TODO plug the right profile picture src */}
           <Image
@@ -58,7 +57,6 @@ export default function Signup() {
 
         <div
           className={`p-3 flex text-center rounded-full select-none gap-1 bg-transparent text-void-950`}
-          onClick={(e) => {alert('TODO')}}
         >
           Sign Up
         </div>
@@ -81,7 +79,7 @@ export default function Signup() {
             Kratos23 is committed to the ethical handling of your personal data.
           </p>
         </div>
-      </div>
+      </form>
     </main>
   )
 }
