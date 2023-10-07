@@ -117,6 +117,7 @@ export default function Navbar() {
       ></div>
 
       {/* Drawer */}
+      {/* Consider moving this whole thing to server comp and pass as child */}
       <nav
         onTransitionEnd={(e) => {
           transitionEndHandler(e.currentTarget)
