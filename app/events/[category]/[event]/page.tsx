@@ -2,7 +2,7 @@ import arrow_back from '@/public/arrow_back.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
-import { EventInfo, events } from '../../eventInfo'
+import { events } from '../../eventInfo'
 import AddToBagButton from './addButton'
 
 const poly = Poly({ subsets: ['latin'], weight: '400' })

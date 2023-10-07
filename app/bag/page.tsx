@@ -2,7 +2,7 @@
 
 import { Poly, Rubik } from 'next/font/google'
 import { useEffect, useState } from 'react'
-import { Selected, getCookie, removeSelectedEvent, setCookie } from '../cookies'
+import { Selected, getCookie, removeSelectedEvent, removeTeamDetails, setCookie } from '../cookies'
 import { events } from '../events/eventInfo'
 import PersonalDetails from './PersonalDetails'
 import SoloEvent from './SoloEvent'
@@ -56,6 +56,7 @@ export default function Bag() {
               eventCode={event}
               deleteHandler={() => {
                 removeSelectedEvent(event)
+                removeTeamDetails(event)
                 setAddedEvents(addedEvents.filter((ev) => ev !== event))
               }}
             />

@@ -7,8 +7,11 @@ export interface EventInfo {
     description: string;
     rules: string[];
     prizes: string[];
-    organizers: string[],
-    teamSize: number;
+    organizers: string[];
+    teamSize: {
+        min: number,
+        max: number,
+    };
     maxTeams: number | 'unlimited';
     time?: string;
     venue?: string;
@@ -39,7 +42,10 @@ const eventsLiteral: { [key: string]: EventInfo } = {
             'Some other thing',
             'Some other other thing'
         ],
-        teamSize: 4,
+        teamSize: {
+            min: 4,
+            max: 4,
+        },
         maxTeams: 8,
         organizers: [
             'Thohith Hewin - 9591234159'

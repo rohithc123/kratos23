@@ -54,8 +54,21 @@ export function removeSelectedEvent(eventCode: string) {
   }
 }
 
+export function removeTeamDetails(eventCode: string) {
+  let team = getCookie<TeamDetail>(eventCode)
+  if (team) {
+    document.cookie = eventCode + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+  }
+}
+
 export function eventIsSelected(eventCode: string) {
   return getCookie<Selected>('selected')?.events.includes(eventCode)
+}
+
+export type TeamDetail = {
+  member1: string
+  member2: string
+  member3: string
 }
 
 export type Selected = {

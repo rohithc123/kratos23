@@ -53,7 +53,7 @@ export default function PersonalDetails() {
           <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl">
             <Image src={account_circle} width={48} height={48} alt="" />
             <input
-            autoCapitalize='words'
+              autoCapitalize="words"
               required
               id="name"
               type="text"
