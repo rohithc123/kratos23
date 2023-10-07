@@ -17,7 +17,7 @@ export default function TeamEvent({
   deleteHandler: MouseEventHandler
 }) {
   const ev = events.get(eventCode)!
-  const [cardStatus, setCardStatus] = useState(Status.unfilled) // DEBUG
+  const [cardStatus, setCardStatus] = useState(Status.unfilled)
   const teamDetail = useRef<TeamDetail>()
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -29,9 +29,6 @@ export default function TeamEvent({
   }, [eventCode])
 
   switch (cardStatus) {
-    case Status.loading:
-      break
-
     case Status.unfilled:
       return (
         <div className="rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
@@ -83,7 +80,6 @@ export default function TeamEvent({
           </div>
         </div>
       )
-
     case Status.edit:
       return (
         <div className="rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
@@ -275,7 +271,6 @@ export default function TeamEvent({
 }
 
 enum Status {
-  loading,
   unfilled,
   edit,
   filled,

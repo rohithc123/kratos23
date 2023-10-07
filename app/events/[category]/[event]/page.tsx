@@ -29,7 +29,7 @@ export default function EventDetailsPage({
   const ev = events.get(params.event)!
 
   const vs =
-    ev.type == 'team' ? `${ev.teamSize}v${ev.teamSize}` : `1v${ev.maxTeams}`
+    ev.type == 'team' ? `${ev.teamSize.max}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
   const subtitle = `${
     ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
   } · ${vs} · ₹${ev.fee}`

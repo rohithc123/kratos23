@@ -12,7 +12,7 @@ import { getCookie, setCookie } from '../cookies'
 
 // Note: better to have a loading skeleton state to default to
 export default function PersonalDetails() {
-  const [cardStatus, setCardStatus] = useState(Status.unfilled)
+  const [cardStatus, setCardStatus] = useState(Status.loading)
 
   const personalDet = useRef<PersonalDetails | undefined>()
   const formRef = useRef<HTMLFormElement>(null)
@@ -28,6 +28,33 @@ export default function PersonalDetails() {
   }, [])
 
   switch (cardStatus) {
+    case Status.loading:
+      return (
+        <div className="bg-void-500 p-[1px] my-6 rounded-lg">
+          {/* Header */}
+          <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl">
+            <div className="w-12 h-12 rounded-full animate-pulse bg-void-300" />
+            <div className="w-[12ch] h-6 animate-pulse bg-void-300" />
+            <div className="w-6 h-6 animate-pulse bg-void-300" />
+          </div>
+
+          {/* Details */}
+          <div className="p-6 bg-void-950 rounded-b-lg flex flex-col gap-2">
+            <div className="flex gap-4">
+              <div className="w-6 h-6 animate-pulse bg-void-300" />
+              <div className="w-[14ch] h-6 animate-pulse bg-void-300" />
+            </div>
+            <div className="flex gap-4">
+              <div className="w-6 h-6 animate-pulse bg-void-300" />
+              <div className="w-[14ch] h-6 animate-pulse bg-void-300" />
+            </div>
+            <div className="flex gap-4">
+              <div className="w-6 h-6 animate-pulse bg-void-300" />
+              <div className="w-[12ch] h-6 animate-pulse bg-void-300" />
+            </div>
+          </div>
+        </div>
+      )
     case Status.unfilled:
       return (
         <div
@@ -136,7 +163,6 @@ export default function PersonalDetails() {
           </div>
         </form>
       )
-
     case Status.filled:
       return (
         <div className="bg-void-500 p-[1px] my-6 rounded-lg">
@@ -182,6 +208,7 @@ type PersonalDetails = {
 }
 
 enum Status {
+  loading,
   unfilled,
   edit,
   filled,
