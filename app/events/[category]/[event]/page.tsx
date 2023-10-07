@@ -61,7 +61,7 @@ export default function EventDetailsPage({
       <header className="flex sticky w-full p-4 justify-between items-center font-medium">
         <div>
           <h1 style={poly.style} className="text-5xl">
-            Futsal
+            {ev.name}
           </h1>
           {/* TODO plug the slot info */}
           <div className="mt-1">{subtitle}</div>
