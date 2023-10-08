@@ -83,12 +83,12 @@ export default function Bag() {
         }
       })}
 
-      <div className="px-2 py-4 grid text-center place-content-center">
+      <div className="px-2 grid text-center place-content-center">
         {loading && (
           <div role="status">
             <svg
               aria-hidden="true"
-              className="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-void-700 fill-cherry"
+              className="w-8 h-8 mr-2 my-4 text-gray-200 animate-spin dark:text-void-700 fill-cherry"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -106,12 +106,12 @@ export default function Bag() {
           </div>
         )}
 
-        {!loading && (!addedEvents || addedEvents?.length == 0)
-          ? 'No events added'
-          : ''}
+        {!loading && (!addedEvents || addedEvents?.length == 0) && (
+          <p className="py-4">No events added</p>
+        )}
       </div>
 
-      <div className="border-void-500 border-t-[1px] text-2xl p-4 text-right">
+      <div className="border-void-500 border-t-[1px] text-2xl p-4 text-right mt-4">
         <h4>
           Total:
           <span className="ml-3 font-medium">
@@ -124,7 +124,7 @@ export default function Bag() {
       </div>
 
       <button
-        className="flex w-full bg-gradient-to-br from-cherry to-vinyl text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-4"
+        className="flex w-full bg-gradient-to-br from-cherry to-vinyl text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-4 font-semibold"
         onClick={() => {
           // TODO
           alert('TODO')
