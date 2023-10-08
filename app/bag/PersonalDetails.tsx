@@ -77,7 +77,7 @@ export default function PersonalDetails() {
           className="bg-gradient-to-br from-cherry to-vinyl rounded-lg p-[1px] my-6 "
         >
           {/* Header */}
-          <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl">
+          <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl relative">
             <Image src={account_circle} width={48} height={48} alt="" />
             <input
               autoCapitalize="words"
@@ -95,7 +95,7 @@ export default function PersonalDetails() {
               width={24}
               height={24}
               alt=""
-              className="cursor-pointer absolute right-8"
+              className="cursor-pointer absolute right-6"
               onClick={() => {
                 const isValid = formRef.current?.reportValidity()
                 if (isValid) {
