@@ -82,9 +82,9 @@ export default function TeamEvent({
       )
     case Status.edit:
       return (
-        <div className="rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
+        <div className="rounded-lg overflow-hidden mt-4 bg-gradient-to-br from-cherry to-vinyl p-[1px]">
           {/* Header */}
-          <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500">
+          <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500 bg-void-700 rounded-t-lg">
             {/* Icon Round */}
             <div className="grid place-content-center h-14 w-14 bg-void-500 border-[1px] border-void-300 rounded-full">
               <Image
@@ -119,7 +119,7 @@ export default function TeamEvent({
           </div>
 
           {/* Details */}
-          <div className="p-4">
+          <div className="p-4 bg-void-950 rounded-b-lg">
             {/* Title */}
             <div className="flex gap-2 relative">
               <h5 className="text-lg">Team Details</h5>

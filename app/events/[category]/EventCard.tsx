@@ -25,7 +25,7 @@ export default function EventCard({
       {/* Top Row */}
       <div className="flex w-full justify-between">
         <div className="flex items-center gap-6">
-          <Image src={`/${code}.png`} height={64} width={64} alt="" />
+          <Image src={`/icons/${code}.png`} height={64} width={64} alt="" />
           <div>
             <h4 className="text-3xl">{ev.name}</h4>
             <div>{subtitle}</div>
