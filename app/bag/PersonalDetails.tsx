@@ -23,6 +23,8 @@ export default function PersonalDetails() {
       if (maybeDets) {
         personalDet.current = maybeDets as PersonalDetails
         setCardStatus(Status.filled)
+      } else {
+        setCardStatus(Status.unfilled)
       }
     }
   }, [])
