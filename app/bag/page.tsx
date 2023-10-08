@@ -88,7 +88,7 @@ export default function Bag() {
           <div role="status">
             <svg
               aria-hidden="true"
-              className="w-8 h-8 mr-2 my-4 text-gray-200 animate-spin dark:text-void-700 fill-cherry"
+              className="w-8 h-8 mr-2 mt-4 text-gray-200 animate-spin dark:text-void-700 fill-cherry"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ export default function Bag() {
         )}
 
         {!loading && (!addedEvents || addedEvents?.length == 0) && (
-          <p className="py-4">No events added</p>
+          <p className="pt-4">No events added</p>
         )}
       </div>
 
