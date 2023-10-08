@@ -117,8 +117,10 @@ export default function Bag() {
           <span className="ml-3 font-medium">
             ₹
             {addedEvents
-              ?.map<number>((code) => events.get(code)!.fee)
-              .reduce((ac, x) => ac + x, 0)}
+              ? addedEvents
+                  ?.map<number>((code) => events.get(code)!.fee)
+                  .reduce((ac, x) => ac + x, 0)
+              : '0'}
           </span>
         </h4>
       </div>
