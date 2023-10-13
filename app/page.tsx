@@ -3,6 +3,11 @@ import logo_bw from '@/public/logo-bw.png';
 import logo from '@/public/logo.png';
 import { Josefin_Sans, Libre_Baskerville } from 'next/font/google';
 import Image from 'next/image';
+import art_ribbon from '@/public/art_ribbon.svg';
+import tech_ticket from "@/public/tech.svg";
+import nontech_ticker from "@/public/non-tech.svg"
+import Link from 'next/link'
+
 
 const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] });
 const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] });
@@ -61,7 +66,89 @@ export default function Home() {
         </div>
       </div>
 
-      <Image src={expand_more} alt="" width={58} height={58} className="m-8" />
+      <Image src={expand_more} alt="" width={58} height={58} className="m-8 animate animate-bounce" />
+
+        {/* add video over here */}
+
+      <div className=" w-full">
+      </div>
+      
+      <div className="mt-10">
+        {/* no need for height aspr locked */}
+      <Image src={art_ribbon} alt="github universe image"   className="w-full " />
+      </div>
+
+      <div className="mt-10 flex flex-col w-full">
+        <div className="m-5">
+        <div  className=" text-left text-4xl ">
+          Events
+        </div>
+        {/* <div className=' h-[1px] bg-void-500 w-full '/> */}
+        <div  className='h-[1px] w-full bg-void-500'/>
+         
+         <div  className="mt-10 ml-5 mr-5">
+         <div className="flex flex-row ">
+          <div className="w-1/2 flex flex-col">
+            <div className="text-left text-4xl font-bold">
+              13
+            </div>
+            <div className="text-left text-1xl">
+              events
+            </div>
+           </div>
+           <div className="w-1/2 flex flex-col">
+            <div className="text-left text-4xl font-bold">
+              450+
+            </div>
+            <div className="text-left text-1xl">
+              participants
+            </div>
+          </div>
+         
+          </div>
+          <div className="flex flex-row mt-10">
+          <div className="w-1/2 flex flex-col">
+            <div className="text-left text-4xl font-bold">
+              15K+
+            </div>
+            <div className="text-left text-1xl">
+              in prizes
+            </div>
+           </div>
+           <div className="w-1/2 flex flex-col">
+            <div className="text-left text-4xl font-bold">
+              32
+            </div>
+            <div className="text-left text-1xl">
+              sponsors(lol)
+            </div>
+          </div>
+         
+          </div>
+
+         </div>
+        </div>
+        
+
+
+      </div>
+
+{/* cards */}
+      <div className="mt-10  w-full flex flex-col ">
+        <div className="m-4">
+         
+         <Link href="/events/technical">
+         <Image src={tech_ticket} alt="github universe image"   className="w-full " />
+         </Link>
+         
+         <Link href="/events/nontechnical">
+         <Image src={nontech_ticker} alt="github universe image"   className="w-full mt-8" />
+
+         </Link>
+
+        </div>
+      
+      </div>
     </main>
   );
 }
