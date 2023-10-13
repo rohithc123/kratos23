@@ -2,8 +2,8 @@ import art_ribbon from '@/public/art_ribbon.jpg'
 import expand_more from '@/public/expand_more.svg'
 import logo from '@/public/logo.png'
 import logo_bw from '@/public/logo-bw.png'
-import nontech_ticket from '@/public/non-tech.png'
-import tech_ticket from '@/public/tech.png'
+import nontech_ticket from '@/public/nontech-ticket.png'
+import tech_ticket from '@/public/tech-ticket.png'
 import { Josefin_Sans, Libre_Baskerville } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -16,9 +16,7 @@ export default function Home() {
     <main className="flex flex-col items-center">
       <header className="pt-20 flex flex-col items-center h-[100svh] justify-around">
         {/* Hero Image */}
-        <div
-          className="relative aspect-square min-w-[85vw] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10"
-        >
+        <div className="relative aspect-square min-w-[330px] max-w-[85vw] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
           {/* Title */}
           <h1 style={baskerville.style} className="z-10 text-5xl text-center">
             KRATOS
@@ -118,13 +116,19 @@ export default function Home() {
 
         {/* cards */}
         <div className="flex flex-col items-center px-2">
-          <Link href="/events/technical" className="mt-2">
+          <Link
+            href="/events/technical"
+            className="transition mt-2 hover:scale-105 scale-100"
+          >
             <Image
               src={tech_ticket}
               alt="Ticket shape that read non techincal events"
             />
           </Link>
-          <Link href="/events/nontechnical" className="mt-8">
+          <Link
+            href="/events/nontechnical"
+            className="transition mt-8 hover:scale-105 scale-100"
+          >
             <Image
               src={nontech_ticket}
               alt="Ticket shape that read techincal events"
