@@ -16,7 +16,7 @@ export default function Home() {
     <main className="flex flex-col items-center">
       <header className="pt-20 flex flex-col items-center h-[100svh] justify-around">
         {/* Hero Image */}
-        <div className="relative aspect-square min-w-[330px] max-w-[85vw] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
+        <div className="relative aspect-square w-[85vw] max-w-[330px] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
           {/* Title */}
           <h1 style={baskerville.style} className="z-10 text-5xl text-center">
             KRATOS
@@ -70,13 +70,15 @@ export default function Home() {
       </div>
 
       {/* Art Ribbon Divider */}
-      <Image
-        src={art_ribbon}
-        height={200}
-        width={400}
-        alt=""
-        className="w-full mt-12"
-      />
+      <div className="mt-12 relative overflow-hidden min-h-[140px] w-full  ">
+        <Image
+          src={art_ribbon}
+          alt=""
+          fill
+          objectFit="cover"
+        />
+      </div>
+
       {/* Events section */}
       <div className="mt-12 w-full">
         <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6">
