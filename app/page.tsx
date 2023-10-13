@@ -1,23 +1,20 @@
-import expand_more from '@/public/expand_more.svg';
-import logo_bw from '@/public/logo-bw.png';
-import logo from '@/public/logo.png';
-import { Josefin_Sans, Libre_Baskerville } from 'next/font/google';
-import Image from 'next/image';
-import art_ribbon from '@/public/art_ribbon.svg';
-import tech_ticket from "@/public/tech.svg";
-import nontech_ticker from "@/public/non-tech.svg"
+import art_ribbon from '@/public/art_ribbon.jpg'
+import expand_more from '@/public/expand_more.svg'
+import logo from '@/public/logo.png'
+import nontech_ticket from '@/public/non-tech.png'
+import tech_ticket from '@/public/tech.png'
+import { Josefin_Sans, Libre_Baskerville } from 'next/font/google'
+import Image from 'next/image'
 import Link from 'next/link'
 
-
-const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] });
-const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] });
+const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] })
+const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center">
       {/* Spacer */}
       <div className="p-10" />
-
       {/* Hero Image */}
       <div
         style={{ width: `min(calc(100vw - 64px), 400px)` }}
@@ -41,11 +38,8 @@ export default function Home() {
           alt="logo"
         />
       </div>
-
       {/* Hero Text */}
-      <div
-        className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent"
-      >
+      <div className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent">
         <span className="bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
           Code.&thinsp;
         </span>
@@ -56,99 +50,80 @@ export default function Home() {
           Conquer.&thinsp;
         </span>
       </div>
-
       <div className="text-2xl text-center mt-8">
-        <div className="">
-          November 9
-        </div>
-        <div className="text-void-300">
-          @ Easwari Engineering College
-        </div>
+        <div className="">November 9</div>
+        <div className="text-void-300">@ Easwari Engineering College</div>
       </div>
+      <Image
+        src={expand_more}
+        alt=""
+        width={58}
+        height={58}
+        className="m-8 animate animate-bounce"
+      />
+      {/* TODO add video over here */}
 
-      <Image src={expand_more} alt="" width={58} height={58} className="m-8 animate animate-bounce" />
-
-        {/* add video over here */}
-
-      <div className=" w-full">
-      </div>
-      
-      <div className="mt-10">
-        {/* no need for height aspr locked */}
-      <Image src={art_ribbon} alt="github universe image"   className="w-full " />
-      </div>
-
-      <div className="mt-10 flex flex-col w-full">
-        <div className="m-5">
-        <div  className=" text-left text-4xl ">
+      {/* Art Ribbon Divider */}
+      <Image
+        src={art_ribbon}
+        height={200}
+        width={400}
+        alt=""
+        className="w-full mt-12"
+      />
+      {/* Events section */}
+      <div className="mt-12 w-full">
+        <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6">
           Events
+        </h2>
+
+        {/* Stats grid */}
+        <div className="my-10 px-8">
+          {/* Stat row */}
+          <div className="flex flex-row">
+            <div className="w-1/2">
+              <div className="text-3xl font-semibold">13</div>
+              <div className="text-2xl leading-6 text-void-200">events</div>
+            </div>
+            <div className="w-1/2">
+              <div className="text-3xl font-semibold">450+</div>
+              <div className="text-2xl leading-6 text-void-200">
+                participants
+              </div>
+            </div>
+          </div>
+
+          {/* Stat row */}
+          <div className="flex flex-row mt-8">
+            <div className="w-1/2">
+              <div className="text-3xl font-semibold">15K+</div>
+              <div className="text-2xl leading-6 text-void-200">in prizes</div>
+            </div>
+            <div className="w-1/2">
+              <div className="text-3xl font-semibold">32</div>
+              <div className="text-2xl leading-6 text-void-200">
+                placeholder
+              </div>
+            </div>
+          </div>
         </div>
-        {/* <div className=' h-[1px] bg-void-500 w-full '/> */}
-        <div  className='h-[1px] w-full bg-void-500'/>
-         
-         <div  className="mt-10 ml-5 mr-5">
-         <div className="flex flex-row ">
-          <div className="w-1/2 flex flex-col">
-            <div className="text-left text-4xl font-bold">
-              13
-            </div>
-            <div className="text-left text-1xl">
-              events
-            </div>
-           </div>
-           <div className="w-1/2 flex flex-col">
-            <div className="text-left text-4xl font-bold">
-              450+
-            </div>
-            <div className="text-left text-1xl">
-              participants
-            </div>
-          </div>
-         
-          </div>
-          <div className="flex flex-row mt-10">
-          <div className="w-1/2 flex flex-col">
-            <div className="text-left text-4xl font-bold">
-              15K+
-            </div>
-            <div className="text-left text-1xl">
-              in prizes
-            </div>
-           </div>
-           <div className="w-1/2 flex flex-col">
-            <div className="text-left text-4xl font-bold">
-              32
-            </div>
-            <div className="text-left text-1xl">
-              sponsors(lol)
-            </div>
-          </div>
-         
-          </div>
 
-         </div>
+        {/* cards */}
+        <div className="flex flex-col items-center px-2">
+          <Link href="/events/technical" className="mt-2">
+            <Image
+              src={tech_ticket}
+              alt="Ticket shape that read non techincal events"
+            />
+          </Link>
+          <Link href="/events/nontechnical" className="mt-8">
+            <Image
+              src={nontech_ticket}
+              alt="Ticket shape that read techincal events"
+            />
+          </Link>
         </div>
-        
-
-
-      </div>
-
-{/* cards */}
-      <div className="mt-10  w-full flex flex-col ">
-        <div className="m-4">
-         
-         <Link href="/events/technical">
-         <Image src={tech_ticket} alt="github universe image"   className="w-full " />
-         </Link>
-         
-         <Link href="/events/nontechnical">
-         <Image src={nontech_ticker} alt="github universe image"   className="w-full mt-8" />
-
-         </Link>
-
-        </div>
-      
       </div>
     </main>
-  );
+  )
 }
