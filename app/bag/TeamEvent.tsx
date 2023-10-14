@@ -31,7 +31,10 @@ export default function TeamEvent({
   switch (cardStatus) {
     case Status.unfilled:
       return (
-        <div className="rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
+        <div
+          id={eventCode}
+          className="transition rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4"
+        >
           {/* Header */}
           <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500">
             {/* Icon Round */}
@@ -82,7 +85,7 @@ export default function TeamEvent({
       )
     case Status.edit:
       return (
-        <div className="rounded-lg overflow-hidden mt-4 bg-gradient-to-br from-cherry to-vinyl p-[1px]">
+        <div className="transition rounded-lg overflow-hidden mt-4 bg-gradient-to-br from-cherry to-vinyl p-[1px]">
           {/* Header */}
           <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500 bg-void-700 rounded-t-lg">
             {/* Icon Round */}
@@ -196,7 +199,7 @@ export default function TeamEvent({
       )
     case Status.filled:
       return (
-        <div className="rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
+        <div className="transition rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
           {/* Header */}
           <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500">
             {/* Icon Round */}

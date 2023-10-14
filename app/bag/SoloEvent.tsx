@@ -11,7 +11,7 @@ import { MouseEventHandler } from 'react'
 export default function SoloEvent({ eventCode, deleteHandler }: { eventCode: string, deleteHandler: MouseEventHandler }) {
   const ev = events.get(eventCode)!
   return (
-    <div className="flex gap-3 w-full bg-void-700 border-[1px] border-void-500 px-4 py-6 rounded-lg mt-4 items-center">
+    <div id={eventCode} className="flex gap-3 w-full bg-void-700 border-[1px] border-void-500 px-4 py-6 rounded-lg mt-4 items-center">
       {/* Icon Round */}
       <div className="grid place-content-center h-14 w-14 bg-void-500 border-[1px] border-void-300 rounded-full">
         <Image src={`/icons/${eventCode}.png`} width={32} height={32} alt="" />

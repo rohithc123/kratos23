@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import {
   Selected,
+  TeamDetail,
   getCookie,
   removeSelectedEvent,
   removeTeamDetails,
@@ -14,13 +15,16 @@ import { events } from '../events/eventInfo'
 import PersonalDetails from './PersonalDetails'
 import SoloEvent from './SoloEvent'
 import TeamEvent from './TeamEvent'
+import { useRouter } from 'next/navigation'
 
 const poly = Poly({ weight: ['400'], subsets: ['latin'] })
 const rubik = Rubik({ weight: ['400'], subsets: ['latin'] })
 
 export default function Bag() {
+  // Note: addedEvents is set on first render only, not updated after that
   const [addedEvents, setAddedEvents] = useState<string[]>()
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -31,6 +35,54 @@ export default function Bag() {
       setLoading(false)
     }
   }, [])
+
+  function getTotalFee(): number {
+    if (!hasAddedEvents()) {
+      return 0
+    }
+
+    return addedEvents!
+      .map<number>((code) => events.get(code)!.fee)
+      .reduce((ac, x) => ac + x, 0)
+  }
+
+  function hasAddedEvents(): boolean {
+    if (!addedEvents) {
+      // the cookie isn't even set
+      return false
+    }
+    if (addedEvents.length === 0) {
+      // the cookie is set to empty value
+      return false
+    }
+    return true
+  }
+
+  function buttonHandler() {
+    // disabled
+    if (!hasAddedEvents()) {
+      return
+    }
+
+    // Check if all the team events are entered
+    for (let evCode of addedEvents!) {
+      const teamDetails = getCookie<TeamDetail>(evCode)
+      if (!teamDetails) {
+        const element = document.getElementById(evCode)!
+        element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+        setTimeout(() => {
+          element.style.border = '2px solid red'
+        }, 100)
+        setTimeout(() => {
+          element.style.border = ''
+        }, 1100)
+        return
+      }
+    }
+
+    // navigate to payment page
+    router.push('/pay')
+  }
 
   return (
     <main className="min-h-screen px-4">
@@ -114,26 +166,21 @@ export default function Bag() {
       <div className="border-void-500 border-t-[1px] text-2xl p-4 text-right mt-4">
         <h4>
           Total:
-          <span className="ml-3 font-medium">
-            ₹
-            {addedEvents
-              ? addedEvents
-                  ?.map<number>((code) => events.get(code)!.fee)
-                  .reduce((ac, x) => ac + x, 0)
-              : '0'}
-          </span>
+          <span className="ml-3 font-medium">₹{getTotalFee()}</span>
         </h4>
       </div>
 
-      <button
-        className="flex w-full bg-gradient-to-br from-cherry to-vinyl text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-4 font-semibold"
-        onClick={() => {
-          // TODO
-          alert('TODO')
-        }}
+      {/* nithssh: The whole button isDisabled should've been a state, and useEffect to setIsDisabled and setAddedEvents when cookies change*/}
+      <div
+        className={`select-none flex w-full text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-4 font-semibold ${
+          hasAddedEvents()
+            ? 'bg-gradient-to-br from-cherry to-vinyl cursor-pointer'
+            : 'bg-void-500'
+        }`}
+        onClick={buttonHandler}
       >
         Go to Payment <Image src={arrow_right} width={20} height={20} alt="" />
-      </button>
+      </div>
     </main>
   )
 }
