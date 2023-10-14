@@ -1,3 +1,4 @@
+"use client"
 import art_ribbon from '@/public/art_ribbon.jpg'
 import expand_more from '@/public/expand_more.svg'
 import logo from '@/public/logo.png'
@@ -7,11 +8,20 @@ import tech_ticket from '@/public/tech-ticket.png'
 import { Josefin_Sans, Libre_Baskerville } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import AOS from "aos"
+import "aos/dist/aos.css"
+import { useEffect } from "react";
 
 const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] })
 const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
+  
+  useEffect(() =>{
+
+    AOS.init({duration:800})
+  })
+
   return (
     <main className="flex flex-col items-center md:max-w-[768px]">
       <header className="pt-20 flex flex-col items-center h-[100svh] md:h-fit justify-around">
@@ -87,13 +97,14 @@ export default function Home() {
       </div>
 
       {/* Events section */}
+      
       <div className="w-full">
-        <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6">
+        <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6" data-aos="fade-down">
           Events
         </h2>
 
         {/* Stats grid */}
-        <div className="my-10 md:my-16 px-8 flex flex-col md:flex-row">
+        <div className="my-10 md:my-16 px-8 flex flex-col md:flex-row" data-aos="fade-down">
           {/* Stat row */}
           <div className="flex flex-row mb-8 md:mb-0 md:w-1/2">
             <div className="w-1/2">
@@ -109,7 +120,7 @@ export default function Home() {
           </div>
 
           {/* Stat row */}
-          <div className="flex flex-row md:w-1/2">
+          <div className="flex flex-row md:w-1/2" data-aos="fade-down">
             <div className="w-1/2">
               <div className="text-3xl font-semibold">15K+</div>
               <div className="text-2xl leading-6 text-void-200">in prizes</div>
@@ -124,7 +135,8 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2 md:gap-16">
+        <div className="flex flex-col items-center px-2 md:gap-16" >
+          <div data-aos="flip-up" >
           <Link
             href="/events/technical"
             className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
@@ -132,17 +144,23 @@ export default function Home() {
             <Image
               src={tech_ticket}
               alt="Ticket shape that read non techincal events"
-            />
+
+/>
           </Link>
+          </div>
+          <div data-aos="flip-up" >
+          
           <Link
             href="/events/nontechnical"
             className="transition mt-8 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
+            
           >
             <Image
               src={nontech_ticket}
               alt="Ticket shape that read techincal events"
             />
           </Link>
+        </div>
         </div>
       </div>
     </main>
