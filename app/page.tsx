@@ -139,7 +139,7 @@ export default function Home() {
           <div data-aos="flip-up" >
           <Link
             href="/events/technical"
-            className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
+            className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/4"
           >
             <Image
               src={tech_ticket}

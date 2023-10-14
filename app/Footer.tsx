@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer
       style={{ backgroundImage: "url('/dotted-pattern.png')" }}
-      className="flex flex-col items-center w-full md:max-w-[768px] relative p-6 pt-12 gap-6 overflow-hidden bg-repeat-x mt-16"
+      className="flex flex-col items-center w-full md:max-w-[768px] lg:max-w-full relative p-6 pt-12 gap-6 overflow-hidden bg-repeat-x mt-16"
     >
       {/* Logo */}
       <Image src={logo} alt="Kratos 23 logo" width={64} height={64} />
