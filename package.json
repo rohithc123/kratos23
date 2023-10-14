@@ -9,9 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/storage": "^7.3.0",
+    "encoding": "^0.1.13",
+    "mongodb": "^6.1.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "request": "^2.88.2",
     "sharp": "^0.32.6"
   },
   "devDependencies": {
