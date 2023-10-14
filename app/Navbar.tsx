@@ -79,13 +79,13 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-between lg:flex-row">
+    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
       {/* Navbar */}
-      <div>
+      
+      <div className="lg:hidden">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
-
       </div>
       
       <Image
@@ -98,7 +98,7 @@ export default function Navbar() {
             setIsActive(true)
           }, 0)
         }}
-        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none lg:invisible"
+        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none lg:hidden"
         src="/nav-btn.svg"
         alt=""
         width={32}
@@ -114,7 +114,7 @@ export default function Navbar() {
         onClick={() => {
           setIsActive(false)
         }}
-        className={`transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
+        className={` transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
           isActive ? 'opacity-75' : 'opacity-0'
         }`}
       ></div>
@@ -195,6 +195,12 @@ export default function Navbar() {
          
          {/* <div className="justify-between"> */}
 
+        {/* need to check */}
+      <div className="lg:hidden">
+      <Link style={poly.style} href="/">
+        KRATOS
+      </Link>
+      </div>
          
         <div className="w-12/12 hidden  lg:block bg-void-700  h-12 rounded-full">
         {/* <div className=" "> */}
@@ -218,20 +224,25 @@ export default function Navbar() {
 
          
           <div>
+          {/* </div>  */}
+          {/* </div> */}
           
-        <div>
+        <div className=" lg:block hidden lg:flex lg:justify-end">
+         
+         <div>
           <Image
             
             // remove the overrided display, before transition starts from state update
-          className=" w-8 h-8  cursor-pointer select-none lg:block hidden"
+          className=" w-8 h-8  cursor-pointer select-none "
           src="/shopping_bag.svg"
           alt=""
           width={32}
           height={32}
         />
-          {/* hello */}
         </div>
-          </div> 
+          {/* hello */}
+          </div>
+        </div>
     </div>
 
     
