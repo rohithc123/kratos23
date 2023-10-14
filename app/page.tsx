@@ -13,7 +13,7 @@ const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center md:max-w-[60vw]">
       <header className="pt-20 flex flex-col items-center h-[100svh] justify-around">
         {/* Hero Image */}
         <div className="relative aspect-square w-[85vw] max-w-[330px] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
@@ -70,25 +70,25 @@ export default function Home() {
       </div>
 
       {/* Art Ribbon Divider */}
-      <div className="mt-12 relative overflow-hidden min-h-[140px] w-full  ">
+      <div className="mt-12 relative overflow-hidden min-h-[140px] w-full">
         <Image
+          className="object-cover md:object-contain"
           src={art_ribbon}
           alt=""
           fill
-          objectFit="cover"
         />
       </div>
 
       {/* Events section */}
-      <div className="mt-12 w-full">
+      <div className="my-12 w-full">
         <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6">
           Events
         </h2>
 
         {/* Stats grid */}
-        <div className="my-10 px-8">
+        <div className="my-10 px-8 flex flex-col md:flex-row">
           {/* Stat row */}
-          <div className="flex flex-row">
+          <div className="flex flex-row mb-8 md:mb-0 md:w-1/2">
             <div className="w-1/2">
               <div className="text-3xl font-semibold">13</div>
               <div className="text-2xl leading-6 text-void-200">events</div>
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
 
           {/* Stat row */}
-          <div className="flex flex-row mt-8">
+          <div className="flex flex-row md:w-1/2">
             <div className="w-1/2">
               <div className="text-3xl font-semibold">15K+</div>
               <div className="text-2xl leading-6 text-void-200">in prizes</div>
@@ -117,10 +117,10 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2">
+        <div className="flex flex-col items-center px-2 md:flex-row flex-wrap">
           <Link
             href="/events/technical"
-            className="transition mt-2 hover:scale-105 scale-100"
+            className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/2"
           >
             <Image
               src={tech_ticket}
@@ -129,7 +129,7 @@ export default function Home() {
           </Link>
           <Link
             href="/events/nontechnical"
-            className="transition mt-8 hover:scale-105 scale-100"
+            className="transition mt-8 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/2"
           >
             <Image
               src={nontech_ticket}
