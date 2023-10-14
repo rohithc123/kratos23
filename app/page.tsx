@@ -65,7 +65,7 @@ export default function Home() {
         />
       </header>
 
-      <div className="mx-4 rounded-lg overflow-hidden md:max-w-[75%] mt-8 mb-16">
+      <div className="mx-4 rounded-lg overflow-hidden md:max-w-[75%] mt-8">
         <video autoPlay muted loop>
           <source src="/promo.webm" type="video/webm" />
           <source src="/promo.mp4" type="video/mp4" />
@@ -73,7 +73,7 @@ export default function Home() {
       </div>
 
       {/* Art Ribbon Divider */}
-      <div className="relative overflow-hidden min-h-[140px] w-full mb-16 md:mb-8">
+      <div className="relative overflow-hidden min-h-[140px] w-full my-16 md:mb-8">
         <Image
           className="object-cover md:object-contain"
           src={art_ribbon}
@@ -83,7 +83,7 @@ export default function Home() {
       </div>
 
       {/* Events section */}
-      <div className="my-12 w-full">
+      <div className="w-full">
         <h2 className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6">
           Events
         </h2>
