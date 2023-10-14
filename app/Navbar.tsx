@@ -79,12 +79,15 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50">
+    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-between lg:flex-row">
       {/* Navbar */}
+      <div>
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
 
+      </div>
+      
       <Image
         onClick={() => {
           // remove the overrided display, before transition starts from state update
@@ -95,7 +98,7 @@ export default function Navbar() {
             setIsActive(true)
           }, 0)
         }}
-        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none"
+        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none lg:invisible"
         src="/nav-btn.svg"
         alt=""
         width={32}
@@ -186,6 +189,51 @@ export default function Navbar() {
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
+     
+         
+         
+         
+         {/* <div className="justify-between"> */}
+
+         
+        <div className="w-12/12 hidden  lg:block bg-void-700  h-12 rounded-full">
+        {/* <div className=" "> */}
+           <div className="mx-10 h-full flex flex-row text-xl justify-between">
+           <div className=" self-center mr-7">
+            Technical
+           </div>
+           <div className=" self-center mr-7">
+            Non-Technical
+           </div>
+           
+           <div className=" self-center ">
+            Contributors
+           </div>
+           {/* </div> */}
+           
+        </div>
+        </div>
+            
+        {/* </div>           */}
+
+         
+          <div>
+          
+        <div>
+          <Image
+            
+            // remove the overrided display, before transition starts from state update
+          className=" w-8 h-8  cursor-pointer select-none lg:block hidden"
+          src="/shopping_bag.svg"
+          alt=""
+          width={32}
+          height={32}
+        />
+          {/* hello */}
+        </div>
+          </div> 
     </div>
+
+    
   )
 }
