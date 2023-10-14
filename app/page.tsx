@@ -65,7 +65,7 @@ export default function Home() {
         />
       </header>
 
-      <div className="mx-4 rounded-lg overflow-hidden border-void-900 border-[1px] md:max-w-[75%] mt-8 mb-16">
+      <div className="mx-4 rounded-lg overflow-hidden md:max-w-[75%] mt-8 mb-16">
         <video autoPlay muted loop>
           <source src="/promo.webm" type="video/webm" />
           <source src="/promo.mp4" type="video/mp4" />
