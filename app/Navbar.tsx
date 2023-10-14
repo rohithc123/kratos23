@@ -79,7 +79,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
+    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
       {/* Navbar */}
       
       <div className="lg:hidden">
@@ -227,7 +227,7 @@ export default function Navbar() {
           {/* </div>  */}
           {/* </div> */}
           
-        <div className=" lg:block hidden lg:flex lg:justify-end">
+        <div className=" lg:block hidden lg:flex lg:justify-end mr-4">
          
          <div>
           <Image

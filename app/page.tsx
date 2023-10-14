@@ -61,17 +61,21 @@ export default function Home() {
           alt=""
           width={58}
           height={58}
-          className="m-12 animate animate-bounce"
+          className="m-12 lg:m-6 animate animate-bounce"
         />
       </header>
 
-      <div className="mx-4 rounded-lg overflow-hidden md:max-w-[75%] mt-8">
+      {/* md:max-w-[75%] */}
+      <div className="w-screen grid justify-items">
+      <div className="mx-4 rounded-lg overflow-hidden lg:max-w-[80%]  mt-8 justify-self-center">
         <video autoPlay muted loop>
           <source src="/promo.webm" type="video/webm" />
           <source src="/promo.mp4" type="video/mp4" />
         </video>
       </div>
 
+      </div>
+      
       {/* Art Ribbon Divider */}
       <div className="relative overflow-hidden min-h-[140px] w-full my-16 md:mb-8">
         <Image
