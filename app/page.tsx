@@ -13,8 +13,8 @@ const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center md:max-w-[60vw]">
-      <header className="pt-20 flex flex-col items-center h-[100svh] justify-around">
+    <main className="flex flex-col items-center md:max-w-[768px]">
+      <header className="pt-20 flex flex-col items-center h-[100svh] md:h-fit justify-around">
         {/* Hero Image */}
         <div className="relative aspect-square w-[85vw] max-w-[330px] m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
           {/* Title */}
@@ -34,7 +34,7 @@ export default function Home() {
 
           {/* Blurred Pic BG */}
           <Image
-            className="blur-[100px] z-[1] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2"
+            className="blur-[50px] z-[1] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2 opacity-75"
             src={logo}
             alt=""
           />
@@ -65,7 +65,7 @@ export default function Home() {
         />
       </header>
 
-      <div className="mx-4 rounded-lg overflow-hidden border-void-900 border-[1px]">
+      <div className="mx-4 rounded-lg overflow-hidden border-void-900 border-[1px] md:max-w-[75%] mt-8 mb-16">
         <video autoPlay muted loop>
           <source src="/promo.webm" type="video/webm" />
           <source src="/promo.mp4" type="video/mp4" />
@@ -73,7 +73,7 @@ export default function Home() {
       </div>
 
       {/* Art Ribbon Divider */}
-      <div className="mt-12 relative overflow-hidden min-h-[140px] w-full">
+      <div className="relative overflow-hidden min-h-[140px] w-full mb-16 md:mb-8">
         <Image
           className="object-cover md:object-contain"
           src={art_ribbon}
@@ -89,7 +89,7 @@ export default function Home() {
         </h2>
 
         {/* Stats grid */}
-        <div className="my-10 px-8 flex flex-col md:flex-row">
+        <div className="my-10 md:my-16 px-8 flex flex-col md:flex-row">
           {/* Stat row */}
           <div className="flex flex-row mb-8 md:mb-0 md:w-1/2">
             <div className="w-1/2">
@@ -120,10 +120,10 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2 md:flex-row flex-wrap">
+        <div className="flex flex-col items-center px-2 md:gap-16">
           <Link
             href="/events/technical"
-            className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/2"
+            className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
           >
             <Image
               src={tech_ticket}
@@ -132,7 +132,7 @@ export default function Home() {
           </Link>
           <Link
             href="/events/nontechnical"
-            className="transition mt-8 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/2"
+            className="transition mt-8 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
           >
             <Image
               src={nontech_ticket}
