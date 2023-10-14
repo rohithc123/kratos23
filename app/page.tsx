@@ -53,7 +53,7 @@ export default function Home() {
         </div>
 
         <div className="text-2xl text-center mt-8">
-          <div className="">November 9</div>
+          <div className="">November 3</div>
           <div className="text-void-300">@ Easwari Engineering College</div>
         </div>
         <Image

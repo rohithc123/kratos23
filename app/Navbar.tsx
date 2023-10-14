@@ -114,7 +114,7 @@ export default function Navbar() {
         onClick={() => {
           setIsActive(false)
         }}
-        className={` transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
+        className={`transition duration-300 w-screen h-screen fixed top-0 left-0 bg-void-950 backdrop-blur-sm ${
           isActive ? 'opacity-75' : 'opacity-0'
         }`}
       ></div>
@@ -196,7 +196,7 @@ export default function Navbar() {
          {/* <div className="justify-between"> */}
 
         {/* need to check */}
-      <div className="lg:hidden">
+      <div className="hidden ">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
