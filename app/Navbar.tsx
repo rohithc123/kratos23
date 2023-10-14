@@ -2,9 +2,10 @@
 
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+
 
 const poly = Poly({
   weight: '400',
@@ -205,16 +206,32 @@ export default function Navbar() {
         <div className="w-12/12 hidden  lg:block bg-void-700  h-12 rounded-full">
         {/* <div className=" "> */}
            <div className="mx-10 h-full flex flex-row text-xl justify-between">
-           <div className=" self-center mr-7">
+            <Link
+            href="/events/technical"
+            className=" self-center mr-7">
+            <div >
             Technical
            </div>
-           <div className=" self-center mr-7">
+           
+           </Link>
+           <Link
+            href="/events/nontechnical"
+            className=" self-center mr-7">
+            <div >
             Non-Technical
            </div>
            
-           <div className=" self-center ">
+           </Link>
+           
+           <Link
+            href="/contributors"
+            className=" self-center">
+            <div >
             Contributors
            </div>
+           
+           </Link>
+           
            {/* </div> */}
            
         </div>
