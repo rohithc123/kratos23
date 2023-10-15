@@ -1,20 +1,14 @@
-
 import arrow_back from '@/public/arrow_back.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { events } from '../../eventInfo'
 import AddToBagButton from './addButton'
-import  { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
 
 const poly = Poly({ subsets: ['latin'], weight: '400' })
 const rubik = Rubik({ subsets: ['latin'] })
 
 export async function generateStaticParams() {
-  
-
   var result = []
   for (var c of ['technical', 'nontechnical']) {
     const filteredEvents = Array.from(events)
@@ -35,7 +29,9 @@ export default function EventDetailsPage({
   const ev = events.get(params.event)!
 
   const vs =
-    ev.type == 'team' ? `${ev.teamSize.max}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
+    ev.type == 'team'
+      ? `${ev.teamSize.max}v${ev.teamSize.max}`
+      : `1v${ev.maxTeams}`
   const subtitle = `${
     ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
   } · ${vs} · ₹${ev.fee.amount}`
@@ -55,7 +51,7 @@ export default function EventDetailsPage({
 
       {/* Poster */}
       <Image
-      // style={{y:backgroundY}}
+        // style={{y:backgroundY}}
         className="w-screen aspect-video"
         src={`/posters/${params.event}.png`}
         alt=""
@@ -66,14 +62,14 @@ export default function EventDetailsPage({
       {/* Header */}
       {/* TODO make header sticky */}
       <header className="flex sticky w-full p-4 md:py-8 justify-between items-center font-medium">
-        <div>
+        <div className="max-w-[65%]">
           <h1 style={poly.style} className="text-5xl">
             {ev.name}
           </h1>
           {/* TODO plug the slot info */}
           <div className="mt-1">{subtitle}</div>
           {/* TODO plug this */}
-          {/* <div>{ev.maxTeams} teams</div> */} 
+          {/* <div>{ev.maxTeams} teams</div> */}
         </div>
 
         <AddToBagButton eventCode={params.event} />
