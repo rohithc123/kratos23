@@ -81,7 +81,7 @@ export default function Navbar() {
 
   return (
     
-    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
+    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl lg:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
       {/* Navbar */}
       
       <div className="lg:hidden">
@@ -204,8 +204,8 @@ export default function Navbar() {
       </Link>
       </div>
          
-        <div className="w-12/12 hidden  lg:block bg-void-700  h-12 rounded-full">
-           <div className="mx-10 h-full flex flex-row text-xl justify-between">
+        <div className="w-full hidden lg:text-base mb:text-sm lg:block bg-void-700  h-12 rounded-full">
+           <div className="mx-10 h-full flex flex-row  justify-between">
             <Link
             href="/events/technical"
             className=" self-center mr-7">
@@ -216,7 +216,7 @@ export default function Navbar() {
            </Link>
            <Link
             href="/events/nontechnical"
-            className=" self-center mr-7">
+            className=" self-center mr-7 text-center">
             <div >
             Non-Technical
            </div>
@@ -243,9 +243,11 @@ export default function Navbar() {
           {/* </div>  */}
           {/* </div> */}
           
-        <div className=" lg:block hidden lg:flex lg:justify-end mr-4">
+        <div className=" hidden lg:flex lg:justify-end mr-4">
          
          <div>
+         <div className="relative">
+          
           <Image
             
             // remove the overrided display, before transition starts from state update
@@ -255,6 +257,13 @@ export default function Navbar() {
           width={32}
           height={32}
         />
+        <div className="flex justify-center bg-white text-black rounded-full text-center absolute align-middle h-5 w-5  translate-x-4 -translate-y-4 text-sm self-center ">
+          <p className="self-center text-center">
+            1
+            </p>
+        </div>
+        
+        </div>
         </div>
           {/* hello */}
           </div>
