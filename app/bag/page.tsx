@@ -6,6 +6,7 @@ import qr from '@/public/qr.svg'
 import tick_green from '@/public/tick_green.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import {
   Selected,
@@ -27,6 +28,7 @@ export default function Bag() {
   const [addedEvents, setAddedEvents] = useState<string[]>()
   const [loading, setLoading] = useState(true)
   const [screenshotFile, setScreenshotFile] = useState<File>()
+  const router = useRouter()
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -98,17 +100,18 @@ export default function Bag() {
     // submit the form and handle the response
     const formData = new FormData()
     formData.set('screenshot', screenshotFile)
-    // const personal = JSON.stringify(getCookie<PersonalDetails>('personal')!)
-    // data.set('account', personal)
-    // const events = JSON.stringify(getCookie<Selected>('selected')!)
-    // data.set('events', events)
-    // // Add the event team details
     try {
       const res = await fetch('/submit', {
         method: 'POST',
         body: formData,
       })
-      if (!res.ok) throw new Error()
+      console.log(res)
+      if (!res.ok) {
+        alert(await res.json())
+        throw new Error()
+      } else {
+        router.push('/success')
+      }
     } catch (err) {
       console.error(err)
     }
