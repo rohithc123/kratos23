@@ -225,34 +225,29 @@ export default function Navbar() {
       </Link>
       </div>
          
-        <div className="w-full hidden md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full">
+        <div className="w-full hidden  md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full">
            <div className="mx-10 h-full flex flex-row  justify-between">
-            <Link
-            href="/events/technical"
-            className=" self-center mr-7">
+              <a href="/events/technical"
+            className=" self-center mr-7 ">
             <div >
             Technical
            </div>
-           
-           </Link>
-           <Link
-            href="/events/nontechnical"
-            className=" self-center mr-7 text-center">
+           </a>
+
+            <a href="/events/nontechnical"
+            className=" self-center mr-7 ">
             <div >
             Non-Technical
            </div>
+           </a>
            
-           </Link>
-           
-           <Link
-            href="/contributors"
+           <a href="/events/contributors"
             className=" self-center">
             <div >
             Contributors
            </div>
-           
-           </Link>
-           
+           </a>
+  
            
         </div>
         </div>
