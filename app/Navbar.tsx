@@ -187,12 +187,19 @@ export default function Navbar() {
       </nav>
 
       {/* Desktop-only Nav Segmented Button */}
-      <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full">
-        <Link href="/events/technical" className="">
+      <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full select-none">
+        <Link href="/events/technical" className="transition hover:scale-110">
           Technical
         </Link>
-        <Link href="/events/nontechnical">Non-Technical</Link>
-        <Link href="/contributors">Contributors</Link>
+        <Link
+          href="/events/nontechnical"
+          className="transition hover:scale-110"
+        >
+          Non-Technical
+        </Link>
+        <Link href="/contributors" className="transition hover:scale-110">
+          Contributors
+        </Link>
       </nav>
 
       {/* Bag Button */}
