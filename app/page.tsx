@@ -135,7 +135,7 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2 md:gap-16" >
+        <div className="flex flex-col items-center px-2 gap-8 md:gap-16" >
           <div data-aos="flip-up" >
           <Link
             href="/events/technical"
