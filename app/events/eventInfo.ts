@@ -3,7 +3,10 @@ export interface EventInfo {
     category: 'techincal' | 'nontechnical';
     type: 'team' | 'solo';
     online: boolean;
-    fee: number;
+    fee: {
+        type: 'flat' | 'perHead';
+        amount: number;
+    };
     description: string;
     rules: string[];
     prizes: string[];
@@ -23,7 +26,10 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         category: 'nontechnical',
         type: 'team',
         online: false,
-        fee: 250,
+        fee: {
+            type: 'flat',
+            amount: 250
+        },
         description: 'Put your skills to the test! you can always blame the weather, the sun or the ground but are you worthy of the prize?',
         rules: [
             'Length of Game: 4 minutes halves',
