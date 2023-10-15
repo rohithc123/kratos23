@@ -99,10 +99,10 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         },
         description: 'The event has two rounds: Pattern Programming and HackerRank coding problems. Each team has two members who take turns coding without discussing for a specific amount of time.',
         rules: [
-            'Teams consist of two members.', 
+            'Teams consist of two members.',
             'No discussion between team members.',
             'No smartphone or smartwatch usage.',
-            'Follow coding time allocation.',  
+            'Follow coding time allocation.',
             'Cheating leads to disqualification.',
             'Round 1 elimination.',
             'Highest score wins.',
@@ -139,13 +139,13 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         description: 'Join us for an exciting CSS Design Challenge! Show off your web design skills and creativity as you compete in themed design challenges, attend CSS workshops, and network with fellow designers. ',
         rules: [
             'Teams should consist of up to 2 members.',
-            'In the first round, a quiz will be conducted for 10 minutes in Quizizz. The top 10-15 teams will move on to the second round based on it. ',            
+            'In the first round, a quiz will be conducted for 10 minutes in Quizizz. The top 10-15 teams will move on to the second round based on it. ',
             'In the second round, each team will receive a website design with some basic code (HTML). Your task is to make it look great by writing the CSS code. You guys can discuss it for 10 minutes.',
             'Second round is for 40 minutes. One team member from each team will start and write the code for 20 minutes, after which you would swap with your team member and would code for the final 20 minutes. ',
             'Make sure to finish your work within the set time limit; late submissions might not be considered. ',
             'Your designs will be judged by juries based on how creative, innovative, accurate, and efficient your CSS code is, as well as how well it follows the given guidelines.',
-            
-            
+
+
 
         ],
         prizes: [
@@ -175,15 +175,15 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         },
         description: 'Teams will receive a topic 30 minutes before the event. They must create a PowerPoint presentation to explain the technical subject without using any technical jargons. The teams performance is evaluated according to their PowerPoint presentation, comprehension of the subject matter, and their capability to effectively explain the topic.',
         rules: [
-             'Teams will receive their topics on the spot just before the event.',
-             'A time frame of 30 to 40 minutes will be provided to prepare a PowerPoint presentation on the given topic.',
-             'Teams will be required to submit the final version of their PowerPoint before the event commences.',
-             'Each team will have a 10-minute slot to present their PowerPoint and explain the topic.',
-             'Following the presentation, the judges will ask questions to assess the teams understanding of the topic.',
-             'Any use of technical terminology will result in disqualification.',
-             'The judges decision is final.'
+            'Teams will receive their topics on the spot just before the event.',
+            'A time frame of 30 to 40 minutes will be provided to prepare a PowerPoint presentation on the given topic.',
+            'Teams will be required to submit the final version of their PowerPoint before the event commences.',
+            'Each team will have a 10-minute slot to present their PowerPoint and explain the topic.',
+            'Following the presentation, the judges will ask questions to assess the teams understanding of the topic.',
+            'Any use of technical terminology will result in disqualification.',
+            'The judges decision is final.'
 
-            
+
 
         ],
         prizes: [
@@ -213,20 +213,20 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         },
         description: 'Join the QR Scavenger Hunt! Scan, solve, and conquer thrilling challenges in this modern-day adventure. Embark on a high-tech quest filled with intrigue. Scan QR codes to unlock riddles and unveil hidden mysteries. Strategize, and race against time to solve each clue. Get ready to decode the excitement!',
         rules: [
-              'Individual or Team: Up to 2 members can be in a team',
-              'Each team will receive a QR code, an image that you can scan with your smartphone.Scanned QRs will contain programming problems to be solved.',
-              'Round 1 will have python coding problems.The first round will be for 20 minutes and the top five teams will advance to the final round.',
-              'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
-              'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
-              'The top two teams will receive prizes.',
-              'Individual or Team: Up to 2 members can be in a team',
-              'Each team will receive a QR code, an image that you can scan with your smartphone.Scanned QRs will contain programming problems to be solved.',
-              'Round 1 will have python coding problems.The first round will be for 20 minutes and the top five teams will advance to the final round.',
-              'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
-              'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
-              'The top two teams will receive prizes.',
-                        
-            
+            'Individual or Team: Up to 2 members can be in a team',
+            'Each team will receive a QR code, an image that you can scan with your smartphone.Scanned QRs will contain programming problems to be solved.',
+            'Round 1 will have python coding problems.The first round will be for 20 minutes and the top five teams will advance to the final round.',
+            'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
+            'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
+            'The top two teams will receive prizes.',
+            'Individual or Team: Up to 2 members can be in a team',
+            'Each team will receive a QR code, an image that you can scan with your smartphone.Scanned QRs will contain programming problems to be solved.',
+            'Round 1 will have python coding problems.The first round will be for 20 minutes and the top five teams will advance to the final round.',
+            'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
+            'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
+            'The top two teams will receive prizes.',
+
+
 
         ],
         prizes: [
@@ -257,13 +257,13 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         description: 'Are you ready for an exhilarating adventure like no other?Join us for : The Great E-Treasure Hunt," an electrifying virtual treasure hunt that will test your wits, teamwork, and tech-savvy skills!',
         rules: [
             'Participants can form teams with a maximum of 2 members or play  individually.',
-            'The E-Treasure Hunt will take place for 45 Minutes',            
-            'Participants will receive a series of online clues and riddles that lead them closer to the ultimate treasure.',            
-            'The hunt begins with an email sent to all registered participants at This email will contain the first clue.',   
-            'This treasure hunt is entirely virtual, and participants do not need to visit physical locations. The ultimate treasure is a digital certificate of achievement.',           
+            'The E-Treasure Hunt will take place for 45 Minutes',
+            'Participants will receive a series of online clues and riddles that lead them closer to the ultimate treasure.',
+            'The hunt begins with an email sent to all registered participants at This email will contain the first clue.',
+            'This treasure hunt is entirely virtual, and participants do not need to visit physical locations. The ultimate treasure is a digital certificate of achievement.',
             'Participants earn points for each clue solved. The participant or team with the most points at the end will be declared the winner. 10 points for each correct clue solved.',
             'Collaboration or sharing of answers among participants is strictly prohibited. Any form of cheating will result in disqualification.',
-            
+
         ],
         prizes: [
             'TBD',

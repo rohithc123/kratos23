@@ -10,8 +10,12 @@ export default function EventCard({
   code: string
   ev: EventInfo
 }) {
-  const vs =
-    ev.type == 'team' ? `${ev.teamSize.max}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
+  const ts = `${
+    ev.teamSize.min == ev.teamSize.max
+      ? ev.teamSize.max
+      : `${ev.teamSize.min}-${ev.teamSize.max}`
+  }`
+  const vs = ev.type == 'team' ? `${ts}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
   const subtitle = `${
     ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
   } · ${vs} · ₹${ev.fee.amount}`
