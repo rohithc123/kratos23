@@ -26,7 +26,7 @@ export default function Home() {
     <main className="flex flex-col items-center md:max-w-[768px]">
       <header className="pt-20 flex flex-col items-center min-h-[100svh] md:h-fit justify-around">
         {/* Hero Image */}
-        <div className="relative aspect-square w-[85vw] max-w-[330px] lg:max-w-[400px] lg:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 ">
+        <div className="relative aspect-square w-[85vw] max-w-[330px] md:max-w-[400px] md:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 ">
           {/* Title */}
           <h1 style={baskerville.style} className="z-10 text-5xl text-center">
             KRATOS
@@ -71,13 +71,13 @@ export default function Home() {
           alt=""
           width={58}
           height={58}
-          className="m-12 lg:m-6 animate animate-bounce"
+          className="m-12 md:m-6 animate animate-bounce"
         />
       </header>
 
       {/* md:max-w-[75%] */}
       <div className="w-screen grid justify-items">
-      <div className="mx-4 rounded-lg overflow-hidden lg:max-w-[80%]  mt-8 justify-self-center">
+      <div className="mx-4 rounded-lg overflow-hidden md:max-w-[80%]  mt-8 justify-self-center">
         <video autoPlay muted loop>
           <source src="/promo.webm" type="video/webm" />
           <source src="/promo.mp4" type="video/mp4" />

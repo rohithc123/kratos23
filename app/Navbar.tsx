@@ -102,10 +102,10 @@ export default function Navbar() {
 
   return (
     
-    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl lg:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
+    <div className="z-20 w-screen flex p-6 md:p-3 text-2xl md:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-around md:grid md:grid-cols-3">
       {/* Navbar */}
       
-      <div className="lg:hidden">
+      <div className="md:hidden">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
@@ -121,7 +121,7 @@ export default function Navbar() {
             setIsActive(true)
           }, 0)
         }}
-        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none lg:hidden"
+        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none md:hidden"
         src={nav_btn}
         alt=""
         width={32}
@@ -219,13 +219,13 @@ export default function Navbar() {
          {/* <div className="justify-between"> */}
 
         {/* need to check */}
-      <div className="hidden lg:block ">
+      <div className="hidden md:block ">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
       </div>
          
-        <div className="w-full hidden lg:text-base mb:text-sm lg:block bg-void-700  h-12 rounded-full">
+        <div className="w-full hidden md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full">
            <div className="mx-10 h-full flex flex-row  justify-between">
             <Link
             href="/events/technical"
@@ -264,7 +264,7 @@ export default function Navbar() {
           {/* </div>  */}
           {/* </div> */}
           
-        <div className=" hidden lg:flex lg:justify-end mr-4">
+        <div className=" hidden md:flex md:justify-end mr-4">
          
          <div>
          <div className="relative">
