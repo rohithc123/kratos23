@@ -1,14 +1,20 @@
+
 import arrow_back from '@/public/arrow_back.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { events } from '../../eventInfo'
 import AddToBagButton from './addButton'
+import  { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 
 const poly = Poly({ subsets: ['latin'], weight: '400' })
 const rubik = Rubik({ subsets: ['latin'] })
 
 export async function generateStaticParams() {
+  
+
   var result = []
   for (var c of ['technical', 'nontechnical']) {
     const filteredEvents = Array.from(events)
@@ -49,6 +55,7 @@ export default function EventDetailsPage({
 
       {/* Poster */}
       <Image
+      style={{y:backgroundY}}
         className="w-screen aspect-video"
         src={`/posters/${params.event}.png`}
         alt=""

@@ -107,9 +107,8 @@ export default function Home() {
       </div>
       
       {/* Art Ribbon Divider */}
-      <motion.div 
+      <div 
       
-      style={{ x:backgroundX }}
       className="relative overflow-hidden min-h-[140px] w-full my-16 md:mb-8">
         <Image
           className="object-cover md:object-contain"
@@ -117,7 +116,7 @@ export default function Home() {
           alt=""
           fill
         />
-      </motion.div>
+      </div>
 
       {/* Events section */}
       
