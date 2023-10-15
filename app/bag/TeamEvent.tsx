@@ -138,13 +138,13 @@ export default function TeamEvent({
                     teamDetail.current = {
                       member1: (
                         document.getElementById('member1') as HTMLInputElement
-                      ).value,
+                      )?.value,
                       member2: (
                         document.getElementById('member2') as HTMLInputElement
-                      ).value,
+                      )?.value,
                       member3: (
                         document.getElementById('member3') as HTMLInputElement
-                      ).value,
+                      )?.value,
                     }
                     setCookie<TeamDetail>(eventCode, teamDetail.current)
                     setCardStatus(Status.filled)
@@ -177,7 +177,7 @@ export default function TeamEvent({
                     </p>
                     <input
                       autoCapitalize="words"
-                      required
+                      required={ev.teamSize.min - 1 >= 2}
                       id={`member${idx + 1}`}
                       type="text"
                       autoComplete="name"
