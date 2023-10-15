@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getCookie } from './cookies'
-
+import bag from '@/public/shopping_bag.svg'
 
 const poly = Poly({
   weight: '400',
@@ -19,16 +19,10 @@ const poly = Poly({
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
   const [drawerHeight, setDrawerHeight] = useState(0)
-
   const [addedEvents, setAddedEvents] = useState<string[]>()
- 
-
-
   const pathname = usePathname()
-  
 
   useEffect(() => {
-
     if (typeof window == undefined) {
       return
     }
@@ -59,7 +53,7 @@ export default function Navbar() {
     if (typeof window == undefined) {
       return
     }
-    
+
     if (isActive) {
       // Disable scrolling
       const scrollPosition = window.scrollY
@@ -87,16 +81,12 @@ export default function Navbar() {
   }
 
   return (
-    
-    <div className="z-20 w-screen flex p-6 md:p-3 text-2xl md:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-around md:grid md:grid-cols-4">
+    <div className="z-20 w-screen flex p-6 md:py-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-between">
       {/* Navbar */}
-      
-      <div className="md:hidden">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
-      </div>
-      
+
       <Image
         onClick={() => {
           // remove the overrided display, before transition starts from state update
@@ -198,88 +188,37 @@ export default function Navbar() {
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
-     
-         
-         
-         
-         {/* <div className="justify-between"> */}
 
-        {/* need to check */}
-      <div className="hidden md:block md:ml-5">
-      <Link style={poly.style} href="/">
-        KRATOS
-      </Link>
-      </div>
-         
-        {/* <div className="w-full hidden  md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full"> */}
-        <div className="hidden md:block   grid-cols-3 divide-x h-12 w-max-2/5 bg-void-700 rounded-full overflow-hidden font-medium col-span-2 justify-items-stretch">
-           <div className=" mx-10 h-full flex flex-row  justify-between justify-self-center font-medium text-sm">
-            <Link
-            href="/events/technical"
-            className=" self-center pr-7 ">
-            <div >
-            Technical
-           </div>
-           
-           </Link>
-           <Link
-            href="/events/nontechnical"
-            className=" self-center pr-7 text-center">
-            <div >
-            Non-Technical
-           </div>
-           
-           </Link>
-           
-           <Link
-            href="/contributors"
-            className=" self-center">
-            <div >
-            Contributors
-           </div>
-           
-           </Link>
-           
-           
-        </div>
-        </div>
-            
-        {/* </div>           */}
+      {/* Desktop-only Nav Segmented Button */}
+      <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full">
+        <Link href="/events/technical" className="">
+          Technical
+        </Link>
+        <Link href="/events/nontechnical">Non-Technical</Link>
+        <Link href="/contributors">Contributors</Link>
+      </nav>
 
-         
-          <div>
-          {/* </div>  */}
-          {/* </div> */}
-          
-        <div className=" hidden md:flex md:justify-end mr-4">
-         
-         <div>
-         <div className="relative">
-          
-          <Image
-            
-            // remove the overrided display, before transition starts from state update
-          className=" w-8 h-8  cursor-pointer select-none "
-          src="/shopping_bag.svg"
+      {/* Bag Button */}
+      <Link
+        href="/bag"
+        className=" hidden md:flex md:justify-end mr-4 relative cursor-pointer"
+      >
+        <Image
+          className="w-8 h-8 select-none "
+          src={bag}
           alt=""
           width={32}
           height={32}
         />
-        <div className="flex justify-center bg-white text-black rounded-full text-center absolute align-middle h-5 w-5  translate-x-4 -translate-y-4 text-sm self-center ">
+        {/* TODO the bag size badge */}
+        {/* Note: the problem is updating the badge when the cookie changes, so 
+        it is better to not have the number currently than to have a desynced number */}
+        {/* <div className="flex justify-center bg-white text-black rounded-full text-center absolute h-5 w-5 translate-x-4 -translate-y-4 text-sm self-center">
           <p className="self-center text-center">
-            {/* {!(addedEvents?.length)?0:(addedEvents?.length)} */}
-            {/* {addedEvents?.length}*/}
             1
-            </p>
-        </div>
-        
-        </div>
-        </div>
-          {/* hello */}
-          </div>
-        </div>
+          </p>
+        </div> */}
+      </Link>
     </div>
-
-    
   )
 }
