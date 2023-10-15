@@ -1,17 +1,22 @@
 'use client'
 
 import arrow_right from '@/public/arrow_right_dark.svg'
+import attach_file from '@/public/attach_file.svg'
+import qr from '@/public/qr.svg'
+import tick_green from '@/public/tick_green.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import {
   Selected,
+  TeamDetail,
   getCookie,
   removeSelectedEvent,
   removeTeamDetails,
 } from '../cookies'
 import { events } from '../events/eventInfo'
-import PersonalDetails from './PersonalDetails'
+import PersonalDetailsCard from './PersonalDetailsCard'
 import SoloEvent from './SoloEvent'
 import TeamEvent from './TeamEvent'
 
@@ -19,8 +24,11 @@ const poly = Poly({ weight: ['400'], subsets: ['latin'] })
 const rubik = Rubik({ weight: ['400'], subsets: ['latin'] })
 
 export default function Bag() {
+  // Note: addedEvents is set on first render only, not updated after that
   const [addedEvents, setAddedEvents] = useState<string[]>()
   const [loading, setLoading] = useState(true)
+  const [screenshotFile, setScreenshotFile] = useState<File>()
+  const router = useRouter()
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -31,6 +39,83 @@ export default function Bag() {
       setLoading(false)
     }
   }, [])
+
+  function getTotalFee(): number {
+    if (!hasAddedEvents()) {
+      return 0
+    }
+
+    return addedEvents!
+      .map<number>((code) => events.get(code)!.fee)
+      .reduce((ac, x) => ac + x, 0)
+  }
+
+  function hasAddedEvents(): boolean {
+    if (!addedEvents) {
+      // the cookie isn't even set
+      return false
+    }
+    if (addedEvents.length === 0) {
+      // the cookie is set to empty value
+      return false
+    }
+    return true
+  }
+
+  async function validateAndSubmit() {
+    // disabled
+    if (!hasAddedEvents()) {
+      return
+    }
+
+    // Check if all the team events are entered
+    for (let evCode of addedEvents!) {
+      const teamDetails = getCookie<TeamDetail>(evCode)
+      if (!teamDetails) {
+        const element = document.getElementById(evCode)!
+        element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+        setTimeout(() => {
+          element.style.border = '2px solid red'
+        }, 100)
+        setTimeout(() => {
+          element.style.border = ''
+        }, 1100)
+        return
+      }
+    }
+
+    // Check if the screenshot is attached
+    if (!screenshotFile) {
+      const element = document.getElementById('pay')!
+      element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      setTimeout(() => {
+        element.style.border = '2px solid red'
+      }, 100)
+      setTimeout(() => {
+        element.style.border = ''
+      }, 1100)
+      return
+    }
+
+    // submit the form and handle the response
+    const formData = new FormData()
+    formData.set('screenshot', screenshotFile)
+    try {
+      const res = await fetch('/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      console.log(res)
+      if (!res.ok) {
+        alert(await res.json())
+        throw new Error()
+      } else {
+        router.push('/success')
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   return (
     <main className="min-h-screen px-4">
@@ -47,7 +132,7 @@ export default function Bag() {
         </p>
       </header>
 
-      <PersonalDetails />
+      <PersonalDetailsCard />
 
       <h2
         style={rubik.style}
@@ -114,26 +199,101 @@ export default function Bag() {
       <div className="border-void-500 border-t-[1px] text-2xl p-4 text-right mt-4">
         <h4>
           Total:
-          <span className="ml-3 font-medium">
-            ₹
-            {addedEvents
-              ? addedEvents
-                  ?.map<number>((code) => events.get(code)!.fee)
-                  .reduce((ac, x) => ac + x, 0)
-              : '0'}
-          </span>
+          <span className="ml-3 font-medium">₹{getTotalFee()}</span>
         </h4>
       </div>
 
-      <button
-        className="flex w-full bg-gradient-to-br from-cherry to-vinyl text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-4 font-semibold"
-        onClick={() => {
-          // TODO
-          alert('TODO')
-        }}
+      {/* Payment Prompt */}
+      <div
+        id="pay"
+        className="transition bg-void-700 p border-[1px] border-void-500 rounded-lg my-6"
       >
-        Go to Payment <Image src={arrow_right} width={20} height={20} alt="" />
-      </button>
+        {/* Top Row */}
+        <div className="border-b-[1px] border-void-500 flex items-center">
+          {/* QR */}
+          <Image
+            src={qr}
+            className="max-w-[33.3%] object-contain"
+            alt="QR code for the payment"
+          />
+          <div className="p-4 w-2/3">
+            {/* Prompt */}
+            <h4 className="text-center text-xl">
+              UPI ₹{getTotalFee()} to this QR code or mobile
+            </h4>
+            {/* Mobile No */}
+            <h2 className="text-center text-3xl mt-3" style={rubik.style}>
+              98172 5TODO
+            </h2>
+          </div>
+        </div>
+
+        {/* Bottom Row */}
+        <form className="flex justify-center">
+          {/* Hidden input to capture the input */}
+          <input
+            id="file"
+            type="file"
+            name="screenshot"
+            style={{ display: 'none' }}
+            accept="image/*"
+            onInput={(e) => {
+              // update the state to conain the selected file
+              setScreenshotFile(e.currentTarget.files?.[0])
+            }}
+          />
+
+          {/* Attach Button */}
+          {/* 
+            Note: This styled button triggers the file input prompt. The file 
+            selected is set to the state by the onInput handler of the file input 
+            element. Ultimately the data submission is handled by the submission 
+            button at the bottom of the page.
+          */}
+          <button
+            type="button"
+            className="flex justify-center gap-2 p-4 cursor-pointer text-xl w-full"
+            onClick={(e) => {
+              document.getElementById('file')!.click()
+            }}
+          >
+            {!screenshotFile && (
+              <p className="bg-gradient-to-br from-cherry to-vinyl bg-clip-text text-transparent w-fit">
+                Attach the screenshot
+              </p>
+            )}
+
+            {screenshotFile && (
+              <p className="text-green-500 w-fit">Screenshot attached</p>
+            )}
+
+            <Image
+              src={screenshotFile ? tick_green : attach_file}
+              alt=""
+              width={24}
+              height={24}
+            />
+          </button>
+        </form>
+      </div>
+
+      {/* nithssh: The whole button isDisabled should've been a state, and useEffect to setIsDisabled and setAddedEvents when cookies change*/}
+      {/* 
+        NOTE: This button is only greyed out when no events are added. If any of
+        the requried data is not filled, it will scroll-to and highlight the 
+        required field. This is better for the user experience than greying out
+        without any explanation of the issue.
+       */}
+      <div
+        className={`select-none flex w-full text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-6 font-semibold ${
+          hasAddedEvents()
+            ? 'bg-gradient-to-br from-cherry to-vinyl cursor-pointer'
+            : 'bg-void-500'
+        }`}
+        onClick={validateAndSubmit}
+      >
+        Submit <Image src={arrow_right} width={20} height={20} alt="" />
+      </div>
     </main>
   )
 }

@@ -74,3 +74,10 @@ export type TeamDetail = {
 export type Selected = {
   events: string[]
 }
+
+export type PersonalDetails = {
+  name: string
+  email: string
+  college: string
+  mobile: string
+}

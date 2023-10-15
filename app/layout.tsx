@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body style={inter.style} className='flex flex-col items-center'>
         <Navbar />
         {children}
         <Footer />
