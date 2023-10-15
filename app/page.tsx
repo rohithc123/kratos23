@@ -21,7 +21,7 @@ export default function Home() {
   const ref = useRef(null);
   const { scrollYProgress }  = useScroll({
     target:ref,
-    // offset: [ "start start", "end start" ],
+    offset: [ "start start", "end start" ],
 });
 
 // const { scrollYProgess } = useScroll(({ scrollYProgress }) => scrollYProgress, {
@@ -29,7 +29,7 @@ export default function Home() {
 // });
 
   const backgroundY = useTransform(scrollYProgress, [0,1] , ["0%", "150%"]);
-  const backgroundX = useTransform(scrollYProgress, [0,1] , ["-100%", "100%"]);
+  const backgroundX = useTransform(scrollYProgress, [0,1] , ["-150%", "200%"]);
   const textY = useTransform(scrollYProgress, [0,1] ,["0%","200%"]);
 
   useEffect(() =>{
