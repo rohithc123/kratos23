@@ -8,14 +8,18 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": {
-    "aos": "^2.3.4",
-    "framer-motion": "^10.16.4",
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "sharp": "^0.32.6",
-    "taos": "^1.0.5"
+ "dependencies": {
+        "aos": "^2.3.4",
+        "framer-motion": "^10.16.4",
+        "@google-cloud/storage": "^7.3.0",
+        "encoding": "^0.1.13",
+        "mongodb": "^6.1.0",
+        "next": "latest",
+        "react": "latest",
+        "react-dom": "latest",
+        "request": "^2.88.2",
+        "sharp": "^0.32.6"
+        "taos": "^1.0.5"
   },
   "devDependencies": {
     "@types/aos": "^3.0.5",

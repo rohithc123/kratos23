@@ -8,10 +8,10 @@ import telephone from '@/public/telephone.svg'
 import tick from '@/public/tick.svg'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { getCookie, setCookie } from '../cookies'
+import { PersonalDetails, getCookie, setCookie } from '../cookies'
 
 // Note: better to have a loading skeleton state to default to
-export default function PersonalDetails() {
+export default function PersonalDetailsCard() {
   const [cardStatus, setCardStatus] = useState(Status.loading)
 
   const personalDet = useRef<PersonalDetails | undefined>()
@@ -88,7 +88,7 @@ export default function PersonalDetails() {
               type="text"
               autoComplete="name"
               minLength={3}
-              className="bg-transparent border-cherry border-[1px] w-[70%] rounded pl-1"
+              className="bg-transparent border-void-200 border-[1px] w-[70%] rounded pl-1"
               placeholder="Full Name"
               defaultValue={personalDet.current?.name}
             />
@@ -132,7 +132,7 @@ export default function PersonalDetails() {
                 id="email"
                 type="email"
                 autoComplete="email"
-                className="bg-transparent border-cherry border-[1px] w-full rounded pl-1"
+                className="bg-transparent border-void-200 border-[1px] w-full rounded pl-1"
                 placeholder="Email address"
                 defaultValue={personalDet.current?.email}
               />
@@ -143,7 +143,7 @@ export default function PersonalDetails() {
                 required
                 id="college"
                 type="text"
-                className="bg-transparent border-cherry border-[1px] w-full rounded pl-1"
+                className="bg-transparent border-void-200 border-[1px] w-full rounded pl-1"
                 placeholder="Name of your college"
                 defaultValue={personalDet.current?.college}
               />
@@ -157,7 +157,7 @@ export default function PersonalDetails() {
                 minLength={10}
                 maxLength={10}
                 autoComplete="tel"
-                className="bg-transparent border-cherry border-[1px] w-full rounded pl-1"
+                className="bg-transparent border-void-200 border-[1px] w-full rounded pl-1"
                 placeholder="10-digit mobile number"
                 defaultValue={personalDet.current?.mobile}
               />
@@ -200,13 +200,6 @@ export default function PersonalDetails() {
         </div>
       )
   }
-}
-
-type PersonalDetails = {
-  name: string
-  email: string
-  college: string
-  mobile: string
 }
 
 enum Status {

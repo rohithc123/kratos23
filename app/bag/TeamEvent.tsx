@@ -182,7 +182,7 @@ export default function TeamEvent({
                       type="text"
                       autoComplete="name"
                       minLength={3}
-                      className="bg-transparent border-cherry border-[1px] rounded pl-1 placeholder:font-light w-3/5"
+                      className="bg-transparent border-void-200 border-[1px] rounded pl-1 placeholder:font-light w-3/5"
                       // placeholder="Bofa Deez"
                       placeholder="Full Name"
                       defaultValue={
