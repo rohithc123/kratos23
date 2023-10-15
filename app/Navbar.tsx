@@ -135,20 +135,18 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Signup button */}
-          <div
-            onClick={() => {
-              alert('clicked')
-            }}
-            className={`min-w-[10ch] p-[1px] w-fit text-base  rounded-full font-semibold bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
+          <Link
+            href="/bag"
+            className="flex md:justify-end mr-4 relative cursor-pointer"
           >
-            <div
-              // TODO plug the inversion
-              className={`p-3 text-center rounded-full select-none 'bg-transparent text-void-950`}
-            >
-              Sign Up
-            </div>
-          </div>
+            <Image
+              className="w-8 h-8 select-none "
+              src={bag}
+              alt=""
+              width={32}
+              height={32}
+            />
+          </Link>
         </div>
 
         {/* Top Three options */}
