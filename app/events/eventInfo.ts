@@ -1,6 +1,6 @@
 export interface EventInfo {
     name: string;
-    category: 'techincal' | 'nontechnical';
+    category: 'technical' | 'nontechnical';
     type: 'team' | 'solo';
     online: boolean;
     fee: {
