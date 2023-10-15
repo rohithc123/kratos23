@@ -317,6 +317,260 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         ]
 
     },
+    'channel_surfing': {
+        name: 'Channel Surfing',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 250,
+        },
+        description: 'Channel Surfing is about a team imitating popular channels in variety of categories such as sports, news, food etc. The teams must act as directed by the judges, who will continuously change the channel and give instructions such as (reverse, play, pause, fast-forward, slow-motion). According to the act points will be awarded.',
+        rules: [
+           'A team can consist of only 5 members.',
+           'Participants must act out the channel given by the judges and should be able to simultaneously switch to a different channel.',
+           'Avoid using sensitive content. The team will be disqualified if the rule is violated.',
+           'No time will be allotted for preparation.',
+           'Participants are given time duration of 5-6 minutes.',
+           'Judges decision is final.'
+            
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 5,
+            max: 5,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Karthikeyen JS – 8838467785',
+            'Nithya Sri A - 8680917332'
+        ]
+
+    },
+    'title_event': {
+        name: 'Title Event – Mr/Ms. Kratos',
+        category: 'nontechnical',
+        type: 'solo',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 50,
+        },
+        description: 'Title Event is a solo event where each individual will compete for the title of Mr/Ms.Kratos by showcasing their individual talents and spontaneity skills. Participants will be judged on their clarity of thoughts, presentation and personality. Based on how well they answer, the judges will score them and decide who moves on to the next round. According to the performance, points will be awarded. ',
+        rules: [
+            'It is a SOLO EVENT.',
+            'The event will consists of two rounds and the second round will have 2-3 sets.',
+            'Every round and set will have an elimination.',
+            'The rounds and topics will be decided by the judges, on spot.',
+            'Vulgarity of any sort will lead to immediate disqualification.',
+            'Judges decision is final.',
+            'The winner will be awarded the title of Mr/Ms.Kratos',
+            
+            
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 1,
+            max: 1,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Jerith Guru – 7358365658',
+            'S.M.Aditya - 9087582220'
+        ]
+
+    },
+    'cine_quiz': {
+        name: 'Cine Quiz',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 150,
+        },
+        description: 'Calling all movie enthusiasts! Join us for a thrilling evening packed with movie trivia, games, and fun. Whether you’re a casual moviegoer or a dedicated cinephile , this event is your chance to show off your knowledge and passion for film',
+        rules: [
+            'Each team should contain only 3 members',
+            'Judges opinion is final',
+            'Total 3 rounds will  conducted',
+            'Spot elimination will be done ',
+            'Mobile phones and electronic devices are prohibited.',
+      
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 3,
+            max: 3,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Sanjay mathan - 9715118875',
+            'Thakshinathan M -9487557706'
+        ]
+
+    },
+
+    'hunger_games': {
+        name: 'Hunger Games',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 100,
+        },
+        description: 'Join us for an epic battle of skill in a thrilling event that echoes the spirit of the Hunger Games! Our Hunger Games-inspired competition features three heart-pounding rounds, each filled with a series of exciting and challenging games. Teams will face off, proving their mettle and determination, with only the best advancing to the final round. In the ultimate showdown, only one team will emerge victorious, claiming the title of our ultimate champions!',
+        rules: [
+            'This is a team of 2 participants event',
+            'Each team has to compete with their co-team in simple games that are anonymous.',
+            'There are totally three rounds.', 
+            'Step by step elimination is done after each round.',
+            'Winner is determined at the end of the third round.',
+
+      
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 2,
+            max: 2,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Srirpiya T - 9789923757',
+            'Preethi S  - 9789860078'
+        ]
+
+    },
+    'fifa': {
+        name: 'Fifa',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 100,
+        },
+        description: 'Prepare for the ultimate FIFA event! Our electrifying FIFA tournament gathers top teams for exhilarating matches and legendary showdowns. Who will rise as the champions of the pitch?',
+        rules: [
+            'The tournament features a knockout format for matches.',
+            'Top teams are grouped and compete in a round-robin format during the group stage.',
+            'Team selection is determined by a coin toss.',
+            'Matches will include penalty shootouts to determine a winner and eliminate draws.',
+            'Teams must adhere to their allotted time slots; failure to do so may result in the opposing team advancing.',
+            'Toxicity is strictly not entertained and will result in elimination of the team.',
+            
+      
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 2,
+            max: 2,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Thansil Mohamed S - 6382443278',
+            'Sharan M - 7305542590'
+        ]
+
+    },
+    'femscreen': {
+        name: 'FemScreen',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 150,
+        },
+        description: 'Join us for an empowering event! Watch a short film on womens empowerment, engage in a meaningful discussion, and have fun guessing famous womens names in a charades game. Form teams of three and win prizes for the most correct guesses. Dont miss out!',
+        rules: [
+             'Form teams of three.',
+             'One team member acts out a famous womans name silently.',
+             'The other two team members guess the name to score points.',
+             'No speaking or using props allowed.',
+             'The team with the most correct guesses within the allotted time wins.',
+
+      
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 3,
+            max: 3,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Yemini - 9962701373',
+            'Deepti - 9445027380'
+        ]
+
+    },
+    // 'futsal': {
+    //     name: 'Futsal',
+    //     category: 'nontechnical',
+    //     type: 'team',
+    //     online: false,
+    //     fee: {
+    //         type: 'flat',
+    //         amount: 250,
+    //     },
+    //     description: 'Join us for an electrifying evening of Futsal action! Get ready to witness thrilling matches, impressive footwork, and intense competition as teams battle it out on the court. Whether youre a seasoned player or a passionate fan, this event promises an adrenaline-packed experience for all. Dont miss out on the excitement – mark your calendars and come kick it with us!',
+    //     rules: [
+    //         'Length of Game: 4 minutes halves',
+    //         'Teams can call a 1-minute halftime',
+    //         '9 minutes per match (extended up to 10 minutes if required)',
+    //         'Teams comprise of 4 main players (1 goalkeeper) and 2 substitutes.',
+    //         'Conduct of Knockout or League tournament depends on the number of teams.',
+    //         'Rolling substitutes allowed',
+    //         'Play for referee whistle',
+    //         'One step penalty',
+    //         'No offensive language or violent conduct.',
+    //         'Players receiving Yellow card are obliged to a 1-minute ban.',
+    //         'Players receiving Red card should leave the match.',
+            
+      
+    //     ],
+    //     prizes: [
+    //         'TBD',
+    //         'TBD',
+    //         'TBD'
+    //     ],
+    //     teamSize: {
+    //         min: 5,
+    //         max: 5,
+    //     },
+    //     maxTeams: 8,
+    //     organizers: [
+    //         'Dikshin - 9789855589',
+    //         'Neeraj - 9361366212'
+    //     ]
+
+    // },
 }
 
 export const events: Map<string, EventInfo> = new Map(Object.entries(eventsLiteral));
