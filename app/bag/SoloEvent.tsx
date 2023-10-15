@@ -3,10 +3,8 @@
 import man from '@/public/man.svg'
 import trash from '@/public/trash.svg'
 import Image from 'next/image'
-import { events } from '../events/eventInfo'
-import { Selected, getCookie, setCookie } from '../cookies'
-import { Router, useRouter } from 'next/router'
 import { MouseEventHandler } from 'react'
+import { events } from '../events/eventInfo'
 
 export default function SoloEvent({ eventCode, deleteHandler }: { eventCode: string, deleteHandler: MouseEventHandler }) {
   const ev = events.get(eventCode)!
@@ -27,7 +25,7 @@ export default function SoloEvent({ eventCode, deleteHandler }: { eventCode: str
       </div>
 
       {/* Price */}
-      <div className="text-2xl">₹{ev.fee}</div>
+      <div className="text-2xl">₹{ev.fee.amount}</div>
 
       {/* Delete Button */}
       <Image

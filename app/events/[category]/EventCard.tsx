@@ -14,7 +14,7 @@ export default function EventCard({
     ev.type == 'team' ? `${ev.teamSize.max}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
   const subtitle = `${
     ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
-  } · ${vs} · ₹${ev.fee}`
+  } · ${vs} · ₹${ev.fee.amount}`
 
   return (
     <Link
