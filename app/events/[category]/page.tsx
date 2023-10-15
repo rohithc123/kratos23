@@ -47,7 +47,7 @@ export default function Events({ params }: { params: { category: string } }) {
   })
 
   return (
-    <main className="min-h-screen w-screen flex flex-col items-center">
+    <main className="min-h-screen w-screen flex flex-col items-center md:max-w-[900px]">
       {/* Spacer */}
       <div className="p-10" />
 
@@ -96,7 +96,7 @@ export default function Events({ params }: { params: { category: string } }) {
       </search>
 
       {/* cards */}
-      <div className="w-full py-6 px-4 flex flex-col items-center text-center">
+      <div className="w-full py-6 px-4 flex flex-col items-center text-center md:justify-center md:flex-row flex-wrap gap-6">
         {cards.length !== 0 ? cards : `No events found`}
       </div>
     </main>

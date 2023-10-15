@@ -41,7 +41,7 @@ export default function EventDetailsPage({
   } · ${vs} · ₹${ev.fee}`
 
   return (
-    <main className="min-h-screen w-screen flex flex-col">
+    <main className="min-h-screen w-screen flex flex-col md:max-w-[768px]">
       {/* Spacer */}
       <div className="p-10" />
 
@@ -55,7 +55,7 @@ export default function EventDetailsPage({
 
       {/* Poster */}
       <Image
-      style={{y:backgroundY}}
+      // style={{y:backgroundY}}
         className="w-screen aspect-video"
         src={`/posters/${params.event}.png`}
         alt=""
@@ -65,14 +65,15 @@ export default function EventDetailsPage({
 
       {/* Header */}
       {/* TODO make header sticky */}
-      <header className="flex sticky w-full p-4 justify-between items-center font-medium">
+      <header className="flex sticky w-full p-4 md:py-8 justify-between items-center font-medium">
         <div>
           <h1 style={poly.style} className="text-5xl">
             {ev.name}
           </h1>
           {/* TODO plug the slot info */}
           <div className="mt-1">{subtitle}</div>
-          <div>{ev.maxTeams} slots available</div>
+          {/* TODO plug this */}
+          {/* <div>{ev.maxTeams} teams</div> */} 
         </div>
 
         <AddToBagButton eventCode={params.event} />
