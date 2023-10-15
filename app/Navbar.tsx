@@ -80,7 +80,8 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
+    
+    <div className="z-20 w-screen flex p-6 lg:p-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 lg:justify-around lg:grid lg:grid-cols-3">
       {/* Navbar */}
       
       <div className="lg:hidden">
@@ -197,14 +198,13 @@ export default function Navbar() {
          {/* <div className="justify-between"> */}
 
         {/* need to check */}
-      <div className="hidden ">
+      <div className="hidden lg:block ">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
       </div>
          
         <div className="w-12/12 hidden  lg:block bg-void-700  h-12 rounded-full">
-        {/* <div className=" "> */}
            <div className="mx-10 h-full flex flex-row text-xl justify-between">
             <Link
             href="/events/technical"
@@ -232,7 +232,6 @@ export default function Navbar() {
            
            </Link>
            
-           {/* </div> */}
            
         </div>
         </div>

@@ -24,9 +24,9 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center md:max-w-[768px]">
-      <header className="pt-20 flex flex-col items-center min-h-[100svh] md:h-screen justify-around">
+      <header className="pt-20 flex flex-col items-center min-h-[100svh] md:h-screen justify-around ">
         {/* Hero Image */}
-        <div className="relative aspect-square w-[85vw] max-w-[330px] lg:max-w-[400px] lg:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10">
+        <div className="relative aspect-square w-[85vw] max-w-[330px] lg:max-w-[400px] lg:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 ">
           {/* Title */}
           <h1 style={baskerville.style} className="z-10 text-5xl text-center">
             KRATOS
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         {/* Hero Text */}
         <div className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent">
-          <span className="bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
+          <span className=" bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
             Code.&thinsp;
           </span>
           <span className="bg-clip-text bg-gradient-to-r from-white to-white/50">
