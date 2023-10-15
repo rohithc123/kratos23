@@ -55,23 +55,7 @@ export default function Section({
         </div>
          
          </div>
-         {/* <div className="text-xl"> */}
-        {/* Dr.K.M.Anandkumar
-    
-        </div>
-        <div className="text-xl">
-        Dr.S.Kayalvizhi
-    
-        </div>
-        <div className="text-xl">
-        Mrs.A.Abirami
-    
-        </div>
-        <div className="text-xl">
-        Ms.S.Bhuvaneswari
-     
-        </div> */}
-
+       
         </div>
        </div>
        </div>

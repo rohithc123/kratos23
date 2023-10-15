@@ -7,27 +7,9 @@ import Section from "./section"
 export default function checkout(){
 
     // ics = infocontributionsingle
+    //just ignore those expansion lol
     let ics = Array.from(contributors);
     
-    //icd = infocontributiondesig
-    let icd = Array.from(contributors);
-    
-    
-    // console.log(infocontribution);
-
-    // ics = ics.filter(
-    //     function([key,info]){
-    //         return info.type === 'Single'
-    //     }
-    // )
-
-    
-    icd = icd.filter(
-        function([key,info]){
-            return info.type === 'Double'
-        }
-    )
-
     let info = ics.map(([key,info],idx) => {
         return <Section  key={idx} info={info} />
     })
