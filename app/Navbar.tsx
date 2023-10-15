@@ -26,20 +26,6 @@ export default function Navbar() {
 
   const pathname = usePathname()
   
-    useEffect(() => {
-      if (typeof window !== undefined) {
-        const selected = getCookie<Selected>('selected')
-        if (selected) {
-          setAddedEvents(selected.events)
-        }
-      }
-    })
-  
-  let size=0;
-
-  if(addedEvents){
-  size = Object.keys(addedEvents).length
-  }
 
   useEffect(() => {
 
@@ -102,7 +88,7 @@ export default function Navbar() {
 
   return (
     
-    <div className="z-20 w-screen flex p-6 md:p-3 text-2xl md:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-around md:grid md:grid-cols-3">
+    <div className="z-20 w-screen flex p-6 md:p-3 text-2xl md:text-xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-around md:grid md:grid-cols-4">
       {/* Navbar */}
       
       <div className="md:hidden">
@@ -225,29 +211,35 @@ export default function Navbar() {
       </Link>
       </div>
          
-        <div className="w-full hidden  md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full">
-           <div className="mx-10 h-full flex flex-row  justify-between">
-              <a href="/events/technical"
-            className=" self-center mr-7 ">
+        {/* <div className="w-full hidden  md:text-base mb:text-sm md:block bg-void-700  h-12 rounded-full"> */}
+        <div className="hidden md:block   grid-cols-3 divide-x h-12 w-max-2/5 bg-void-700 rounded-full overflow-hidden font-medium col-span-2 justify-items-stretch">
+           <div className=" mx-10 h-full flex flex-row  justify-between justify-self-center font-medium text-sm">
+            <Link
+            href="/events/technical"
+            className=" self-center pr-7 ">
             <div >
             Technical
            </div>
-           </a>
-
-            <a href="/events/nontechnical"
-            className=" self-center mr-7 ">
+           
+           </Link>
+           <Link
+            href="/events/nontechnical"
+            className=" self-center pr-7 text-center">
             <div >
             Non-Technical
            </div>
-           </a>
            
-           <a href="/events/contributors"
+           </Link>
+           
+           <Link
+            href="/contributors"
             className=" self-center">
             <div >
             Contributors
            </div>
-           </a>
-  
+           
+           </Link>
+           
            
         </div>
         </div>
@@ -276,7 +268,8 @@ export default function Navbar() {
         <div className="flex justify-center bg-white text-black rounded-full text-center absolute align-middle h-5 w-5  translate-x-4 -translate-y-4 text-sm self-center ">
           <p className="self-center text-center">
             {/* {!(addedEvents?.length)?0:(addedEvents?.length)} */}
-            {addedEvents?.length}
+            {/* {addedEvents?.length}*/}
+            1
             </p>
         </div>
         
