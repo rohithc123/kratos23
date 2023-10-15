@@ -38,7 +38,10 @@ export default function Events({ params }: { params: { category: string } }) {
   )
   if (['solo', 'team'].includes(type)) {
     // filter for event type
-    filteredEvents = filteredEvents.filter(([key, ev]) => ev.type === type)
+    filteredEvents = filteredEvents.filter(
+      ([key, ev]) =>
+        ev.type === type || (ev.teamSize.min === 1 && type == 'solo')
+    )
   }
 
   // Generate the cards
