@@ -18,13 +18,13 @@ export default function checkout() {
           &quot;Alone we can do so little, together we can do so much.&quot; –
           Helen Keller
         </blockquote>
-        <p className="text-base text-void-200 leading-5 md:px-2 md:m-6 text-left my-4">
+        <p className="text-base text-void-200 leading-5 md:px-2 md:my-6 text-left my-4">
           We would like to thank the students and members of faculty who have
           helped make this event possible. While not mentioning all who have
           contributed, below is a list of people who have contributed their
           time, effort, and expertise to ensure the success of this event.
         </p>
-        <p className="text-base text-void-200 leading-5 md:px-2 md:m-6 mb-4 text-left">
+        <p className="text-base text-void-200 leading-5 md:px-2 md:my-6 mb-4 text-left">
           We would like to express our sincere thanks to the volunteers who,
           while not listed here, have been crucial to the event&apos;s success
           with their behind-the-scenes efforts and support.
