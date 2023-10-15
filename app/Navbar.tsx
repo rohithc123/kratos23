@@ -169,19 +169,19 @@ export default function Navbar() {
           Non-Technical
         </Link>
         <Link
-          href="/gallery"
+          href="/contributors"
           onClick={() => {
             setIsActive(false)
           }}
           className="mx-8 mb-4"
         >
-          &apos;22 Gallery
+          Contributors
         </Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
+          <div className="mx-8 mb-4">&apos;22 Gallery</div>
           <div className="mx-8 mb-4">Contact</div>
-          <div className="mx-8 mb-4">Contributors</div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
