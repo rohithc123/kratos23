@@ -14,7 +14,7 @@ export default function checkout() {
         <h1 style={poly.style} className="text-5xl mb-2">
           Contributors
         </h1>
-        <blockquote className="text-base text-void-300 text-right leading-5 px-2 italic mb-6">
+        <blockquote className="text-base text-void-300 leading-5 px-2 italic mb-6">
           &quot;Alone we can do so little, together we can do so much.&quot; –
           Helen Keller
         </blockquote>
@@ -25,9 +25,9 @@ export default function checkout() {
           time, effort, and expertise to ensure the success of this event.
         </p>
         <p className="text-base text-void-200 leading-5 md:px-2 md:m-6 mb-4 text-left">
-          We would like to express our sincere thanks to the volunteers who, while
-          not listed here, have been crucial to the event&apos;s success with
-          their behind-the-scenes efforts and support.
+          We would like to express our sincere thanks to the volunteers who,
+          while not listed here, have been crucial to the event&apos;s success
+          with their behind-the-scenes efforts and support.
         </p>
       </header>
 
@@ -124,7 +124,9 @@ export default function checkout() {
         </div>
         <div className="flex justify-between">
           <p>Swetha Senthil</p>
-          <p className="text-void-300 text-right">Associate Head of Operations</p>
+          <p className="text-void-300 text-right">
+            Associate Head of Operations
+          </p>
         </div>
         <hr className="border-void-500 my-4" />
         <div className="flex justify-between">
