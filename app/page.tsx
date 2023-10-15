@@ -8,13 +8,14 @@ import tech_ticket from '@/public/tech-ticket.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Josefin_Sans, Libre_Baskerville } from 'next/font/google'
+import { Josefin_Sans, Libre_Baskerville, Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
 
 const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] })
 const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
+const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
   const ref = useRef(null)
@@ -116,6 +117,7 @@ export default function Home() {
       {/* Events section */}
       <div className="w-full">
         <h2
+          style={rubik.style}
           className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6"
           data-aos="fade-down"
         >
