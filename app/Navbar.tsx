@@ -14,7 +14,6 @@ const poly = Poly({
   subsets: ['latin'],
 })
 
-// TODO make the navbar slidein when scrolling down from top of homepage (hidden on initial load)
 // TODO look into the overlay blurring if needed
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
