@@ -10,23 +10,41 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AOS from "aos"
 import "aos/dist/aos.css"
-import { useEffect } from "react";
+import  { useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] })
 const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
-  
+   
+  const ref = useRef(null);
+  const { scrollYProgress }  = useScroll({
+    target:ref,
+    // offset: [ "start start", "end start" ],
+});
+
+// const { scrollYProgess } = useScroll(({ scrollYProgress }) => scrollYProgress, {
+//   target: ref,
+// });
+
+  const backgroundY = useTransform(scrollYProgress, [0,1] , ["0%", "150%"]);
+  const backgroundX = useTransform(scrollYProgress, [0,1] , ["-100%", "100%"]);
+  const textY = useTransform(scrollYProgress, [0,1] ,["0%","200%"]);
+
   useEffect(() =>{
 
-    AOS.init({duration:800})
+    AOS.init({duration:600})
   })
 
+
   return (
-    <main className="flex flex-col items-center md:max-w-[768px]">
+    <main ref={ref} className="flex flex-col items-center md:max-w-[768px]">
       <header className="pt-20 flex flex-col items-center min-h-[100svh] md:h-fit justify-around">
         {/* Hero Image */}
-        <div className="relative aspect-square w-[85vw] max-w-[330px] md:max-w-[400px] md:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 ">
+        <motion.div 
+        style={{ y:backgroundY }}
+        className="-z-10 relative aspect-square w-[85vw] max-w-[330px] md:max-w-[400px] md:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 ">
           {/* Title */}
           <h1 style={baskerville.style} className="z-10 text-5xl text-center">
             KRATOS
@@ -48,8 +66,9 @@ export default function Home() {
             src={logo}
             alt=""
           />
-        </div>
+        </motion.div>
         {/* Hero Text */}
+        <div className="bg-black  items-center justify-around flex flex-col">  
         <div className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent">
           <span className=" bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
             Code.&thinsp;
@@ -73,6 +92,7 @@ export default function Home() {
           height={58}
           className="m-12 md:m-6 animate animate-bounce"
         />
+</div>
       </header>
 
       {/* md:max-w-[75%] */}
@@ -87,14 +107,17 @@ export default function Home() {
       </div>
       
       {/* Art Ribbon Divider */}
-      <div className="relative overflow-hidden min-h-[140px] w-full my-16 md:mb-8">
+      <motion.div 
+      
+      style={{ x:backgroundX }}
+      className="relative overflow-hidden min-h-[140px] w-full my-16 md:mb-8">
         <Image
           className="object-cover md:object-contain"
           src={art_ribbon}
           alt=""
           fill
         />
-      </div>
+      </motion.div>
 
       {/* Events section */}
       

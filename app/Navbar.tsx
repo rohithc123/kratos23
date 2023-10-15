@@ -205,7 +205,7 @@ export default function Navbar() {
          {/* <div className="justify-between"> */}
 
         {/* need to check */}
-      <div className="hidden md:block ">
+      <div className="hidden md:block md:ml-5">
       <Link style={poly.style} href="/">
         KRATOS
       </Link>
