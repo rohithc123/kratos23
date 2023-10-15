@@ -3,25 +3,25 @@
 import nav_btn from '@/public/nav-btn.svg'
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { getCookie } from './cookies'
+import bag from '@/public/shopping_bag.svg'
 
 const poly = Poly({
   weight: '400',
   subsets: ['latin'],
 })
 
-// TODO make the navbar slidein when scrolling down from top of homepage (hidden on initial load)
 // TODO look into the overlay blurring if needed
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
   const [drawerHeight, setDrawerHeight] = useState(0)
-
+  const [addedEvents, setAddedEvents] = useState<string[]>()
   const pathname = usePathname()
 
   useEffect(() => {
-
     if (typeof window == undefined) {
       return
     }
@@ -52,7 +52,7 @@ export default function Navbar() {
     if (typeof window == undefined) {
       return
     }
-    
+
     if (isActive) {
       // Disable scrolling
       const scrollPosition = window.scrollY
@@ -80,7 +80,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className="z-20 w-screen flex p-6 text-2xl items-center border-b-[1px] border-void-500 before:backdrop-blur-sm backdrop-blur fixed top-0 bg-void-950/50">
+    <div className="z-20 w-screen flex p-6 md:py-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-between">
       {/* Navbar */}
       <Link style={poly.style} href="/">
         KRATOS
@@ -96,7 +96,7 @@ export default function Navbar() {
             setIsActive(true)
           }, 0)
         }}
-        className="absolute top-6 right-6 cursor-pointer select-none"
+        className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none md:hidden"
         src={nav_btn}
         alt=""
         width={32}
@@ -135,20 +135,18 @@ export default function Navbar() {
             Home
           </Link>
 
-          {/* Signup button */}
-          <div
-            onClick={() => {
-              alert('clicked')
-            }}
-            className={`min-w-[10ch] p-[1px] w-fit text-base  rounded-full font-semibold bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
+          <Link
+            href="/bag"
+            className="flex md:justify-end mr-4 relative cursor-pointer"
           >
-            <div
-              // TODO plug the inversion
-              className={`p-3 text-center rounded-full select-none 'bg-transparent text-void-950`}
-            >
-              Sign Up
-            </div>
-          </div>
+            <Image
+              className="w-8 h-8 select-none "
+              src={bag}
+              alt=""
+              width={32}
+              height={32}
+            />
+          </Link>
         </div>
 
         {/* Top Three options */}
@@ -171,22 +169,60 @@ export default function Navbar() {
           Non-Technical
         </Link>
         <Link
-          href="/gallery"
+          href="/contributors"
           onClick={() => {
             setIsActive(false)
           }}
           className="mx-8 mb-4"
         >
-          &apos;22 Gallery
+          Contributors
         </Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
+          <div className="mx-8 mb-4">&apos;22 Gallery</div>
           <div className="mx-8 mb-4">Contact</div>
-          <div className="mx-8 mb-4">Contributors</div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
+
+      {/* Desktop-only Nav Segmented Button */}
+      <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full select-none">
+        <Link href="/events/technical" className="transition hover:scale-110">
+          Technical
+        </Link>
+        <Link
+          href="/events/nontechnical"
+          className="transition hover:scale-110"
+        >
+          Non-Technical
+        </Link>
+        <Link href="/contributors" className="transition hover:scale-110">
+          Contributors
+        </Link>
+      </nav>
+
+      {/* Bag Button */}
+      <Link
+        href="/bag"
+        className=" hidden md:flex md:justify-end mr-4 relative cursor-pointer"
+      >
+        <Image
+          className="w-8 h-8 select-none "
+          src={bag}
+          alt=""
+          width={32}
+          height={32}
+        />
+        {/* TODO the bag size badge */}
+        {/* Note: the problem is updating the badge when the cookie changes, so 
+        it is better to not have the number currently than to have a desynced number */}
+        {/* <div className="flex justify-center bg-white text-black rounded-full text-center absolute h-5 w-5 translate-x-4 -translate-y-4 text-sm self-center">
+          <p className="self-center text-center">
+            1
+          </p>
+        </div> */}
+      </Link>
     </div>
   )
 }

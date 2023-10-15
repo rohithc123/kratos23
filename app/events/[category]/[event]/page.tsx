@@ -28,14 +28,18 @@ export default function EventDetailsPage({
 }) {
   const ev = events.get(params.event)!
 
-  const vs =
-    ev.type == 'team' ? `${ev.teamSize.max}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
+  const ts = `${
+    ev.teamSize.min == ev.teamSize.max
+      ? ev.teamSize.max
+      : `${ev.teamSize.min}-${ev.teamSize.max}`
+  }`
+  const vs = ev.type == 'team' ? `${ts}v${ev.teamSize.max}` : `1v${ev.maxTeams}`
   const subtitle = `${
     ev.type.charAt(0).toUpperCase() + ev.type.slice(1)
-  } · ${vs} · ₹${ev.fee}`
+  } · ${vs} · ₹${ev.fee.amount}`
 
   return (
-    <main className="min-h-screen w-screen flex flex-col">
+    <main className="min-h-screen w-screen flex flex-col md:max-w-[768px]">
       {/* Spacer */}
       <div className="p-10" />
 
@@ -49,6 +53,7 @@ export default function EventDetailsPage({
 
       {/* Poster */}
       <Image
+        // style={{y:backgroundY}}
         className="w-screen aspect-video"
         src={`/posters/${params.event}.png`}
         alt=""
@@ -58,14 +63,15 @@ export default function EventDetailsPage({
 
       {/* Header */}
       {/* TODO make header sticky */}
-      <header className="flex sticky w-full p-4 justify-between items-center font-medium">
-        <div>
+      <header className="flex sticky w-full p-4 md:py-8 justify-between items-center font-medium">
+        <div className="max-w-[65%]">
           <h1 style={poly.style} className="text-5xl">
             {ev.name}
           </h1>
           {/* TODO plug the slot info */}
           <div className="mt-1">{subtitle}</div>
-          <div>{ev.maxTeams} slots available</div>
+          {/* TODO plug this */}
+          {/* <div>{ev.maxTeams} teams</div> */}
         </div>
 
         <AddToBagButton eventCode={params.event} />
