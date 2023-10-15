@@ -1,5 +1,6 @@
 'use client'
 
+import nav_btn from '@/public/nav-btn.svg'
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -121,7 +122,7 @@ export default function Navbar() {
           }, 0)
         }}
         className="w-8 h-8 absolute top-6 right-6 cursor-pointer select-none lg:hidden"
-        src="/nav-btn.svg"
+        src={nav_btn}
         alt=""
         width={32}
         height={32}
