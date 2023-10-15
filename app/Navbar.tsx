@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { getCookie } from './cookies'
 
 
 const poly = Poly({
@@ -18,7 +19,26 @@ export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
   const [drawerHeight, setDrawerHeight] = useState(0)
 
+  const [addedEvents, setAddedEvents] = useState<string[]>()
+ 
+
+
   const pathname = usePathname()
+  
+    useEffect(() => {
+      if (typeof window !== undefined) {
+        const selected = getCookie<Selected>('selected')
+        if (selected) {
+          setAddedEvents(selected.events)
+        }
+      }
+    })
+  
+  let size=0;
+
+  if(addedEvents){
+  size = Object.keys(addedEvents).length
+  }
 
   useEffect(() => {
 
@@ -259,7 +279,8 @@ export default function Navbar() {
         />
         <div className="flex justify-center bg-white text-black rounded-full text-center absolute align-middle h-5 w-5  translate-x-4 -translate-y-4 text-sm self-center ">
           <p className="self-center text-center">
-            1
+            {/* {!(addedEvents?.length)?0:(addedEvents?.length)} */}
+            {addedEvents?.length}
             </p>
         </div>
         
