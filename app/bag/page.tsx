@@ -42,7 +42,15 @@ export default function Bag() {
     }
 
     return addedEvents!
-      .map<number>((code) => events.get(code)!.fee)
+      .map<number>((code) => {
+        let ev = events.get(code)!
+        if (ev.fee.type == 'perHead') {
+          // This doesn't account for events with more than two 2-level pricing
+          return ev.fee.amount * ev.teamSize.max
+        } else {
+          return ev.fee.amount
+        }
+      })
       .reduce((ac, x) => ac + x, 0)
   }
 

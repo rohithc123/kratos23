@@ -57,7 +57,7 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee}</div>
+            <div className="text-2xl">₹{ev.fee.amount}</div>
 
             {/* Delete Button */}
             <Image
@@ -108,7 +108,7 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee}</div>
+            <div className="text-2xl">₹{ev.fee.amount}</div>
 
             {/* Delete Button */}
             <Image
@@ -222,7 +222,7 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee}</div>
+            <div className="text-2xl">₹{ev.fee.amount}</div>
 
             {/* Delete Button */}
             <Image
