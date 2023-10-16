@@ -2,7 +2,7 @@
 
 import arrow_right from '@/public/arrow_right_dark.svg'
 import attach_file from '@/public/attach_file.svg'
-import qr from '@/public/qr.svg'
+import qr from '@/public/qr.png'
 import tick_green from '@/public/tick_green.svg'
 import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
@@ -153,7 +153,7 @@ export default function Bag() {
     // HACK this is needed since we don't have any other way to propagate the
     // TeamDetail changes upwards in this current design. We could do things
     // with refs, and move part of the (TeamDetail) state management up here.
-    <main className="min-h-screen px-4" onClick={updateTotalFee}>
+    <main className="min-h-screen px-4 md:max-w-[600px]" onClick={updateTotalFee}>
       {/* Spacer */}
       <div className="p-10" />
 
@@ -248,18 +248,18 @@ export default function Bag() {
           {/* QR */}
           <Image
             src={qr}
-            className="max-w-[33.3%] object-contain"
+            className="max-w-[33.3%] object-contain p-2"
             alt="QR code for the payment"
           />
           <div className="p-4 w-2/3">
             {/* Prompt */}
             <h4 className="text-center text-xl">
-              UPI ₹{totalFee} to this QR code or mobile
+              UPI ₹{totalFee} to this QR code or VPA
             </h4>
             {/* Mobile No */}
-            <h2 className="text-center text-3xl mt-3" style={rubik.style}>
-              98172 5TODO
-            </h2>
+            <h4 className="text-center text-lg md:text-2xl mt-3" style={rubik.style}>
+              saipriyalaksen272@oksbi
+            </h4>
           </div>
         </div>
 
