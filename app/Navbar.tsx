@@ -82,7 +82,7 @@ export default function Navbar() {
   return (
     <div className="z-20 w-screen flex p-6 md:py-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-between">
       {/* Navbar */}
-      <Link style={poly.style} href="/">
+      <Link style={poly.style} href="/" className="md:mr-6">
         KRATOS
       </Link>
 
@@ -196,8 +196,6 @@ export default function Navbar() {
       </nav>
 
       {/* Desktop-only Nav Segmented Button */}
-      {/* <div className="md:justify-items-center md:grid md:col-span-2"> */}
-
       <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full select-none">
         <Link href="/events/technical" className="transition hover:scale-110">
           Technical
@@ -208,19 +206,22 @@ export default function Navbar() {
         >
           Non-Technical
         </Link>
+        <Link
+          href="https://pre.kratos23.com/"
+          className="transition hover:scale-110"
+        >
+          Pre-Events
+        </Link>
         <Link href="/contributors" className="transition hover:scale-110">
           Contributors
         </Link>
-        {/* <Link href="https://pre.kratos23.com/" className="transition hover:scale-110"> */}
-        {/* Pre Events */}
-        {/* </Link> */}
       </nav>
       {/* </div> */}
 
       {/* Bag Button */}
       <Link
         href="/bag"
-        className=" hidden md:flex md:justify-end mr-4 relative cursor-pointer"
+        className="hidden md:flex md:justify-end mr-4 relative cursor-pointer w-[90px] md:mr-0 md:ml-6"
       >
         <Image
           className="w-8 h-8 select-none "
