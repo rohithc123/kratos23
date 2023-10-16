@@ -82,7 +82,7 @@ export default function Navbar() {
   return (
     <div className="z-20 w-screen flex p-6 md:py-3 text-2xl items-center border-b-[1px] border-void-500  backdrop-blur fixed top-0 bg-void-950/50 md:justify-between">
       {/* Navbar */}
-      <Link style={poly.style} href="/">
+      <Link style={poly.style} href="/" className="md:mr-6">
         KRATOS
       </Link>
 
@@ -169,18 +169,27 @@ export default function Navbar() {
           Non-Technical
         </Link>
         <Link
-          href="/contributors"
+          className="mx-8 mb-4"
+          href="https://pre.kratos23.com/"
           onClick={() => {
             setIsActive(false)
           }}
-          className="mx-8 mb-4"
         >
-          Contributors
+          Pre-Events
         </Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
-          <div className="mx-8 mb-4">&apos;22 Gallery</div>
+          <div className="mx-8 mb-4 w-full">
+            <Link
+              href="/contributors"
+              onClick={() => {
+                setIsActive(false)
+              }}
+            >
+              Contributors
+            </Link>
+          </div>
           <div className="mx-8 mb-4">Contact</div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
@@ -197,15 +206,22 @@ export default function Navbar() {
         >
           Non-Technical
         </Link>
+        <Link
+          href="https://pre.kratos23.com/"
+          className="transition hover:scale-110"
+        >
+          Pre-Events
+        </Link>
         <Link href="/contributors" className="transition hover:scale-110">
           Contributors
         </Link>
       </nav>
+      {/* </div> */}
 
       {/* Bag Button */}
       <Link
         href="/bag"
-        className=" hidden md:flex md:justify-end mr-4 relative cursor-pointer"
+        className="hidden md:flex md:justify-end mr-4 relative cursor-pointer w-[90px] md:mr-0 md:ml-6"
       >
         <Image
           className="w-8 h-8 select-none "
