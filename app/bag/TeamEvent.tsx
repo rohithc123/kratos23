@@ -28,6 +28,18 @@ export default function TeamEvent({
     }
   }, [eventCode])
 
+  function getFilledEventFee(): number {
+    if (ev.fee.type == 'flat') {
+      return ev.fee.amount
+    } else {
+      let _teamSize = 1
+      _teamSize += teamDetail.current?.member1 ? 1 : 0
+      _teamSize += teamDetail.current?.member2 ? 1 : 0
+      _teamSize += teamDetail.current?.member3 ? 1 : 0
+      return _teamSize * ev.fee.amount
+    }
+  }
+
   switch (cardStatus) {
     case Status.unfilled:
       return (
@@ -57,7 +69,16 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee.amount}</div>
+            <div className="text-2xl">
+              ₹
+              {`${
+                ev.fee.type == 'flat'
+                  ? ev.fee.amount
+                  : `${ev.fee.amount * ev.teamSize.min}-${
+                      ev.fee.amount * ev.teamSize.max
+                    }`
+              }`}
+            </div>
 
             {/* Delete Button */}
             <Image
@@ -108,7 +129,7 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee.amount}</div>
+            {/* <div className="text-2xl">₹{ev.fee.amount}</div> */}
 
             {/* Delete Button */}
             <Image
@@ -158,7 +179,7 @@ export default function TeamEvent({
               ref={formRef}
             >
               <div className="flex justify-between">
-                <p className='text-white'>Leader</p>
+                <p className="text-white">Leader</p>
                 <input
                   type="text"
                   className="bg-transparent rounded pl-1 w-3/5"
@@ -170,7 +191,7 @@ export default function TeamEvent({
               {[...Array(ev.teamSize.max - 1).keys()].map((idx) => {
                 return (
                   <div key={idx} className="flex justify-between">
-                    <p className='text-white'>
+                    <p className="text-white">
                       Member {idx + 1}
                       <span className="text-cherry">
                         {ev.teamSize.min - 1 >= 2 ? '*' : ''}
@@ -194,7 +215,7 @@ export default function TeamEvent({
                   </div>
                 )
               })}
-              <p className='text-sm mt-2'>
+              <p className="text-sm mt-2">
                 Fields marked with <span className="text-cherry">*</span> are
                 mandatory
               </p>
@@ -227,7 +248,7 @@ export default function TeamEvent({
             </div>
 
             {/* Price */}
-            <div className="text-2xl">₹{ev.fee.amount}</div>
+            <div className="text-2xl">₹{getFilledEventFee()}</div>
 
             {/* Delete Button */}
             <Image

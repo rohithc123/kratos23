@@ -29,6 +29,7 @@ export default function Bag() {
   const [loading, setLoading] = useState(true)
   const [screenshotFile, setScreenshotFile] = useState<File>()
   const [submissionProcesssing, setSubmissionProcessing] = useState(false)
+  const [totalFee, setTotalFee] = useState(-1) // DEBUG
   const router = useRouter()
 
   useEffect(() => {
@@ -41,22 +42,41 @@ export default function Bag() {
     }
   }, [])
 
-  function getTotalFee(): number {
+  useEffect(() => {
+    updateTotalFee()
+  }, [addedEvents])
+
+  // Gets the total fee of all selected events, including unfilled ones
+  function updateTotalFee() {
     if (!hasAddedEvents()) {
-      return 0
+      return
     }
 
-    return addedEvents!
-      .map<number>((code) => {
-        let ev = events.get(code)!
-        if (ev.fee.type == 'perHead') {
-          // This doesn't account for events with more than two 2-level pricing
-          return ev.fee.amount * ev.teamSize.max
-        } else {
-          return ev.fee.amount
-        }
-      })
+    let fee = addedEvents!
+      .map<number>((code) => getFilledEventFee(code))
       .reduce((ac, x) => ac + x, 0)
+
+    setTotalFee(fee)
+  }
+
+  // Gets the filled in team size for a variable sized event
+  function getTeamSize(evCode: string): number {
+    const teamDetail = getCookie<TeamDetail>(evCode)
+    let teamSize = 1
+    teamSize += teamDetail?.member1 ? 1 : 0
+    teamSize += teamDetail?.member2 ? 1 : 0
+    teamSize += teamDetail?.member3 ? 1 : 0
+    return teamSize
+  }
+
+  // Finds the calculated variable fee for a given event
+  function getFilledEventFee(evCode: string): number {
+    const ev = events.get(evCode)!
+    if (ev.fee.type == 'flat') {
+      return ev.fee.amount
+    } else {
+      return getTeamSize(evCode) * ev.fee.amount
+    }
   }
 
   function hasAddedEvents(): boolean {
@@ -130,7 +150,10 @@ export default function Bag() {
   }
 
   return (
-    <main className="min-h-screen px-4">
+    // HACK this is needed since we don't have any other way to propagate the
+    // TeamDetail changes upwards in this current design. We could do things
+    // with refs, and move part of the (TeamDetail) state management up here.
+    <main className="min-h-screen px-4" onClick={updateTotalFee}>
       {/* Spacer */}
       <div className="p-10" />
 
@@ -211,7 +234,7 @@ export default function Bag() {
       <div className="border-void-500 border-t-[1px] text-2xl p-4 text-right mt-4">
         <h4>
           Total:
-          <span className="ml-3 font-medium">₹{getTotalFee()}</span>
+          <span className="ml-3 font-medium">₹{totalFee}</span>
         </h4>
       </div>
 
@@ -231,7 +254,7 @@ export default function Bag() {
           <div className="p-4 w-2/3">
             {/* Prompt */}
             <h4 className="text-center text-xl">
-              UPI ₹{getTotalFee()} to this QR code or mobile
+              UPI ₹{totalFee} to this QR code or mobile
             </h4>
             {/* Mobile No */}
             <h2 className="text-center text-3xl mt-3" style={rubik.style}>
