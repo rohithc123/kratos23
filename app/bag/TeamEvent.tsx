@@ -158,18 +158,19 @@ export default function TeamEvent({
               ref={formRef}
             >
               <div className="flex justify-between">
-                <p>Leader</p>
+                <p className='text-white'>Leader</p>
                 <input
                   type="text"
                   className="bg-transparent rounded pl-1 w-3/5"
                   value="You"
                   readOnly
+                  disabled
                 />
               </div>
               {[...Array(ev.teamSize.max - 1).keys()].map((idx) => {
                 return (
                   <div key={idx} className="flex justify-between">
-                    <p>
+                    <p className='text-white'>
                       Member {idx + 1}
                       <span className="text-cherry">
                         {ev.teamSize.min - 1 >= 2 ? '*' : ''}
@@ -193,6 +194,10 @@ export default function TeamEvent({
                   </div>
                 )
               })}
+              <p className='text-sm mt-2'>
+                Fields marked with <span className="text-cherry">*</span> are
+                mandatory
+              </p>
             </form>
           </div>
         </div>
@@ -252,20 +257,15 @@ export default function TeamEvent({
               />
             </div>
 
-            <div className="flex mt-2">
-              <div>
-                <p>Leader</p>
-                <p>Member 1</p>
-                <p>Member 2</p>
-                <p>Member 3</p>
-              </div>
-
-              <div className="flex-grow text-right text-void-300">
-                <p>You</p>
-                <p>{teamDetail.current?.member1}</p>
-                <p>{teamDetail.current?.member2}</p>
-                <p>{teamDetail.current?.member3}</p>
-              </div>
+            <div className="flex mt-2 flex-col">
+              {[...Array(ev.teamSize.max - 1).keys()].map((idx) => {
+                return (
+                  <div key={idx} className="flex justify-between">
+                    <p>Member {idx + 1}</p>
+                    <p>{(teamDetail.current as any)[`member${idx + 1}`]}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>

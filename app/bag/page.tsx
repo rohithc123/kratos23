@@ -105,7 +105,8 @@ export default function Bag() {
       return
     }
 
-    // HACKY Diabled button before submitting to avoid multiple submissions
+    // HACK Diabled button before submitting to avoid multiple submissions
+    // TODO the style of the button needs to change when processing
     (document.getElementById('submitButton') as HTMLButtonElement).disabled = true
 
     // submit the form and handle the response
