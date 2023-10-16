@@ -5,7 +5,7 @@ const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 
 export default function checkout() {
   return (
-    <main className="min-h-screen w-screen flex flex-col items-center md:max-w-[768px] md:text-xl text-void-200 px-6">
+    <main className="min-h-screen w-screen flex flex-col items-center md:max-w-[768px] md:text-xl px-6">
       {/* Spacer */}
       <div className="p-10" />
 
