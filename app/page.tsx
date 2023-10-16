@@ -1,20 +1,17 @@
 'use client'
 import art_ribbon from '@/public/art_ribbon.jpg'
 import expand_more from '@/public/expand_more.svg'
-import logo_bw from '@/public/logo-bw.png'
-import logo from '@/public/logo.png'
+import hero from '@/public/hero.png'
 import nontech_ticket from '@/public/nontech-ticket.png'
 import tech_ticket from '@/public/tech-ticket.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { Josefin_Sans, Libre_Baskerville, Rubik } from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-
-const baskerville = Libre_Baskerville({ weight: '700', subsets: ['latin'] })
-const josefinSans = Josefin_Sans({ weight: '400', subsets: ['latin'] })
+import location from '@/public/location.svg'
 const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
@@ -39,51 +36,25 @@ export default function Home() {
   return (
     <main ref={ref} className="flex flex-col items-center md:max-w-[768px]">
       <header className="pt-20 flex flex-col items-center min-h-[100svh] md:h-fit justify-around">
-        {/* Hero Image */}
-        <motion.div
-          style={{ y: backgroundY }}
-          className="-z-10 relative aspect-square w-[85vw] max-w-[330px] md:max-w-[400px] md:m-8 grid place-content-center rounded-[32px] bg-gradient-to-br from-cherry/10 to-vinyl/10 "
-        >
-          {/* Title */}
-          <h1 style={baskerville.style} className="z-10 text-5xl text-center">
-            KRATOS
-          </h1>
-          <h1 style={josefinSans.style} className="z-10 text-6xl text-center">
-            23
-          </h1>
-
-          {/* Logo */}
+        <motion.div style={{ y: backgroundY }}>
           <Image
-            className="opacity-20 z-[2] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2"
-            src={logo_bw}
-            alt="Vector art of a lion"
-          />
-
-          {/* Blurred Pic BG */}
-          <Image
-            className="blur-[50px] z-[1] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2 opacity-75"
-            src={logo}
-            alt=""
+            src={hero}
+            alt="Vector logo of a red-yellow lion"
+            width={500}
+            height={500}
           />
         </motion.div>
 
         {/* Hero Text */}
         <div className="bg-black  items-center justify-around flex flex-col">
-          <div className="text-5xl px-4 tracking-tighter text-center font-extrabold text-transparent">
-            <span className=" bg-clip-text bg-gradient-to-r from-cherry to-vinyl">
-              Code.&thinsp;
-            </span>
-            <span className="bg-clip-text bg-gradient-to-r from-white to-white/50">
-              Compete.&thinsp;
-            </span>
-            <span className="bg-clip-text bg-gradient-to-r from-white to-white/50">
-              Conquer.&thinsp;
-            </span>
-          </div>
-
           <div className="text-2xl text-center mt-8">
-            <div className="">November 3</div>
-            <div className="text-void-300">@ Easwari Engineering College</div>
+            <div className="text-3xl font-medium">November 3</div>
+            <div className="text-void-300 flex">
+              @ Easwari Engineering College
+              <Link prefetch={false} href="https://www.google.com/maps/place/SRM+Easwari+Engineering+College/@13.0314424,80.1793613,18z/data=!4m6!3m5!1s0x3a5260d62bc6942b:0x8cd23707b2ddfb87!8m2!3d13.031723!4d80.1795949!16s%2Fm%2F0h3snc4?entry=ttu">
+                <Image src={location} height={32} width={32} alt="" />
+              </Link>
+            </div>
           </div>
           <Image
             src={expand_more}
