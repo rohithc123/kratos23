@@ -89,7 +89,8 @@ const eventsLiteral: { [key: string]: EventInfo } = {
 
     },
     'pair_programming': {
-        name: 'Pair Programming',
+        // Intentional unicode SHY character below
+        name: 'Pair Program­ming',
         category: 'technical',
         type: 'team',
         online: false,
