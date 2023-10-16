@@ -279,11 +279,17 @@ export default function TeamEvent({
             </div>
 
             <div className="flex mt-2 flex-col">
+              <div className="flex justify-between">
+                <p>Leader</p>
+                <p className="text-void-300">You</p>
+              </div>
               {[...Array(ev.teamSize.max - 1).keys()].map((idx) => {
                 return (
                   <div key={idx} className="flex justify-between">
                     <p>Member {idx + 1}</p>
-                    <p>{(teamDetail.current as any)[`member${idx + 1}`]}</p>
+                    <p className="text-void-300">
+                      {(teamDetail.current as any)[`member${idx + 1}`]}
+                    </p>
                   </div>
                 )
               })}
