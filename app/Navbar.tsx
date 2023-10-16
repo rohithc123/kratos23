@@ -169,20 +169,25 @@ export default function Navbar() {
           Non-Technical
         </Link>
         <Link
-          href="/contributors"
+          className="mx-8 mb-4"
+          href="https://pre.kratos23.com/"
           onClick={() => {
             setIsActive(false)
           }}
-          className="mx-8 mb-4"
         >
-          Contributors
+          Pre-Events
         </Link>
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
-          <div className="mx-8 mb-4">
-            <Link href="https://pre.kratos23.com/">
-            Pre Events
+          <div className="mx-8 mb-4 w-full">
+            <Link
+              href="/contributors"
+              onClick={() => {
+                setIsActive(false)
+              }}
+            >
+              Contributors
             </Link>
           </div>
           <div className="mx-8 mb-4">Contact</div>
@@ -207,7 +212,7 @@ export default function Navbar() {
           Contributors
         </Link>
         {/* <Link href="https://pre.kratos23.com/" className="transition hover:scale-110"> */}
-          {/* Pre Events */}
+        {/* Pre Events */}
         {/* </Link> */}
       </nav>
       {/* </div> */}
