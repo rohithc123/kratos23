@@ -8,7 +8,13 @@ const db = await DB.getDB()
 const accounts = db.collection('accounts')
 const registrations = db.collection('registrations')
 
-const gcs = new Storage({ keyFilename: './gcs-key.json' })
+if (!process.env.GCS_CRED) {
+  console.error(`GCS_CRED not in .env! Exiting...`)
+  process.exit(2)
+}
+
+const cred = JSON.parse(atob(process.env.GCS_CRED!))
+const gcs = new Storage({ projectId: 'kratos-23-402015', credentials: cred })
 const bucket = gcs.bucket('kratos-23')
 
 export async function POST(req: NextRequest) {

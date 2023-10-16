@@ -105,6 +105,9 @@ export default function Bag() {
       return
     }
 
+    // HACKY Diabled button before submitting to avoid multiple submissions
+    (document.getElementById('submitButton') as HTMLButtonElement).disabled = true
+
     // submit the form and handle the response
     const formData = new FormData()
     formData.set('screenshot', screenshotFile)
@@ -115,7 +118,7 @@ export default function Bag() {
       })
       console.log(res)
       if (!res.ok) {
-        alert(await res.json())
+        alert('Sorry, an error occured when handling the request.')
         throw new Error()
       } else {
         router.push('/success')
@@ -292,7 +295,8 @@ export default function Bag() {
         required field. This is better for the user experience than greying out
         without any explanation of the issue.
        */}
-      <div
+      <button
+        id='submitButton'
         className={`select-none flex w-full text-void-950 fill-void-950 justify-center items-center rounded-full p-3 mt-6 font-semibold ${
           hasAddedEvents()
             ? 'bg-gradient-to-br from-cherry to-vinyl cursor-pointer'
@@ -301,7 +305,7 @@ export default function Bag() {
         onClick={validateAndSubmit}
       >
         Submit <Image src={arrow_right} width={20} height={20} alt="" />
-      </div>
+      </button>
     </main>
   )
 }
