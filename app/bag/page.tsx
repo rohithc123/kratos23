@@ -29,7 +29,7 @@ export default function Bag() {
   const [loading, setLoading] = useState(true)
   const [screenshotFile, setScreenshotFile] = useState<File>()
   const [submissionProcesssing, setSubmissionProcessing] = useState(false)
-  const [totalFee, setTotalFee] = useState(-1) // DEBUG
+  const [totalFee, setTotalFee] = useState(0)
   const router = useRouter()
 
   useEffect(() => {
@@ -314,10 +314,10 @@ export default function Bag() {
 
       {/* nithssh: The whole button isDisabled should've been a state, and useEffect to setIsDisabled and setAddedEvents when cookies change*/}
       {/* 
-        NOTE: This button is only greyed out when no events are added. If any of
-        the requried data is not filled, it will scroll-to and highlight the 
-        required field. This is better for the user experience than greying out
-        without any explanation of the issue.
+        Design Note: This button is only greyed out when no events are added. If 
+        any of the requried data is not filled, it will scroll-to and highlight 
+        the required field. This is better for the user experience than greying 
+        out without any explanation of the issue.
        */}
       <button
         id="submitButton"
