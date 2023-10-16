@@ -114,11 +114,7 @@ export default function checkout() {
         </h2>
       </div>
       <div className="w-full p-4">
-        <div className="flex justify-between">
-          <p>Ashwin Kumar S</p>
-          <p className="text-void-300 text-right">Executive Head</p>
-        </div>
-        <div className="flex justify-between">
+      <div className="flex justify-between">
           <p>Muktheeswaran V</p>
           <p className="text-void-300 text-right">Head Of Operations</p>
         </div>
@@ -128,6 +124,21 @@ export default function checkout() {
             Associate Head of Operations
           </p>
         </div>
+        <div className="flex justify-between">
+          <p>Khishore B</p>
+          <p className="text-void-300 text-right">Chair Person</p>
+        </div>
+        <div className="flex justify-between">
+          <p>Indirani J</p>
+          <p className="text-void-300 text-right">
+          Associate Chair Person
+          </p>
+        </div>
+        <div className="flex justify-between">
+          <p>Ashwin Kumar S</p>
+          <p className="text-void-300 text-right">Executive Head</p>
+        </div>
+        
         <hr className="border-void-500 my-4" />
         <div className="flex justify-between">
           <p>Deexith P</p>
@@ -158,8 +169,24 @@ export default function checkout() {
           <p className="text-void-300 text-right">Event coordinator</p>
         </div>
         <div className="flex justify-between">
+          <p>Parithii</p>
+          <p className="text-void-300 text-right">Associate Event coordinator</p>
+        </div>
+        <div className="flex justify-between">
           <p>Ganesh s</p>
-          <p className="text-void-300 text-right">Event manager</p>
+          <p className="text-void-300 text-right">Event coordinator</p>
+        </div>
+        <div className="flex justify-between">
+          <p>Rohith Kanna K</p>
+          <p className="text-void-300 text-right">Associate Event manager</p>
+        </div>
+        <div className="flex justify-between">
+          <p>Arunrahul S</p>
+          <p className="text-void-300 text-right">Public Relations Officer</p>
+        </div>
+        <div className="flex justify-between">
+          <p>Aadhithya R</p>
+          <p className="text-void-300 text-right">Associate Public Relations Officer</p>
         </div>
       </div>
     </main>
