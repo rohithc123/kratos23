@@ -318,6 +318,47 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         ]
 
     },
+    'futsal': {
+        name: 'Futsal',
+        category: 'nontechnical',
+        type: 'team',
+        online: false,
+        fee: {
+            type: 'flat',
+            amount: 250,
+        },
+        description: 'Join us for an electrifying evening of Futsal action! Get ready to witness thrilling matches, impressive footwork, and intense competition as teams battle it out on the court. Whether youre a seasoned player or a passionate fan, this event promises an adrenaline-packed experience for all. Dont miss out on the excitement – mark your calendars and come kick it with us!',
+        rules: [
+            'Length of Game: 4 minutes halves',
+            'Teams can call a 1-minute halftime',
+            '9 minutes per match (extended up to 10 minutes if required)',
+            'Teams comprise of 4 main players (1 goalkeeper) and 2 substitutes.',
+            'Conduct of Knockout or League tournament depends on the number of teams.',
+            'Rolling substitutes allowed',
+            'Play for referee whistle',
+            'One step penalty',
+            'No offensive language or violent conduct.',
+            'Players receiving Yellow card are obliged to a 1-minute ban.',
+            'Players receiving Red card should leave the match.',
+            
+      
+        ],
+        prizes: [
+            'TBD',
+            'TBD',
+            'TBD'
+        ],
+        teamSize: {
+            min: 5,
+            max: 5,
+        },
+        maxTeams: 8,
+        organizers: [
+            'Dikshin - 9789855589',
+            'Neeraj - 9361366212'
+        ]
+
+    },
     'channel_surfing': {
         name: 'Channel Surfing',
         category: 'nontechnical',
@@ -531,47 +572,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
         ]
 
     },
-    'futsal': {
-        name: 'Futsal',
-        category: 'nontechnical',
-        type: 'team',
-        online: false,
-        fee: {
-            type: 'flat',
-            amount: 250,
-        },
-        description: 'Join us for an electrifying evening of Futsal action! Get ready to witness thrilling matches, impressive footwork, and intense competition as teams battle it out on the court. Whether youre a seasoned player or a passionate fan, this event promises an adrenaline-packed experience for all. Dont miss out on the excitement – mark your calendars and come kick it with us!',
-        rules: [
-            'Length of Game: 4 minutes halves',
-            'Teams can call a 1-minute halftime',
-            '9 minutes per match (extended up to 10 minutes if required)',
-            'Teams comprise of 4 main players (1 goalkeeper) and 2 substitutes.',
-            'Conduct of Knockout or League tournament depends on the number of teams.',
-            'Rolling substitutes allowed',
-            'Play for referee whistle',
-            'One step penalty',
-            'No offensive language or violent conduct.',
-            'Players receiving Yellow card are obliged to a 1-minute ban.',
-            'Players receiving Red card should leave the match.',
-            
-      
-        ],
-        prizes: [
-            'TBD',
-            'TBD',
-            'TBD'
-        ],
-        teamSize: {
-            min: 5,
-            max: 5,
-        },
-        maxTeams: 8,
-        organizers: [
-            'Dikshin - 9789855589',
-            'Neeraj - 9361366212'
-        ]
-
-    },
+    
 }
 
 export const events: Map<string, EventInfo> = new Map(Object.entries(eventsLiteral));
