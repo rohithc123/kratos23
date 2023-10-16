@@ -180,13 +180,19 @@ export default function Navbar() {
 
         {/* Bottom two options */}
         <div className="absolute bottom-0 w-full mb-12">
-          <div className="mx-8 mb-4">&apos;22 Gallery</div>
+          <div className="mx-8 mb-4">
+            <Link href="https://pre.kratos23.com/">
+            Pre Events
+            </Link>
+          </div>
           <div className="mx-8 mb-4">Contact</div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>
 
       {/* Desktop-only Nav Segmented Button */}
+      {/* <div className="md:justify-items-center md:grid md:col-span-2"> */}
+
       <nav className="h-full hidden md:flex font-medium text-base w-[600px] justify-around py-3 bg-void-700 rounded-full select-none">
         <Link href="/events/technical" className="transition hover:scale-110">
           Technical
@@ -200,7 +206,11 @@ export default function Navbar() {
         <Link href="/contributors" className="transition hover:scale-110">
           Contributors
         </Link>
+        {/* <Link href="https://pre.kratos23.com/" className="transition hover:scale-110"> */}
+          {/* Pre Events */}
+        {/* </Link> */}
       </nav>
+      {/* </div> */}
 
       {/* Bag Button */}
       <Link

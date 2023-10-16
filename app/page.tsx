@@ -54,7 +54,7 @@ export default function Home() {
 
           {/* Logo */}
           <Image
-            className="opacity-10 z-[2] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2"
+            className="opacity-20 z-[2] object-contain absolute top-2/4 -translate-y-1/2 left-2/4 -translate-x-1/2"
             src={logo_bw}
             alt="Vector art of a lion"
           />
