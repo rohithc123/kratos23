@@ -99,8 +99,9 @@ export default function Bag() {
 
     // Check if all the team events are entered
     for (let evCode of addedEvents!) {
+      const ev = events.get(evCode)!
       const teamDetails = getCookie<TeamDetail>(evCode)
-      if (!teamDetails) {
+      if (!teamDetails && ev.type !== 'solo') {
         const element = document.getElementById(evCode)!
         element.scrollIntoView({ block: 'center', behavior: 'smooth' })
         setTimeout(() => {
