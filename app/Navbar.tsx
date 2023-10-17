@@ -1,13 +1,12 @@
 'use client'
 
 import nav_btn from '@/public/nav-btn.svg'
+import bag from '@/public/shopping_bag.svg'
 import { Poly } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
-import { getCookie } from './cookies'
-import bag from '@/public/shopping_bag.svg'
 
 const poly = Poly({
   weight: '400',
@@ -18,7 +17,7 @@ const poly = Poly({
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
   const [drawerHeight, setDrawerHeight] = useState(0)
-  const [addedEvents, setAddedEvents] = useState<string[]>()
+  // const [addedEvents, setAddedEvents] = useState<string[]>()
   const pathname = usePathname()
 
   useEffect(() => {

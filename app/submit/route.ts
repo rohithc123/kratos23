@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Storage } from "@google-cloud/storage";
 import { DB } from "./database";
 import { PersonalDetails, TeamDetail } from "../cookies";
+import { events } from "../events/eventInfo";
 
 // The mongo refs
 const db = await DB.getDB()
@@ -36,9 +37,11 @@ export async function POST(req: NextRequest) {
   // get event team details
   var teamDetails: Map<string, TeamDetail> = new Map<string, TeamDetail>()
   for (let evCode of addedEvents) {
+    let ev = events.get(evCode)
     let _team = req.cookies.get(evCode)
-    if (!_team) return NextResponse.json({ message: `No team details for ${evCode}` }, { status: 400, statusText: "No TeamDetails" })
-    teamDetails.set(evCode, JSON.parse(atob(_team.value)) as TeamDetail)
+    if (!ev) return NextResponse.json({ message: `Selected event does not exist: ${evCode}` }, { status: 400, statusText: "Invalid event" })
+    if (!_team && ev.type == 'team') return NextResponse.json({ message: `No team details for ${evCode}` }, { status: 400, statusText: "No TeamDetails" })
+    teamDetails.set(evCode, JSON.parse(atob(_team!.value)) as TeamDetail)
   }
 
   // TODO validate the type structure
