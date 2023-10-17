@@ -45,6 +45,7 @@ export default function checkout() {
         Dr. S. Kayalvizhi <br />
         Mrs. A. Abirami <br />
         Ms. S. Bhuvaneswari <br />
+        Dr. Y. Justin Dhas<br />
       </div>
 
       <div className="w-full mt-6 bg-gradient-to-r from-cherry to-vinyl">
@@ -166,11 +167,11 @@ export default function checkout() {
         </div>
         <div className="flex justify-between">
           <p>Shreenidhi K S</p>
-          <p className="text-void-300 text-right">Event coordinator</p>
+          <p className="text-void-300 text-right">Event Manager</p>
         </div>
         <div className="flex justify-between">
           <p>Parithii</p>
-          <p className="text-void-300 text-right">Associate Event coordinator</p>
+          <p className="text-void-300 text-right">Associate Event Manager</p>
         </div>
         <div className="flex justify-between">
           <p>Ganesh s</p>
@@ -178,7 +179,7 @@ export default function checkout() {
         </div>
         <div className="flex justify-between">
           <p>Rohith Kanna K</p>
-          <p className="text-void-300 text-right">Associate Event manager</p>
+          <p className="text-void-300 text-right">Associate Event coordinator</p>
         </div>
         <div className="flex justify-between">
           <p>Arunrahul S</p>
