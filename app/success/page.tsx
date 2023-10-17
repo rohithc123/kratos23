@@ -13,7 +13,7 @@ export default function Success() {
       </h1>
       <p className="text-void-200">
         You will receive email confirmation later from the organizers.
-        We&apos;ll see you on campus on 2nd November!
+        We&apos;ll see you on campus on 3rd November!
       </p>
       <Link href='/' className="bg-gradient-to-br from-cherry to-vinyl w-full rounded-full text-void-950 p-3 flex justify-center font-semibold">
         <Image src={arrow_left} width={24} height={24} alt='' />

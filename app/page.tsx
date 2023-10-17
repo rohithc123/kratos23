@@ -43,17 +43,22 @@ export default function Home() {
             width={500}
             height={500}
             priority={true}
-            placeholder='blur'
+            placeholder="blur"
           />
         </motion.div>
 
         {/* Hero Text */}
         <div className="bg-black  items-center justify-around flex flex-col">
           <div className="text-2xl text-center mt-8">
-            <div style={rubik.style} className="text-3xl font-medium">November 3</div>
+            <div style={rubik.style} className="text-3xl font-medium">
+              November 3
+            </div>
             <div className="text-void-300 flex">
               @ Easwari Engineering College
-              <Link prefetch={false} href="https://www.google.com/maps/place/SRM+Easwari+Engineering+College/@13.0314424,80.1793613,18z/data=!4m6!3m5!1s0x3a5260d62bc6942b:0x8cd23707b2ddfb87!8m2!3d13.031723!4d80.1795949!16s%2Fm%2F0h3snc4?entry=ttu">
+              <Link
+                prefetch={false}
+                href="https://www.google.com/maps/place/SRM+Easwari+Engineering+College/@13.0314424,80.1793613,18z/data=!4m6!3m5!1s0x3a5260d62bc6942b:0x8cd23707b2ddfb87!8m2!3d13.031723!4d80.1795949!16s%2Fm%2F0h3snc4?entry=ttu"
+              >
                 <Image src={location} height={32} width={32} alt="" />
               </Link>
             </div>
@@ -109,7 +114,7 @@ export default function Home() {
               <div className="text-2xl leading-6 text-void-200">events</div>
             </div>
             <div className="w-1/2">
-              <div className="text-3xl font-semibold">250+</div>
+              <div className="text-3xl font-semibold">593</div>
               <div className="text-2xl leading-6 text-void-200">
                 participants
               </div>
@@ -120,7 +125,7 @@ export default function Home() {
           <div className="flex flex-row md:w-1/2" data-aos="fade-down">
             <div className="w-1/2">
               <div className="text-3xl font-semibold">150+</div>
-              <div className="text-2xl leading-6 text-void-200">in prizes</div>
+              <div className="text-2xl leading-6 text-void-200">prizes</div>
             </div>
             {/* <div className="w-1/2">
               <div className="text-3xl font-semibold">32</div>
