@@ -61,7 +61,9 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">
+                {ev.name}
+              </h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team
@@ -121,7 +123,9 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">
+                {ev.name}
+              </h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team
@@ -194,12 +198,12 @@ export default function TeamEvent({
                     <p className="text-white">
                       Member {idx + 1}
                       <span className="text-cherry">
-                        {ev.teamSize.min - 1 >= 2 ? '*' : ''}
+                        {ev.teamSize.min - 1 >= idx + 1 ? '*' : ''}
                       </span>
                     </p>
                     <input
                       autoCapitalize="words"
-                      required={ev.teamSize.min - 1 >= 2}
+                      required={ev.teamSize.min - 1 >= idx + 1}
                       id={`member${idx + 1}`}
                       type="text"
                       autoComplete="name"
@@ -240,7 +244,9 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">
+                {ev.name}
+              </h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team
