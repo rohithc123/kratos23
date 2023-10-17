@@ -40,7 +40,8 @@ export async function POST(req: NextRequest) {
     let ev = events.get(evCode)
     let _team = req.cookies.get(evCode)
     if (!ev) return NextResponse.json({ message: `Selected event does not exist: ${evCode}` }, { status: 400, statusText: "Invalid event" })
-    if (!_team && ev.type == 'team') return NextResponse.json({ message: `No team details for ${evCode}` }, { status: 400, statusText: "No TeamDetails" })
+    if (ev.type == 'solo') continue
+    if (!_team) return NextResponse.json({ message: `No team details for ${evCode}` }, { status: 400, statusText: "No TeamDetails" })
     teamDetails.set(evCode, JSON.parse(atob(_team!.value)) as TeamDetail)
   }
 
