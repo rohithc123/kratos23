@@ -36,7 +36,7 @@ export default function PersonalDetailsCard() {
           {/* Header */}
           <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl">
             <div className="w-12 h-12 rounded-full animate-pulse bg-void-300" />
-            <div className="w-[12ch] h-6 animate-pulse bg-void-300" />
+            <div className="w-[12ch] md:w-[22ch] h-6 animate-pulse bg-void-300" />
             <div className="w-6 h-6 animate-pulse bg-void-300" />
           </div>
 
@@ -52,7 +52,7 @@ export default function PersonalDetailsCard() {
             </div>
             <div className="flex gap-4">
               <div className="w-6 h-6 animate-pulse bg-void-300" />
-              <div className="w-[12ch] h-6 animate-pulse bg-void-300" />
+              <div className="w-[12ch] md:w-[22ch] h-6 animate-pulse bg-void-300" />
             </div>
           </div>
         </div>

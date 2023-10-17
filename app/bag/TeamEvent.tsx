@@ -61,7 +61,7 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team
@@ -121,7 +121,7 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team
@@ -240,7 +240,7 @@ export default function TeamEvent({
 
             {/* Title */}
             <div className="flex-grow">
-              <h4 className="text-2xl truncate w-[12ch]">{ev.name}</h4>
+              <h4 className="text-2xl truncate w-[12ch] md:w-[22ch]">{ev.name}</h4>
               <div className="flex gap-1">
                 <Image src={group} width={24} height={24} alt="" />
                 Team

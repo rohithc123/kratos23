@@ -26,7 +26,7 @@ export default function SoloEvent({
 
       {/* Title */}
       <div className="flex-grow">
-        <h4 className="text-2xl w-[12ch] truncate">{ev.name}</h4>
+        <h4 className="text-2xl w-[12ch] md:w-[22ch] truncate">{ev.name}</h4>
         <div className="flex gap-1">
           <Image src={man} width={24} height={24} alt="" />
           Solo
