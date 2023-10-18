@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+import { PersonalDetails, TeamDetail } from "@/app/cookies";
+import { events } from "@/app/events/eventInfo";
 import { Storage } from "@google-cloud/storage";
+import { NextRequest, NextResponse } from "next/server";
 import { DB } from "./database";
-import { PersonalDetails, TeamDetail } from "../cookies";
-import { events } from "../events/eventInfo";
 
 // The mongo refs
 const db = await DB.getDB()

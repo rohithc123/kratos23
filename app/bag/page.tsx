@@ -134,7 +134,7 @@ export default function Bag() {
     const formData = new FormData()
     formData.set('screenshot', screenshotFile)
     try {
-      const res = await fetch('/submit', {
+      const res = await fetch('/api/submit', {
         method: 'POST',
         body: formData,
       })
