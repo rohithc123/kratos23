@@ -143,6 +143,7 @@ export default function PersonalDetailsCard() {
                 required
                 id="college"
                 type="text"
+                autoCapitalize='words'
                 className="bg-transparent border-void-200 border-[1px] w-full rounded pl-1"
                 placeholder="Name of your college"
                 defaultValue={personalDet.current?.college}
