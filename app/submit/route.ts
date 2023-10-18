@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
   }
 
   // push the account to db
-  accounts.insertOne(personal)
+  await accounts.insertOne(personal)
 
   // push the registrations to db
   let regs: Array<Registration> = []
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
     }
     regs.push(reg)
   }
-  registrations.insertMany(regs)
+  await registrations.insertMany(regs)
 
   return NextResponse.json({ message: "Successfully registered!" }, { status: 200 })
 }
