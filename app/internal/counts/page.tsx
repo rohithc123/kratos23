@@ -5,8 +5,7 @@ const poly = Poly({ weight: '400', subsets: ['latin'] })
 const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 
 async function getData() {
-  // TODO change URL
-  const res = await fetch('http://localhost:3000/api/counts', {
+  const res = await fetch('http://kratos23.com/api/counts', {
     cache: 'no-store',
   })
   if (!res.ok) {
