@@ -23,12 +23,12 @@ export default async function Counts() {
       <div className="p-10" />
 
       {/* Header */}
-      <header className="w-full mt-12 ">
+      <header className="w-full mt-12 px-4">
         <h1 style={poly.style} className="text-5xl">
           Registration Counts
         </h1>
         <p className="text-base text-void-300 leading-5 mt-2">
-          As of {new Date().toLocaleString('en-IN')}. Refresh to see updated
+          As of {new Date().toLocaleString('en-IN', {timeZone: "Asia/Kolkata"})}. Refresh to see updated
           data.
         </p>
       </header>
