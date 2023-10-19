@@ -46,7 +46,7 @@ export default async function Counts() {
         })
         .map(([k, v]) => {
           return (
-            <div key={k} className="flex w-full my-1 p-1 even:bg-void-900">
+            <div key={k} className="flex w-full p-2 px-4 even:bg-void-900">
               <p className="flex-grow">{events.get(k)?.name}</p>
               <p>{v}</p>
             </div>
@@ -66,7 +66,7 @@ export default async function Counts() {
         })
         .map(([k, v]) => {
           return (
-            <div key={k} className="flex w-full my-1 p-1 even:bg-void-900">
+            <div key={k} className="flex w-full p-2 px-4 even:bg-void-900">
               <p className="flex-grow">{events.get(k)?.name}</p>
               <p>{v}</p>
             </div>
