@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 export async function GET() {
   let countQueries = []
   for (let evCode of events.keys()) {
-    countQueries.push(registrations.countDocuments({ event: evCode }))
+    countQueries.push(registrations.countDocuments({ eventCode: evCode }))
   }
 
   // Note: Doing this is fine since the events map doesn't change between last loop and this
