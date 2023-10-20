@@ -247,7 +247,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
 
     },
     'treasure_hunt': {
-        name: 'E - Treasure Hunt',
+        name: 'e-Treasure Hunt',
         category: 'technical',
         type: 'team',
         online: false,

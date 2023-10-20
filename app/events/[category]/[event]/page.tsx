@@ -63,8 +63,8 @@ export default function EventDetailsPage({
 
       {/* Header */}
       {/* TODO make header sticky */}
-      <header className="flex sticky w-full p-4 md:py-8 justify-between items-center font-medium">
-        <div className="max-w-[65%]">
+      <header className="flex sticky w-full p-4 md:py-8 justify-between items-center font-medium break-words">
+        <div className="max-w-[60%] pr-1">
           <h1 style={poly.style} className="text-5xl">
             {ev.name}
           </h1>

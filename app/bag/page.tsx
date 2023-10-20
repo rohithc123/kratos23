@@ -49,7 +49,8 @@ export default function Bag() {
   // Gets the total fee of all selected events, including unfilled ones
   function updateTotalFee() {
     if (!hasAddedEvents()) {
-      return
+      setTotalFee(0)
+      return 
     }
 
     let fee = addedEvents!

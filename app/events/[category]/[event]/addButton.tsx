@@ -21,7 +21,7 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
   }, [eventCode])
 
   return (
-    <div
+    <button
       onClick={() => {
         if (inverted) {
           removeSelectedEvent(eventCode)
@@ -30,16 +30,16 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
         }
         setInverted(!inverted)
       }}
-      className={`transition-all min-w-[10ch] h-fit p-[1px] w-fit text-base  rounded-full font-medium bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
+      className={`select-none transition p-[1px] w-[14ch] text-base  rounded-full font-medium bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
     >
       <div
-        className={`p-3 flex text-center rounded-full select-none gap-1 ${
+        className={`p-3 flex text-center justify-center rounded-full select-none gap-1 ${
           inverted ? 'bg-void-950 text-white' : 'bg-transparent text-void-950'
         }`}
       >
         {inverted ? 'Added' : 'Add to Bag'}
         <Image src={inverted ? tick : add} alt="" height={16} width={16} />
       </div>
-    </div>
+    </button>
   )
 }
