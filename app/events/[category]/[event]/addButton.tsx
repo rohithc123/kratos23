@@ -30,7 +30,7 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
         }
         setInverted(!inverted)
       }}
-      className={`select-none transition p-[1px] w-[14ch] text-base  rounded-full font-medium bg-gradient-to-br from-cherry to-vinyl cursor-pointer`}
+      className={`select-none transition p-[1px] w-[14ch] text-base  rounded-full font-medium bg-gradient-to-br from-cherry to-vinyl cursor-pointer leading-5`}
     >
       <div
         className={`p-3 flex text-center justify-center rounded-full select-none gap-1 ${

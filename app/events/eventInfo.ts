@@ -3,6 +3,7 @@ export interface EventInfo {
   category: 'technical' | 'nontechnical'
   type: 'team' | 'solo'
   online: boolean
+  external?: string
   fee: {
     type: 'flat' | 'perHead'
     amount: number
@@ -103,6 +104,41 @@ const eventsLiteral: { [key: string]: EventInfo } = {
     },
     maxTeams: 8,
     organizers: ['Naveen - 6369520129', 'Pooja - 8610479340'],
+  },
+  paper_presentation: {
+    name: 'Paper Present­ation',
+    description:
+      'Paper Presentation is a technical event which challenges participants to showcase their thinking, knowledge and presentation skills. The participant teams have to prepare a detailed paper presentation on any of the computer science topics and address it infront of the panel.',
+    rules: [
+      'Abstract and presentation should be submitted in the following Google Form.',
+      'Topics from all Technical Domains are accepted.',
+      'Working model must be presented. If not, concept must be presented in detail. ',
+      'Each group should present for 8-10 minutes',
+      'Paper submitted must be in IEEE Format.',
+      'Abstract and Presentation should be submitted prior to the event. ',
+      'Presentation should contain 12 to 15 slides. ',
+      'Based on the abstract, teams will be selected to present their paper.',
+      'Selected teams will be given further details regarding the payment and presentation submission.',
+    ],
+    organizers: [
+      'Hajira - 8870540261',
+      'Srimathy - 8778806488',
+      'Shrinilamangai - 8015351188',
+    ],
+    prizes: ['TBD', 'TBD', 'TBD'],
+    teamSize: {
+      min: 1,
+      max: 4,
+    },
+    maxTeams: 8,
+    category: 'technical',
+    type: 'team',
+    online: false,
+    fee: {
+      type: 'flat',
+      amount: 250,
+    },
+    external: "https://forms.gle/nAYFXPXTK7mELUJPA"
   },
   design_decode: {
     name: 'Design Decode',

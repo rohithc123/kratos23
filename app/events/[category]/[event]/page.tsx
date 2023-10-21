@@ -3,6 +3,7 @@ import { Poly, Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { events } from '../../eventInfo'
+import ExternalButton from './ExternalButton'
 import AddToBagButton from './addButton'
 
 const poly = Poly({ subsets: ['latin'], weight: '400' })
@@ -74,7 +75,11 @@ export default function EventDetailsPage({
           {/* <div>{ev.maxTeams} teams</div> */}
         </div>
 
-        <AddToBagButton eventCode={params.event} />
+        {!ev.external && <AddToBagButton eventCode={params.event} />}
+
+        {ev.external && (
+          <ExternalButton link={ev.external} label="Google Form" />
+        )}
       </header>
 
       <div className="px-4">
@@ -113,7 +118,7 @@ export default function EventDetailsPage({
         <ul className="mt-4">
           {/* TODO Click to copy */}
           {ev.organizers.map((v, i) => (
-            <li key={i}>{v}</li>
+            <li className="mt-1" key={i}>{v}</li>
           ))}
         </ul>
       </div>
