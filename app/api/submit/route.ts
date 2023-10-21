@@ -75,6 +75,7 @@ export async function POST(req: NextRequest) {
       member1: team?.member1,
       member2: team?.member2,
       member3: team?.member3,
+      member4: team?.member4,
     }
     regs.push(reg)
   }
@@ -91,4 +92,5 @@ type Registration = {
   member1?: string;
   member2?: string;
   member3?: string;
+  member4?: string;
 }

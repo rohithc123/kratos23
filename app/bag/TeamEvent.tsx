@@ -108,7 +108,10 @@ export default function TeamEvent({
       )
     case Status.edit:
       return (
-        <div className="transition rounded-lg overflow-hidden mt-4 bg-gradient-to-br from-cherry to-vinyl p-[1px]">
+        <div
+          id={eventCode}
+          className="transition rounded-lg overflow-hidden mt-4 bg-gradient-to-br from-cherry to-vinyl p-[1px]"
+        >
           {/* Header */}
           <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500 bg-void-700 rounded-t-lg">
             {/* Icon Round */}
@@ -170,6 +173,9 @@ export default function TeamEvent({
                       member3: (
                         document.getElementById('member3') as HTMLInputElement
                       )?.value,
+                      member4: (
+                        document.getElementById('member4') as HTMLInputElement
+                      )?.value,
                     }
                     setCookie<TeamDetail>(eventCode, teamDetail.current)
                     setCardStatus(Status.filled)
@@ -229,7 +235,10 @@ export default function TeamEvent({
       )
     case Status.filled:
       return (
-        <div className="transition rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4">
+        <div
+          id={eventCode}
+          className="transition rounded-lg overflow-hidden border-[1px] border-void-500 bg-void-700 mt-4"
+        >
           {/* Header */}
           <div className="flex gap-3 w-full px-4 py-6 items-center border-b-[1px] border-void-500">
             {/* Icon Round */}
