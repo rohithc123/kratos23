@@ -114,7 +114,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       amount: 100,
     },
     description:
-      'Join us for an exciting CSS Design Challenge! Show off your web design skills and creativity as you compete in themed design challenges, attend CSS workshops, and network with fellow designers. ',
+      'Participate in a thrilling CSS Design Challenge! Showcase your web design expertise and creativity as you engage in themed design competitions',
     rules: [
       'Teams should consist of up to 2 members.',
       'In the first round, a quiz will be conducted for 10 minutes in Quizizz. The top 10-15 teams will move on to the second round based on it. ',
@@ -143,6 +143,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
     description:
       'Teams will receive a topic 30 minutes before the event. They must create a PowerPoint presentation to explain the technical subject without using any technical jargons. The teams performance is evaluated according to their PowerPoint presentation, comprehension of the subject matter, and their capability to effectively explain the topic.',
     rules: [
+      'Everyone must bring laptop for the competition',
       'Teams will receive their topics on the spot just before the event.',
       'A time frame of 30 to 40 minutes will be provided to prepare a PowerPoint presentation on the given topic.',
       'Teams will be required to submit the final version of their PowerPoint before the event commences.',
@@ -314,7 +315,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
     online: false,
     fee: {
       type: 'flat',
-      amount: 50,
+      amount: 80,
     },
     description:
       'Title Event is a solo event where each individual will compete for the title of Mr/Ms.Kratos by showcasing their individual talents and spontaneity skills. Participants will be judged on their clarity of thoughts, presentation and personality. Based on how well they answer, the judges will score them and decide who moves on to the next round. According to the performance, points will be awarded. ',
