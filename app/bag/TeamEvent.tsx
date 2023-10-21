@@ -1,8 +1,8 @@
 'use client'
 
 import group from '@/public/groups.svg'
+import save from '@/public/save.svg'
 import team_edit from '@/public/team_edit.svg'
-import tick from '@/public/tick.svg'
 import trash from '@/public/trash.svg'
 import Image from 'next/image'
 import { MouseEventHandler, useEffect, useRef, useState } from 'react'
@@ -36,6 +36,7 @@ export default function TeamEvent({
       _teamSize += teamDetail.current?.member1 ? 1 : 0
       _teamSize += teamDetail.current?.member2 ? 1 : 0
       _teamSize += teamDetail.current?.member3 ? 1 : 0
+      _teamSize += teamDetail.current?.member4 ? 1 : 0
       return _teamSize * ev.fee.amount
     }
   }
@@ -152,14 +153,11 @@ export default function TeamEvent({
           {/* Details */}
           <div className="p-4 bg-void-950 rounded-b-lg">
             {/* Title */}
-            <div className="flex gap-2 relative">
+            <h5 className="flex gap-2 relative justify-between items-center">
               <h5 className="text-lg">Team Details</h5>
-              <Image
-                src={tick}
-                width={24}
-                height={24}
-                alt=""
-                className="cursor-pointer"
+
+              <button
+                className="flex cursor-pointer bg-gradient-to-br py-2 px-2 pr-3 rounded-lg text-black font-semibold gap-1 items-center"
                 onClick={() => {
                   const isValid = formRef.current?.reportValidity()
                   if (isValid) {
@@ -181,8 +179,11 @@ export default function TeamEvent({
                     setCardStatus(Status.filled)
                   }
                 }}
-              />
-            </div>
+              >
+                <Image src={save} width={20} height={20} alt="" />
+                Save
+              </button>
+            </h5>
 
             <form
               className="text-void-300 flex flex-col mt-4 gap-1"
@@ -279,18 +280,18 @@ export default function TeamEvent({
           {/* Details */}
           <div className="p-4">
             {/* Title */}
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center justify-between">
               <h5 className="text-lg">Team Details</h5>
-              <Image
-                src={team_edit}
-                width={24}
-                height={24}
-                alt=""
-                className="cursor-pointer"
+
+              <button
+                className="flex cursor-pointer bg-void-900 border-[1px] border-void-500 py-1 px-2 rounded-lg font-semibold gap-1 items-center"
                 onClick={() => {
                   setCardStatus(Status.edit)
                 }}
-              />
+              >
+                <Image src={team_edit} width={20} height={20} alt="" />
+                Edit
+              </button>
             </div>
 
             <div className="flex mt-2 flex-col">
