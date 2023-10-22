@@ -34,10 +34,36 @@ export default function Bag() {
 
   useEffect(() => {
     if (typeof window !== undefined) {
+      // Load the selected events from cookies to a state variable
       const selected = getCookie<Selected>('selected')
       if (selected) {
         setAddedEvents(selected.events)
       }
+
+      // checks if any of the added events are sold out and removes them
+      const removeFilledEvents = (counts: { [key: string]: number }) => {
+        if (!addedEvents) return
+
+        for (let eventCode of addedEvents) {
+          const ev = events.get(eventCode)!
+          if (ev.maxTeams === 'unlimited') continue
+
+          if (counts[eventCode] >= ev.maxTeams) {
+            // Remove the event from cookies
+            removeSelectedEvent(eventCode)
+            removeTeamDetails(eventCode)
+          }
+        }
+        // update the added events state var
+        setAddedEvents(getCookie<Selected>('selected')!.events)
+      }
+
+      fetch('/api/counts').then((v) => {
+        v.json().then((v) => {
+          removeFilledEvents(v.message)
+        })
+      })
+
       setLoading(false)
     }
   }, [])
@@ -50,7 +76,7 @@ export default function Bag() {
   function updateTotalFee() {
     if (!hasAddedEvents()) {
       setTotalFee(0)
-      return 
+      return
     }
 
     let fee = addedEvents!

@@ -46,7 +46,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 15,
     organizers: ['Aadhithya - 9514582641', 'Sujesh - 8072130580'],
   },
   bug_off: {
@@ -71,7 +71,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Hafeeludden - 7358275575', 'Praiseline - 9444513978'],
   },
   pair_programming: {
@@ -102,7 +102,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 15,
     organizers: ['Naveen - 6369520129', 'Pooja - 8610479340'],
   },
   paper_presentation: {
@@ -164,7 +164,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Aadhithya - 9514582641', 'Sujesh - 8072130580'],
   },
   jargon_busters: {
@@ -193,7 +193,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Tauseef - 8667556475', 'Shyam - 9566594962'],
   },
   qr_quest: {
@@ -220,7 +220,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 15,
     organizers: ['Hari Prasad - 9176697669', 'Lijesh - 6379131341'],
   },
   treasure_hunt: {
@@ -248,7 +248,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 15,
     organizers: ['Srinivasan - 8525873211', 'Arun - 7598810481'],
   },
   tech_feud: {
@@ -276,7 +276,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 3,
       max: 3,
     },
-    maxTeams: 8,
+    maxTeams: 12,
     organizers: ['Ashwin Ram - 9884686271', 'Sanjay - 6379533970'],
   },
   futsal: {
@@ -308,7 +308,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 5,
       max: 5,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Dikshin - 9789855589', 'Neeraj - 9361366212'],
   },
   channel_surfing: {
@@ -327,7 +327,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       'Participants must act out the channel given by the judges and should be able to simultaneously switch to a different channel.',
       'Avoid using sensitive content. The team will be disqualified if the rule is violated.',
       'No time will be allotted for preparation.',
-      'Participants are given time duration of 5-6 minutes.',
+      'Participants are given time duration of 5-6 minutes.',
       'Judges decision is final.',
     ],
     prizes: ['TBD', 'TBD', 'TBD'],
@@ -335,11 +335,11 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 5,
       max: 5,
     },
-    maxTeams: 8,
-    organizers: ['Karthikeyen JS – 8838467785', 'Nithya Sri A - 8680917332'],
+    maxTeams: 10,
+    organizers: ['Karthikeyen JS - 8838467785', 'Nithya Sri A - 8680917332'],
   },
   title_event: {
-    name: 'Title Event – Mr/Ms. Kratos',
+    name: 'Title Event - Mr/Ms. Kratos',
     category: 'nontechnical',
     type: 'solo',
     online: false,
@@ -363,7 +363,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 1,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Jerith Guru – 7358365658', 'S.M.Aditya - 9087582220'],
   },
   cine_quiz: {
@@ -389,7 +389,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 3,
       max: 3,
     },
-    maxTeams: 8,
+    maxTeams: 10,
     organizers: ['Sanjay mathan - 9715118875', 'Thakshinathan M -9487557706'],
   },
 
@@ -416,7 +416,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 20,
     organizers: ['Srirpiya T - 9789923757', 'Preethi S  - 9789860078'],
   },
   fifa: {
@@ -443,7 +443,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 8,
+    maxTeams: 16,
     organizers: ['Thansil Mohamed S - 6382443278', 'Sharan M - 7305542590'],
   },
   femscreen: {
@@ -469,7 +469,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 3,
       max: 3,
     },
-    maxTeams: 8,
+    maxTeams: 15,
     organizers: ['Yemini - 9962701373', 'Deepti - 9445027380'],
   },
 }

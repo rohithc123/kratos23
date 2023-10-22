@@ -25,14 +25,10 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
         v.json().then((v) => {
           const counts = v.message
           const ev = events.get(eventCode)!
+          if (ev.maxTeams === 'unlimited') return
           if (counts[eventCode] >= ev.maxTeams) {
             setIsClosed(true)
             setIsInverted(true)
-
-            // make sure the event is removed from bag
-            // Note: this should be done in the bag page
-            removeSelectedEvent(eventCode)
-            removeTeamDetails(eventCode)
           }
         })
       })
