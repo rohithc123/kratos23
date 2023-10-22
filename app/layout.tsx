@@ -7,7 +7,7 @@ import Footer from './Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Kratos 23 | EEC',
+  title: 'Kratos \'23 | EEC',
   description: 'A symposium conducted by the department of CSE at Easwari Engineering College',
 }
 
