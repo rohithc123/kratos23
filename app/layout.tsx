@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Kratos 23 | EEC',
-  description: 'TODO description',
+  description: 'A symposium conducted by the department of CSE at Easwari Engineering College',
 }
 
 export default function RootLayout({
