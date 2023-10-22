@@ -43,7 +43,7 @@ export default function Home() {
             width={500}
             height={500}
             priority={true}
-            loading='eager'
+            loading="eager"
             placeholder="blur"
           />
         </motion.div>
@@ -139,28 +139,29 @@ export default function Home() {
 
         {/* cards */}
         <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
-          <div data-aos="flip-up">
-            <Link
-              href="/events/technical"
-              className="transition mt-2 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-1/4"
-            >
-              <Image
-                src={tech_ticket}
-                alt="Ticket shape that read non techincal events"
-              />
-            </Link>
-          </div>
-          <div data-aos="flip-up">
-            <Link
-              href="/events/nontechnical"
-              className="transition mt-8 md:mt-0 md:px-2 hover:scale-105 scale-100 md:w-3/4"
-            >
-              <Image
-                src={nontech_ticket}
-                alt="Ticket shape that read techincal events"
-              />
-            </Link>
-          </div>
+          <Link
+            data-aos="flip-up"
+            href="/events/technical"
+            className="mt-2 md:mt-0 md:px-2  "
+          >
+            <Image
+              className="transition hover:scale-105"
+              src={tech_ticket}
+              alt="Ticket shape that read non techincal events"
+            />
+          </Link>
+
+          <Link
+            data-aos="flip-up"
+            href="/events/nontechnical"
+            className="transition mt-8 md:mt-0 md:px-2  "
+          >
+            <Image
+              className="transition hover:scale-105"
+              src={nontech_ticket}
+              alt="Ticket shape that read techincal events"
+            />
+          </Link>
         </div>
       </div>
     </main>
