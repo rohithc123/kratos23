@@ -214,12 +214,6 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
       'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
       'The top two teams will receive prizes.',
-      'Individual or Team: Up to 2 members can be in a team',
-      'Each team will receive a QR code, an image that you can scan with your smartphone.Scanned QRs will contain programming problems to be solved.',
-      'Round 1 will have python coding problems.The first round will be for 20 minutes and the top five teams will advance to the final round.',
-      'Round 2 will contain both Java and C coding problems as a choice for you to solve.',
-      'The first two teams to solve all the questions within the stipulated time will be declared as the winner and runner.',
-      'The top two teams will receive prizes.',
     ],
     prizes: ['TBD', 'TBD', 'TBD'],
     teamSize: {
