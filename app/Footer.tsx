@@ -23,11 +23,22 @@ export default function Footer() {
       <div className="h-[1px] w-full bg-void-500" />
 
       {/* Links */}
-      <div className="flex flex-col items-center gap-4 text-void-300 font-normal md:flex-row">
-        <Link href="/terms">Terms of Service</Link>
-        <Link href="/privacy">Privacy Policy</Link>
-        <Link href="/conduct">Code of Conduct</Link>
-        <Link href="https://github.com/nithssh/kratos23">GitHub repo</Link>
+      <div className="flex flex-col items-center gap-4 text-void-300 font-normal text-sm md:flex-row">
+        <Link href="/terms" className="hover:text-void-200 transition">
+          Terms of Service
+        </Link>
+        <Link href="/privacy" className="hover:text-void-200 transition">
+          Privacy Policy
+        </Link>
+        <Link href="/conduct" className="hover:text-void-200 transition">
+          Code of Conduct
+        </Link>
+        <Link
+          href="https://github.com/nithssh/kratos23"
+          className="hover:text-void-200 transition"
+        >
+          GitHub repo
+        </Link>
       </div>
 
       {/* Copyright */}
