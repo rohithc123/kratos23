@@ -3,42 +3,66 @@ import {
   eventIsSelected,
   idempotentAddSelectedEvent,
   removeSelectedEvent,
+  removeTeamDetails,
 } from '@/app/cookies'
 import add from '@/public/add.svg'
 import tick from '@/public/tick.svg'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { events } from '../../eventInfo'
 
 export default function AddToBagButton({ eventCode }: { eventCode: string }) {
-  const [inverted, setInverted] = useState(false)
+  const [isInverted, setIsInverted] = useState(false)
+  const [isClosed, setIsClosed] = useState(false)
 
   useEffect(() => {
     if (typeof window !== undefined) {
       if (eventIsSelected(eventCode)) {
-        setInverted(true)
+        setIsInverted(true)
       }
+
+      fetch('/api/counts').then((v) => {
+        v.json().then((v) => {
+          const counts = v.message
+          const ev = events.get(eventCode)!
+          if (counts[eventCode] >= ev.maxTeams) {
+            setIsClosed(true)
+            setIsInverted(true)
+
+            // make sure the event is removed from bag
+            // Note: this should be done in the bag page
+            removeSelectedEvent(eventCode)
+            removeTeamDetails(eventCode)
+          }
+        })
+      })
     }
   }, [eventCode])
 
   return (
     <button
       onClick={() => {
-        if (inverted) {
+        if (isInverted) {
           removeSelectedEvent(eventCode)
         } else {
           idempotentAddSelectedEvent(eventCode)
         }
-        setInverted(!inverted)
+        setIsInverted(!isInverted)
       }}
+      disabled={isClosed}
       className={`select-none transition p-[1px] w-[14ch] text-base  rounded-full font-medium bg-gradient-to-br from-cherry to-vinyl cursor-pointer leading-5`}
     >
       <div
         className={`p-3 flex text-center justify-center rounded-full select-none gap-1 ${
-          inverted ? 'bg-void-950 text-white' : 'bg-transparent text-void-950'
-        }`}
+          isInverted ? 'bg-void-950 text-white' : 'bg-transparent text-void-950'
+        } ${isClosed && 'cursor-not-allowed'}`}
       >
-        {inverted ? 'Added' : 'Add to Bag'}
-        <Image src={inverted ? tick : add} alt="" height={16} width={16} />
+        {isClosed && 'Sold Out'}
+        {!isClosed && (isInverted ? 'Added' : 'Add to Bag')}
+
+        {!isClosed && (
+          <Image src={isInverted ? tick : add} alt="" height={16} width={16} />
+        )}
       </div>
     </button>
   )
