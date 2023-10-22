@@ -57,6 +57,7 @@ export default function Home() {
             <div className="text-void-300 flex">
               @ Easwari Engineering College
               <Link
+                className="hidden md:block"
                 prefetch={false}
                 href="https://www.google.com/maps/place/SRM+Easwari+Engineering+College/@13.0314424,80.1793613,18z/data=!4m6!3m5!1s0x3a5260d62bc6942b:0x8cd23707b2ddfb87!8m2!3d13.031723!4d80.1795949!16s%2Fm%2F0h3snc4?entry=ttu"
               >

@@ -188,7 +188,16 @@ export default function Navbar() {
               Contributors
             </Link>
           </div>
-          <div className="mx-8 mb-4">Contact</div>
+          <div className="mx-8 mb-4">
+            <Link
+              href="#footer"
+              onClick={() => {
+                setIsActive(false)
+              }}
+            >
+              Contact
+            </Link>
+          </div>
           <div className="mx-4 mt-4 h-[1px] bg-gradient-to-r from-cherry to-vinyl cursor-pointer" />
         </div>
       </nav>

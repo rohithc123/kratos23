@@ -10,6 +10,7 @@ const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 export default function Footer() {
   return (
     <footer
+      id="footer"
       style={{ backgroundImage: "url('/dotted-pattern.png')" }}
       className="flex flex-col items-center w-full md:max-w-[768px] relative p-6 pt-12 gap-6 overflow-hidden bg-repeat-x mt-16"
     >
@@ -29,11 +30,15 @@ export default function Footer() {
         <p className="mb-1">For queries contact</p>
         <div className="flex gap-4">
           <div>
-            <h4 className="text-xl" style={rubik.style}>Janagan</h4>
+            <h4 className="text-xl" style={rubik.style}>
+              Janagan
+            </h4>
             <p className="text-sm">9941686706</p>
           </div>
           <div>
-            <h4 className="text-xl" style={rubik.style}>Hariharan</h4>
+            <h4 className="text-xl" style={rubik.style}>
+              Hariharan
+            </h4>
             <p className="text-sm">9384979459</p>
           </div>
         </div>
