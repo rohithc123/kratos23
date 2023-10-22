@@ -13,7 +13,6 @@ const poly = Poly({
   subsets: ['latin'],
 })
 
-// TODO look into the overlay blurring if needed
 export default function Navbar() {
   const [isActive, setIsActive] = useState(false)
   const [drawerHeight, setDrawerHeight] = useState(0)

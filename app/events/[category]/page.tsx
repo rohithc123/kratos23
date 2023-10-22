@@ -65,7 +65,6 @@ export default function Events({ params }: { params: { category: string } }) {
       </header>
 
       {/* Filter */}
-      {/* TODO consider using button elements instead */}
       <search className="px-4 pb-4 border-b-[1px] border-void-500  w-full">
         <div className="w-full grid border-[1px] border-inherit grid-cols-3 divide-x h-12 divide-void-500 rounded-full overflow-hidden font-medium">
           <Link

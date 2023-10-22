@@ -71,7 +71,6 @@ export default function EventDetailsPage({
           </h1>
           {/* TODO plug the slot info */}
           <div className="mt-1">{subtitle}</div>
-          {/* TODO plug this */}
           {/* <div>{ev.maxTeams} teams</div> */}
         </div>
 
