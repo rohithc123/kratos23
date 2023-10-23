@@ -304,7 +304,10 @@ export default function TeamEvent({
                   <div key={idx} className="flex justify-between">
                     <p>Member {idx + 1}</p>
                     <p className="text-void-300">
-                      {(teamDetail.current as any)[`member${idx + 1}`]}
+                      {/* HACK Not able to reproduce the bug currently, hence this hotfix that should work */}
+                      {teamDetail.current
+                        ? (teamDetail.current as any)[`member${idx + 1}`]
+                        : ''}
                     </p>
                   </div>
                 )
