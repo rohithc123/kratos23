@@ -2,10 +2,11 @@
 
 import account_circle from '@/public/account_circle.svg'
 import mail from '@/public/email.svg'
+import save from '@/public/save.svg'
 import school from '@/public/school.svg'
 import stylus from '@/public/stylus.svg'
+import team_edit from '@/public/team_edit.svg'
 import telephone from '@/public/telephone.svg'
-import tick from '@/public/tick.svg'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { PersonalDetails, getCookie, setCookie } from '../cookies'
@@ -92,12 +93,8 @@ export default function PersonalDetailsCard() {
               placeholder="Full Name"
               defaultValue={personalDet.current?.name}
             />
-            <Image
-              src={tick}
-              width={24}
-              height={24}
-              alt=""
-              className="cursor-pointer absolute right-6"
+            <button
+              className="flex cursor-pointer bg-gradient-to-br py-1 px-2 pr-3 rounded-lg text-black font-semibold gap-1 items-center text-base"
               onClick={() => {
                 const isValid = formRef.current?.reportValidity()
                 if (isValid) {
@@ -119,7 +116,10 @@ export default function PersonalDetailsCard() {
                   setCookie<PersonalDetails>('personal', values)
                 }
               }}
-            />
+            >
+              <Image src={save} width={20} height={20} alt="" />
+              Save
+            </button>
           </div>
 
           {/* Details */}
@@ -143,7 +143,7 @@ export default function PersonalDetailsCard() {
                 required
                 id="college"
                 type="text"
-                autoCapitalize='words'
+                autoCapitalize="words"
                 className="bg-transparent border-void-200 border-[1px] w-full rounded pl-1"
                 placeholder="Name of your college"
                 defaultValue={personalDet.current?.college}
@@ -170,17 +170,20 @@ export default function PersonalDetailsCard() {
       return (
         <div className="bg-void-500 p-[1px] my-6 rounded-lg">
           {/* Header */}
-          <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex gap-2 items-center text-xl">
-            <Image src={account_circle} width={48} height={48} alt="" />
-            {personalDet.current?.name}
-            <Image
-              src={stylus}
-              width={24}
-              height={24}
-              alt=""
-              className="cursor-pointer"
-              onClick={() => setCardStatus(Status.edit)}
-            />
+          <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex items-center text-xl justify-between">
+            <div className="flex items-center gap-2">
+              <Image src={account_circle} width={48} height={48} alt="" />
+              {personalDet.current?.name}
+            </div>
+            <button
+              className="flex cursor-pointer bg-void-900 border-[1px] border-void-500 py-1 px-2 rounded-lg font-semibold gap-1 items-center text-base"
+              onClick={() => {
+                setCardStatus(Status.edit)
+              }}
+            >
+              <Image src={team_edit} width={20} height={20} alt="" />
+              Edit
+            </button>
           </div>
 
           {/* Details */}
