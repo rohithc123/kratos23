@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import {
+  PersonalDetails,
   Selected,
   TeamDetail,
   getCookie,
@@ -122,6 +123,20 @@ export default function Bag() {
     // disabled
     if (!hasAddedEvents()) {
       return
+    }
+
+    // Check if personal details are entered
+    const personal = getCookie<PersonalDetails>('personal')
+    if (!personal) {
+      const element = document.getElementById('personal')!
+        element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+        setTimeout(() => {
+          element.style.border = '2px solid red'
+        }, 100)
+        setTimeout(() => {
+          element.style.border = ''
+        }, 1100)
+        return
     }
 
     // Check if all the team events are entered

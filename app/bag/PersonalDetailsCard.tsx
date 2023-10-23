@@ -61,6 +61,7 @@ export default function PersonalDetailsCard() {
     case Status.unfilled:
       return (
         <div
+          id="personal"
           className="bg-gradient-to-br from-cherry p-[1px] to-vinyl my-6 rounded-lg cursor-pointer"
           onClick={() => setCardStatus(Status.edit)}
         >
@@ -168,7 +169,7 @@ export default function PersonalDetailsCard() {
       )
     case Status.filled:
       return (
-        <div className="bg-void-500 p-[1px] my-6 rounded-lg">
+        <div id="personal" className="bg-void-500 p-[1px] my-6 rounded-lg">
           {/* Header */}
           <div className="px-4 py-6 bg-void-700 border-b-[1px] border-void-500 rounded-t-lg flex items-center text-xl justify-between">
             <div className="flex items-center gap-2">
