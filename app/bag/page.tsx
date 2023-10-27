@@ -25,7 +25,7 @@ const poly = Poly({ weight: ['400'], subsets: ['latin'] })
 const rubik = Rubik({ weight: ['400'], subsets: ['latin'] })
 
 export default function Bag() {
-  // Note: addedEvents is set on first render only, not updated after that
+  // Note: addedEvents is set on first render only, not updated from cookies after that
   const [addedEvents, setAddedEvents] = useState<string[]>()
   const [loading, setLoading] = useState(true)
   const [screenshotFile, setScreenshotFile] = useState<File>()
@@ -43,9 +43,10 @@ export default function Bag() {
 
       // checks if any of the added events are sold out and removes them
       const removeFilledEvents = (counts: { [key: string]: number }) => {
-        if (!addedEvents) return
+        const selected = getCookie<Selected>('selected')
+        if (!selected) return
 
-        for (let eventCode of addedEvents) {
+        for (let eventCode of selected.events) {
           const ev = events.get(eventCode)!
           if (ev.maxTeams === 'unlimited') continue
 
@@ -129,14 +130,14 @@ export default function Bag() {
     const personal = getCookie<PersonalDetails>('personal')
     if (!personal) {
       const element = document.getElementById('personal')!
-        element.scrollIntoView({ block: 'center', behavior: 'smooth' })
-        setTimeout(() => {
-          element.style.border = '2px solid red'
-        }, 100)
-        setTimeout(() => {
-          element.style.border = ''
-        }, 1100)
-        return
+      element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      setTimeout(() => {
+        element.style.border = '2px solid red'
+      }, 100)
+      setTimeout(() => {
+        element.style.border = ''
+      }, 1100)
+      return
     }
 
     // Check if all the team events are entered
