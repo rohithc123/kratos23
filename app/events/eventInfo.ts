@@ -165,7 +165,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       max: 2,
     },
     maxTeams: 20,
-    organizers: ['Aadhithya - 9514582641', 'Sujesh - 8072130580'],
+    organizers: ['Harish - 9345764132', 'Akash - 8248213992'],
   },
   jargon_busters: {
     name: 'Jargon Busters',
