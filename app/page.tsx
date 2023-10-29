@@ -2,9 +2,10 @@
 import art_ribbon from '@/public/art_ribbon.jpg'
 import expand_more from '@/public/expand_more.svg'
 import hero from '@/public/hero.png'
+import location from '@/public/location.svg'
 import nontech_ticket from '@/public/nontech-ticket.png'
-import tech_ticket from '@/public/tech-ticket.png'
 import sponsor_expleo from '@/public/sponsor_expleo.png'
+import tech_ticket from '@/public/tech-ticket.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -12,7 +13,6 @@ import { Rubik } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef } from 'react'
-import location from '@/public/location.svg'
 const rubik = Rubik({ weight: '400', subsets: ['latin'] })
 
 export default function Home() {
@@ -96,7 +96,7 @@ export default function Home() {
       </div>
 
       {/* Events section */}
-      <div className="w-full">
+      <section className="w-full">
         <h2
           style={rubik.style}
           className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6"
@@ -140,7 +140,7 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
+        <section className="flex flex-col items-center px-2 gap-8 md:gap-16">
           <Link
             data-aos="flip-up"
             href="/events/technical"
@@ -164,34 +164,33 @@ export default function Home() {
               alt="Ticket shape that read techincal events"
             />
           </Link>
-        </div>
-        <div className="w-full">
-        <h2
-          style={rubik.style}
-          className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6 mt-10"
-          data-aos="fade-down"
-        >
-          Sponsor
-        </h2>
-
-        {/* cards */}
-        <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
-          <Link
-            data-aos="flip-up"
-            href="https://expleo.com/global/en/"
-            className="mt-2 md:mt-0 md:px-2  "
+        </section>
+        <section className="w-full">
+          <h2
+            style={rubik.style}
+            className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6 my-10"
+            data-aos="fade-down"
           >
-            <Image
-              className="transition hover:scale-105"
-              src={sponsor_expleo}
-              alt="Ticket shape that read non techincal events"
-              height={80}
-            />
-          </Link>
-        </div>
-        
-        </div>
-      </div>
+            Sponsor
+          </h2>
+
+          {/* Sponsors */}
+          <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
+            <Link
+              data-aos="flip-up"
+              href="https://expleo.com/global/en/"
+              className="mt-2 md:mt-0 md:px-2  "
+            >
+              <Image
+                className="transition hover:scale-105"
+                src={sponsor_expleo}
+                alt=""
+                height={80}
+              />
+            </Link>
+          </div>
+        </section>
+      </section>
     </main>
   )
 }
