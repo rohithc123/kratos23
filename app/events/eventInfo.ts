@@ -46,7 +46,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 2,
       max: 2,
     },
-    maxTeams: 15,
+    maxTeams: 20,
     organizers: ['Aadhithya - 9514582641', 'Sujesh - 8072130580'],
   },
   bug_off: {
@@ -193,7 +193,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 20,
+    maxTeams: 25,
     organizers: ['Tauseef - 8667556475', 'Shyam - 9566594962'],
   },
   qr_quest: {
@@ -220,7 +220,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 15,
+    maxTeams: 20,
     organizers: ['Hari Prasad - 9176697669', 'Lijesh - 6379131341'],
   },
   treasure_hunt: {
@@ -248,7 +248,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 1,
       max: 2,
     },
-    maxTeams: 15,
+    maxTeams:25,
     organizers: ['Srinivasan - 8525873211', 'Arun - 7598810481'],
   },
   tech_feud: {
@@ -258,7 +258,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
     online: false,
     fee: {
       type: 'flat',
-      amount: 150,
+      amount: 100,
     },
     description:
       'Join us for ‘Technical Feud’ , a high-energy competition where teams face off in a battle of tech knowledge, answering questions to prove who’s the tech-saviest team!',
@@ -273,8 +273,8 @@ const eventsLiteral: { [key: string]: EventInfo } = {
     ],
     prizes: ['TBD', 'TBD', 'TBD'],
     teamSize: {
-      min: 3,
-      max: 3,
+      min: 2,
+      max: 2,
     },
     maxTeams: 12,
     organizers: ['Ashwin Ram - 9884686271', 'Sanjay - 6379533970'],
