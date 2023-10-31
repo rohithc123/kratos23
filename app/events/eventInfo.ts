@@ -308,7 +308,7 @@ const eventsLiteral: { [key: string]: EventInfo } = {
       min: 5,
       max: 5,
     },
-    maxTeams: 20,
+    maxTeams: 15,
     organizers: ['Dikshin - 9789855589', 'Neeraj - 9361366212'],
   },
   channel_surfing: {
