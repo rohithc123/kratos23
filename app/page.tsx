@@ -175,7 +175,7 @@ export default function Home() {
         <h2
           style={rubik.style}
           className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6 mt-10"
-          data-aos="fade-down"
+          // data-aos="fade-down"
         >
           Sponsor
         </h2>
@@ -183,7 +183,7 @@ export default function Home() {
         {/* cards */}
         <div className="flex flex-col items-center px-2 mt-2 gap-8 md:gap-10">
           {/* org need to give site links if any  */}
-          <div className="mt-2 items-center text-center text-void-300">
+          <div className="mt-2  flex flex-col items-center text-center text-void-300">
             <p>
               Title Sponsor
             </p>
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
           </div>
           
-          <div className="mt-1 items-center text-center text-void-300">
+          <div className="mt-1  flex flex-col items-center text-center text-void-300">
             <p>
               Technical Events Sponsor
             </p>
@@ -223,14 +223,18 @@ export default function Home() {
           </div>
            
         {/* org need to give site links if any  */}
-          <div className="mt-2 items-center text-center text-void-300">
+          <div className="mt-2 flex flex-col items-center text-center text-void-300  ">
+            <div>
             <p>
               Non Technical Events sponsor
             </p>
+            </div>
+          
           <div className="mt-5 md:mt-5 md:px-2">
 
           <Link
            href=""
+           
            >
             <Image
               src={sponsor_art}

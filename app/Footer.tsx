@@ -57,7 +57,7 @@ export default function Footer() {
           href="/guidelines"
           className="hover:text-void-200 transition"
         >
-          Event Guidelines
+        Guidelines
         </Link>
       </p>
     </footer>
