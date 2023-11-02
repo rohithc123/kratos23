@@ -67,7 +67,7 @@ export default function Home() {
               >
                 <Image src={location} height={32} width={32} alt="" />
               </Link>
-              
+
             </div>
             <div className="mt-1 text-xs text-void-300">
               Online registrations will close at 11:00 AM on November 2, 2023.
@@ -147,7 +147,7 @@ export default function Home() {
         </div>
 
         {/* cards */}
-        <section className="flex flex-col items-center px-2 gap-8 md:gap-16">
+        <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
           <Link
             data-aos="flip-up"
             href="/events/technical"
@@ -171,87 +171,79 @@ export default function Home() {
               alt="Ticket shape that read techincal events"
             />
           </Link>
-
         </div>
-        <div className="w-full">
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="w-full">
         <h2
           style={rubik.style}
           className="text-3xl border-b-[1px] border-void-500 pb-[4px] mx-6 mt-10"
-          // data-aos="fade-down"
         >
-          Sponsor
+          Sponsors
         </h2>
 
-        {/* cards */}
         <div className="flex flex-col items-center px-2 mt-2 gap-8 md:gap-10">
-          {/* org need to give site links if any  */}
           <div className="mt-2  flex flex-col items-center text-center text-void-300">
             <p>
               Title Sponsor
             </p>
-          <div className="mt-2 md:-mt-3 md:px-2">
-          <Link
-           href=""
-           className="md:mt-0 md:px-2  pointer-events-none"  
-           >
-            
-            <Image
-              src={sponsor_slam}
-              alt=""
-              height={70}
-            />
-          </Link>
+            <div className="mt-2 md:-mt-3 md:px-2">
+              <Link
+                href=""
+                className="md:mt-0 md:px-2  pointer-events-none"
+              >
+
+                <Image
+                  src={sponsor_slam}
+                  alt=""
+                  height={70}
+                />
+              </Link>
+            </div>
           </div>
-          </div>
-          
+
           <div className="mt-1  flex flex-col items-center text-center text-void-300">
             <p>
               Technical Events Sponsor
             </p>
-          
-          <div className=" md:mt-0 md:px-2">
-          <Link
-            href="https://expleo.com/global/en/"
-            
-          >
-            <Image
-              className="transition hover:scale-105"
-              src={sponsor_expleo}
-              alt=""
-              height={80}
-            />
-          </Link>
+
+            <div className=" md:mt-0 md:px-2">
+              <Link
+                href="https://expleo.com/global/en/"
+              >
+                <Image
+                  className="transition hover:scale-105"
+                  src={sponsor_expleo}
+                  alt=""
+                  height={80}
+                />
+              </Link>
+            </div>
           </div>
-          </div>
-           
-        {/* org need to give site links if any  */}
+
           <div className="mt-2 flex flex-col items-center text-center text-void-300  ">
             <div>
-            <p>
-              Non Technical Events sponsor
-            </p>
+              <p>
+                Non Technical Events sponsor
+              </p>
             </div>
-          
-          <div className="mt-5 md:mt-5 md:px-2">
 
-          <Link
-           href=""
-           
-           >
-            <Image
-              src={sponsor_art}
-              alt=""
-              height={60}
-            />
-          </Link>
-        </div>
-        </div>
-        </div>
+            <div className="mt-5 md:mt-5 md:px-2">
+              <Link
+                href=""
 
-        
+              >
+                <Image
+                  src={sponsor_art}
+                  alt=""
+                  height={60}
+                />
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-
+      </section>
     </main>
   )
 }
