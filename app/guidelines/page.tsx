@@ -22,9 +22,6 @@ export default function Events({ params }: { params: { category: string } }) {
 <div className="px-4">
       <ol className="list-decimal list-outside p-3 pl-8 bg-void-700 mt-4 rounded-lg border-[1px] border-void-500 font-light">
       <li>
-      Online Registrations close at 11 am, 2 Nov 2023
-      </li>
-      <li>
       College ID card is mandatory. Participants without ID cards will not be permitted in EEC premises.
       </li>
       <li>
