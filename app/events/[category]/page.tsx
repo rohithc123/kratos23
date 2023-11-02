@@ -30,6 +30,10 @@ export default function Events({ params }: { params: { category: string } }) {
       ? "“Thinking doesn't guarantee that we won't make mistakes. But not thinking guarantees that we will.” — Leslie Lamport"
       : '“Creativity is intelligence having fun.” — Albert Einstein'
 
+  const sponsor = 
+     categoryTitle === 'Technical'
+     ? "Technical Events powered by - Expleo"
+     : "Non Technical Events powered by - Surya Arts and Crafts"
   // Filter events to selected event type
   let filteredEvents = Array.from(events)
   // Filter for event category
@@ -59,8 +63,11 @@ export default function Events({ params }: { params: { category: string } }) {
         <h1 style={poly.style} className="text-5xl mb-2">
           {categoryTitle} Events
         </h1>
-        <p className="text-base text-void-300 leading-5 px-2 italic mb-6">
+        <p className="text-base text-void-300 leading-5 px-2 italic mb-1">
           {quote}
+        </p>
+        <p className="text-base text-void-300 leading-5 px-2 italic mb-6">
+          {sponsor}
         </p>
       </header>
 
