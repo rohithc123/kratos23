@@ -15,6 +15,14 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
   const [isInverted, setIsInverted] = useState(false)
   const [isClosed, setIsClosed] = useState(false)
 
+  const currentTime = Date.now();
+
+  // setting the deadline time and changing it to ms
+  const deadlineTemp = new Date(2023,11,2,11,0,0,0);
+  const deadline = deadlineTemp.getTime();
+
+
+
   useEffect(() => {
     if (typeof window !== undefined) {
       if (eventIsSelected(eventCode)) {
@@ -32,6 +40,11 @@ export default function AddToBagButton({ eventCode }: { eventCode: string }) {
           }
         })
       })
+
+      if(currentTime>deadline){
+        setIsClosed(true)
+        setIsInverted(true)
+      }
     }
   }, [eventCode])
 
