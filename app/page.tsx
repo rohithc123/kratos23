@@ -5,6 +5,8 @@ import hero from '@/public/hero.png'
 import nontech_ticket from '@/public/nontech-ticket.png'
 import tech_ticket from '@/public/tech-ticket.png'
 import sponsor_expleo from '@/public/sponsor_expleo.png'
+import sponsor_slam from '@/public/sponsor_slam.jpeg'
+import sponsor_art from '@/public/sponsor_art.png'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -186,6 +188,32 @@ export default function Home() {
               src={sponsor_expleo}
               alt="Ticket shape that read non techincal events"
               height={80}
+            />
+          </Link>
+          
+          {/* org need to give site links if any  */}
+          <Link
+           data-aos="flip-up"
+           href=""
+           className="mt-2 md:mt-0 md:px-2  pointer-events-none"
+           
+           >
+            <Image
+              src={sponsor_slam}
+              alt="Ticket shape that read non techincal events"
+              height={70}
+            />
+          </Link>
+          <Link
+           data-aos="flip-up"
+           href=""
+           className="mt-2 md:mt-0 md:px-2  pointer-events-none"
+           
+           >
+            <Image
+              src={sponsor_art}
+              alt="Ticket shape that read non techincal events"
+              height={60}
             />
           </Link>
         </div>
