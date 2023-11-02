@@ -54,7 +54,7 @@ export default function Footer() {
           GitHub repo ·{' '}
         </Link>
         <Link
-          href="guidelines"
+          href="/guidelines"
           className="hover:text-void-200 transition"
         >
           Event Guidelines

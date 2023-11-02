@@ -66,7 +66,11 @@ export default function Home() {
               >
                 <Image src={location} height={32} width={32} alt="" />
               </Link>
+              
             </div>
+            {/* <div className="mt-1 text-xs text-void-300">
+              Online registrations will close at 11:00 AM on November 2, 2023.
+            </div> */}
           </div>
           <Image
             src={expand_more}
