@@ -51,7 +51,13 @@ export default function Footer() {
           href="https://github.com/nithssh/kratos23"
           className="hover:text-void-200 transition"
         >
-          GitHub repo
+          GitHub repo ·{' '}
+        </Link>
+        <Link
+          href="guidelines"
+          className="hover:text-void-200 transition"
+        >
+          Event Guidelines
         </Link>
       </p>
     </footer>
