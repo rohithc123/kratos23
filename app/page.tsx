@@ -68,9 +68,9 @@ export default function Home() {
               </Link>
               
             </div>
-            {/* <div className="mt-1 text-xs text-void-300">
+            <div className="mt-1 text-xs text-void-300">
               Online registrations will close at 11:00 AM on November 2, 2023.
-            </div> */}
+            </div>
           </div>
           <Image
             src={expand_more}
@@ -181,46 +181,70 @@ export default function Home() {
         </h2>
 
         {/* cards */}
-        <div className="flex flex-col items-center px-2 gap-8 md:gap-16">
+        <div className="flex flex-col items-center px-2 mt-2 gap-8 md:gap-10">
+          {/* org need to give site links if any  */}
+          <div className="mt-2 items-center text-center text-void-300">
+            <p>
+              Title Sponsor
+            </p>
+          <div className="mt-2 md:-mt-3 md:px-2">
+          <Link
+           data-aos="flip-up"
+           href=""
+           className="md:mt-0 md:px-2  pointer-events-none"  
+           >
+            
+            <Image
+              src={sponsor_slam}
+              alt=""
+              height={70}
+            />
+          </Link>
+          </div>
+          </div>
+          
+          <div className="mt-1 items-center text-center text-void-300">
+            <p>
+              Technical Events Sponsor
+            </p>
+          
+          <div className=" md:mt-0 md:px-2">
           <Link
             data-aos="flip-up"
             href="https://expleo.com/global/en/"
-            className="mt-2 md:mt-0 md:px-2  "
+            
           >
             <Image
               className="transition hover:scale-105"
               src={sponsor_expleo}
-              alt="Ticket shape that read non techincal events"
+              alt=""
               height={80}
             />
           </Link>
-          
-          {/* org need to give site links if any  */}
+          </div>
+          </div>
+           
+        {/* org need to give site links if any  */}
+          <div className="mt-2 items-center text-center text-void-300">
+            <p>
+              Non Technical Events sponsor
+            </p>
+          <div className="mt-5 md:mt-5 md:px-2">
+
           <Link
            data-aos="flip-up"
            href=""
-           className="mt-2 md:mt-0 md:px-2  pointer-events-none"
-           
-           >
-            <Image
-              src={sponsor_slam}
-              alt="Ticket shape that read non techincal events"
-              height={70}
-            />
-          </Link>
-          <Link
-           data-aos="flip-up"
-           href=""
-           className="mt-2 md:mt-0 md:px-2  pointer-events-none"
-           
            >
             <Image
               src={sponsor_art}
-              alt="Ticket shape that read non techincal events"
+              alt=""
               height={60}
             />
           </Link>
         </div>
+        </div>
+        </div>
+
         
         </div>
       </div>
