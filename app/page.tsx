@@ -189,7 +189,6 @@ export default function Home() {
             </p>
           <div className="mt-2 md:-mt-3 md:px-2">
           <Link
-           data-aos="flip-up"
            href=""
            className="md:mt-0 md:px-2  pointer-events-none"  
            >
@@ -210,7 +209,6 @@ export default function Home() {
           
           <div className=" md:mt-0 md:px-2">
           <Link
-            data-aos="flip-up"
             href="https://expleo.com/global/en/"
             
           >
@@ -232,7 +230,6 @@ export default function Home() {
           <div className="mt-5 md:mt-5 md:px-2">
 
           <Link
-           data-aos="flip-up"
            href=""
            >
             <Image

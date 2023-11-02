@@ -59,10 +59,9 @@ export default function Events({ params }: { params: { category: string } }) {
         <h1 style={poly.style} className="text-5xl mb-2">
           {categoryTitle} Events
         </h1>
-        <p className="text-base text-void-300 leading-5 px-2 italic mb-1">
+        <p className="text-base text-void-300 leading-5 px-2 italic mb-6">
           {quote}
         </p>
-
       </header>
 
       {/* Filter */}
