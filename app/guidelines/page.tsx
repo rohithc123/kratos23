@@ -10,7 +10,6 @@ export default function Events({ params }: { params: { category: string } }) {
 
   return (
     <main className="min-h-screen w-screen flex flex-col items-center md:max-w-[900px]">
-      {/* Spacer */}
       <div className="p-10" />
 
       {/* Header */}

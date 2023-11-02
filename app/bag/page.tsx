@@ -33,6 +33,14 @@ export default function Bag() {
   const [totalFee, setTotalFee] = useState(0)
   const router = useRouter()
 
+  const currentTime = Date.now();
+
+  // setting the deadline time and changing it to ms
+  //year,month,date,hours,minutes,sec,ms
+  const deadlineTemp = new Date(2023,11,2,11,0,0,0);
+  const deadline = deadlineTemp.getTime();
+
+
   useEffect(() => {
     if (typeof window !== undefined) {
       // Load the selected events from cookies to a state variable
@@ -66,7 +74,22 @@ export default function Bag() {
         })
       })
 
+      
+      if(currentTime>deadline){
+        const selected = getCookie<Selected>('selected')
+        if (!selected) return
+
+        for (let eventCode of selected.events) {
+         
+            // Remove the event from cookies
+            removeSelectedEvent(eventCode)
+            removeTeamDetails(eventCode)
+          }
+        }
+      
+
       setLoading(false)
+    
     }
   }, [])
 
